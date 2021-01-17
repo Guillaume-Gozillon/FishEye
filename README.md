@@ -1,12 +1,13 @@
 <h1>FishEye</h1> 
 
-The main project is to create a javascript filter system
+The main project is to create a javascript filter system </br>
 More details down here
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-Prototype features:
+<h2>Prototype features:</h2>
 
+<h3>Home page:</h3>
 ● Home page:
 
     ○ List of all photographers with their name, slogan, location, price / hour, tags and a thumbnail image of their choice.
