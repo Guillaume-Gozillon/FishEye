@@ -1,9 +1,9 @@
-FishEye / School project 
+<h1>FishEye</h1> 
 
 The main project is to create a javascript filter system
 More details down here
 
-==========================================
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
 Prototype features:
 
