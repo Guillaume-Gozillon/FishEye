@@ -13,19 +13,19 @@ More details down here
     ○ By clicking on a tag in the navigation bar, the list of photographers is filtered to display only those who match this tag.
     ○ When the user clicks on a photographer's thumbnail, they are taken to their page.
 
-<h3>● Photographers pages (one for each sample photographer):</h3>
+<h3>Photographers pages (one for each sample photographer):</h3>
 
     ○ Displays a gallery of the photographer's work.
     ○ Photographers can show both photos and videos.
 
-<p>In the case of videos, show a thumbnail image in the gallery.</p>
+<p>In case of videos content, show a thumbnail image in the gallery.</p>
 
 <h3>Each media includes title, date, price and number of shots:</h3>
 
     ○ When the user clicks on the "Like" icon, it increases the number of likes displayed.
     ○ The total number of shots should be counted and added to the photographer's profile total.
 
-<h3>○ Media can be sorted by popularity, date or title.</h3>
+<h3>Media can be sorted by popularity, date or title.</h3>
 
 <h3>When the user clicks on a medium, it should open in a lightbox:</h3>
 
