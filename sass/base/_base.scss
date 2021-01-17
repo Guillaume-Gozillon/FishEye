@@ -1,3 +1,11 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
 main img{
     width: 200px;
     height: 200px;

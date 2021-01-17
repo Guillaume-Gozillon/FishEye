@@ -1,5 +1,14 @@
 body {
-  font-family: DM sans;
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
 }
 
 main img {
@@ -7,6 +16,38 @@ main img {
   height: 200px;
   border-radius: 50%;
   object-fit: cover;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  background-color: aqua;
+  max-width: 100vw;
+  height: 120px;
+}
+header .home {
+  height: 60%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin-right: 25%;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+}
+nav .nav_filtre {
+  border-radius: 20px;
+  background-color: red;
+}
+nav .nav_filtre p {
+  margin: 3px 8px 3px 4px;
+}
+
+.logo {
+  height: 70px;
 }
 
 /*# sourceMappingURL=style.css.map */
