@@ -35,17 +35,21 @@ main{
     & .name{
         font-size: 36px;
         color: $colour-primary;
+        margin-bottom: 2px;
     }
     & .location{
         font-size: 13px;
         color: $backgroundColor-primary-dark;
+        margin-bottom: 4px;
     }
     & .bio{
         font-size: 10px;
+        margin-bottom: 4px;
     }
     & .price{
         font-size: 9px;
         color: $colour-secondary-grey-light;
+        margin-bottom: 6px;
     }
 }
 

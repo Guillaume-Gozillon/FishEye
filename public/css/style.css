@@ -1,14 +1,14 @@
-body {
-  font-family: "DM Sans", sans-serif;
-  font-size: 18px;
-}
-
 *,
 *::after,
 *::before {
   margin: 0;
   padding: 0;
   box-sizing: inherit;
+}
+
+body {
+  font-family: "DM Sans", sans-serif;
+  font-size: 18px;
 }
 
 header {
@@ -54,6 +54,22 @@ nav .nav_filtre p {
     flex-direction: column;
   }
 }
+@media only screen and (max-width: 700px) {
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 85vw;
+    margin: auto;
+    padding: 20px 0;
+  }
+  header .home {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+  }
+}
 main {
   margin: auto;
 }
@@ -92,17 +108,21 @@ main img {
 .photographers .name {
   font-size: 36px;
   color: #D3573C;
+  margin-bottom: 2px;
 }
 .photographers .location {
   font-size: 13px;
   color: #901C1C;
+  margin-bottom: 4px;
 }
 .photographers .bio {
   font-size: 10px;
+  margin-bottom: 4px;
 }
 .photographers .price {
   font-size: 9px;
   color: #525252;
+  margin-bottom: 6px;
 }
 
 .hastag {
