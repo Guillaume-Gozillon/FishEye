@@ -14,6 +14,7 @@ body {
 main img {
   width: 200px;
   height: 200px;
+  font-weight: 400;
   border-radius: 50%;
   object-fit: cover;
 }
@@ -21,33 +22,109 @@ main img {
 header {
   display: flex;
   align-items: center;
-  background-color: aqua;
-  max-width: 100vw;
-  height: 120px;
+  justify-content: space-evenly;
+  border: brown 2px solid;
+  max-width: 70vw;
+  padding: 20px 0;
 }
 header .home {
-  height: 60%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  margin-right: 25%;
+  justify-content: space-around;
 }
 
 nav {
   display: flex;
   flex-wrap: wrap;
+  margin-top: 10px;
 }
 nav .nav_filtre {
   border-radius: 20px;
-  background-color: red;
+  border: #C4C4C4 0.1em solid;
+  margin: 2px 5px;
+}
+nav .nav_filtre:hover {
+  background-color: #c4c4c477;
+  cursor: pointer;
 }
 nav .nav_filtre p {
   margin: 3px 8px 3px 4px;
+  color: #901C1C;
+  font-size: 12px;
 }
 
 .logo {
   height: 70px;
+}
+
+@media only screen and (max-width: 1185px) {
+  header {
+    flex-direction: column;
+  }
+}
+main {
+  margin: auto;
+}
+main .principal {
+  font-size: 36px;
+  font-weight: 400;
+  color: #901C1C;
+  text-align: right;
+  position: absolute;
+  top: 35px;
+  right: 3%;
+}
+
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-items: center;
+  justify-self: center;
+  padding: 30px 0;
+}
+
+.photographers {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 45px;
+}
+.photographers .name {
+  font-size: 36px;
+  color: #D3573C;
+}
+.photographers .location {
+  font-size: 13px;
+  color: #901C1C;
+}
+.photographers .bio {
+  font-size: 10px;
+}
+.photographers .price {
+  font-size: 9px;
+  color: #525252;
+}
+
+@media only screen and (max-width: 1185px) {
+  .container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .principal {
+    font-size: 36px;
+    font-weight: 400;
+    color: #901C1C;
+    text-align: right;
+    position: absolute;
+    top: 65px;
+    right: 3%;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
 }
 
 /*# sourceMappingURL=style.css.map */

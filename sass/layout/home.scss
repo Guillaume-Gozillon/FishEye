@@ -1,0 +1,64 @@
+main{                            
+    margin: auto;
+    & .principal{
+        font-size: 36px;
+        font-weight: 400;
+        color: $colour-secondary-orange;
+        text-align: right;
+        position: absolute;
+        top: 35px;
+        right: 3%;
+    }
+}
+
+.container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    justify-self: center;
+    padding: 30px 0;
+}
+
+.photographers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 45px;
+    & .name{
+        font-size: 36px;
+        color: $colour-primary;
+    }
+    & .location{
+        font-size: 13px;
+        color: $backgroundColor-primary-dark;
+    }
+    & .bio{
+        font-size: 10px;
+    }
+    & .price{
+        font-size: 9px;
+        color: $colour-secondary-grey-light;
+    }
+}
+
+@media only screen and (max-width: 1185px){
+    .container{
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .principal{
+        font-size: 36px;
+        font-weight: 400;
+        color: $colour-secondary-orange;
+        text-align: right;
+        position: absolute;
+        top: 65px;
+        right: 3%;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .container{
+        grid-template-columns: 1fr;
+    }
+}
