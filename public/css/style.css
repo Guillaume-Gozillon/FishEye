@@ -25,6 +25,10 @@ header .home {
   justify-content: space-around;
 }
 
+#tohidden {
+  display: none;
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -33,7 +37,7 @@ nav {
 nav .nav_filtre {
   border-radius: 20px;
   border: #C4C4C4 0.1em solid;
-  margin: 2px 5px;
+  margin: 3px 5px;
 }
 nav .nav_filtre:hover {
   background-color: #c4c4c477;
@@ -46,35 +50,40 @@ nav .nav_filtre p {
 }
 
 .logo {
-  height: 70px;
+  height: 50px;
+  margin: 20px 50px 0;
 }
 
 @media only screen and (max-width: 1185px) {
   header {
     flex-direction: column;
+    padding: 0px 30px;
   }
 }
 @media only screen and (max-width: 700px) {
+  nav {
+    justify-content: center;
+  }
+
   header {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
     max-width: 85vw;
     margin: auto;
-    padding: 20px 0;
+    padding: 0px 20px;
   }
-  header .home {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+
+  .logo {
+    height: 20px;
+    margin: 20px 10px 0;
   }
 }
 main {
   margin: auto;
 }
 main .principal {
-  font-size: 2.3vw;
+  font-size: 2em;
   font-weight: 400;
   color: #901C1C;
   text-align: right;
@@ -154,9 +163,21 @@ main img {
     top: 65px;
   }
 }
+@media only screen and (max-width: 950px) {
+  main .principal {
+    font-size: 20px;
+    top: 65px;
+  }
+}
 @media only screen and (max-width: 700px) {
   .container {
     grid-template-columns: 1fr;
+  }
+
+  main .principal {
+    font-size: 20px;
+    top: 15px;
+    right: 10%;
   }
 }
 
