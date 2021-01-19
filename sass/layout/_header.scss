@@ -1,4 +1,4 @@
-header{
+#page-index{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
@@ -42,23 +42,20 @@ nav{
 }
 
 @media only screen and (max-width: 1185px){
-    header{
+    #page-index{
         flex-direction: column;
         padding: 0px 30px;
     }
 }
 
 @media only screen and (max-width: 950px){
-
 }
-
-// IL FAUT NETTOYER CAR PAS BESOIN DE DE HOME
 
 @media only screen and (max-width: 700px){
     nav{
         justify-content: center;
     }
-    header{
+    #page-index{
         display: flex;
         align-items: flex-start;
         justify-content: space-between;

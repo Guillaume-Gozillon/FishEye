@@ -1,4 +1,4 @@
-main{                  
+#main-index{                  
     margin: auto;
     & .principal{
         font-size: 2em;
@@ -77,14 +77,14 @@ main{
         grid-template-columns: 1fr 1fr;
     }
 
-    main .principal{
+    #main-index .principal{
         font-size: 30px;
         top: 65px;
     }
 }
 
 @media only screen and (max-width: 950px){
-    main .principal{
+    #main-index .principal{
         font-size: 20px;
         top: 65px;
     }
@@ -94,7 +94,7 @@ main{
     .container{
         grid-template-columns: 1fr;
     }
-    main .principal{
+    #main-index .principal{
         font-size: 20px;
         top: 15px;
         right: 10%;

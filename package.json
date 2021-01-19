@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/Guillaume-Gozillon/FishEye/issues"
   },
-  "homepage": "https://github.com/Guillaume-Gozillon/FishEye#readme"
+  "homepage": "https://github.com/Guillaume-Gozillon/FishEye#readme",
+  "devDependencies": {
+    "eslint": "^7.18.0"
+  }
 }
