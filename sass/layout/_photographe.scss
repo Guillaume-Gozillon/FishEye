@@ -6,6 +6,7 @@
     align-items: center;
     & #bloc-logo-photographe{
         width: 90%;
+        max-width: 1240px;
         margin: auto;
         display: flex;
         & .logo-photographe{
@@ -14,35 +15,44 @@
     }
 }
 
-#main-photographe{
-    width: 100%;
-    & .vignette-photographe{
-        padding: 0 40px;
-        position: relative;
-        margin: auto;
-        width: 90%;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: $colour-secondary-white-light;
-        height: 220px;
-        border-radius: 5px;
-    }
+.vignette-photographe{
+    margin: auto;
+    max-width: 1240px;
+    width: 90%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 30px 0;
+    border-radius: 8px;
+    background-color: $colour-secondary-white-light;
+    margin-bottom: 60px;
+}
+
+.location-photographer{
+    margin-bottom: 9px;
+    font-size: 24px;
+    color: $backgroundColor-primary-dark;
+}
+
+.bio-photographer{
+    margin-bottom: 7px;
+    font-size: 18px;
 }
 
 .firstName{
-    font-size: 36px;
+    font-size: 64px;
     color: $colour-primary;
     margin-bottom: 2px;
     font-weight: 400;
+    line-height: 65px;
 }
 
 .btn-contact{
-    position: absolute;
-    top: 40%;
-    left: 40%;
-    transform: translate(-50%, -50%);
-    width: 120px;
+    width: 150px;
+    font-weight: 400;
+    margin-top: 20px;
+    margin: 0 30px;
+    font-size: 17px;
     height: 50px;
     border-radius: 5px;
     border: 0;
@@ -55,8 +65,115 @@
 }
 
 .image{
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 50%;
     object-fit: cover;
 }
+
+.main-content-photographer{
+    width: 45%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.img-page{
+    width: 100px;
+}
+
+.picture-photographer{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    justify-self: center;
+    max-width: 1240px;
+    width: 90%;
+    margin: auto;
+    & .img-page{
+        object-fit: cover;
+        width: 350px;
+        height: 300px;
+        border-radius: 7px;
+    }
+}
+
+@media only screen and (max-width: 1260px){
+    .picture-photographer{
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media only screen and (max-width: 1185px){
+    .btn-contact{
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 850px){
+    .firstName{
+        font-size: 36px;
+        line-height: 35px;
+    }
+    .location-photographer{
+        font-size: 13px;
+    }
+
+    .bio-photographer{
+        font-size: 13px;
+    }
+
+    .image{
+        width: 150px;
+        height: 150px;
+    }
+
+    .picture-photographer .img-page{
+        width: 40vw;
+        height: 35vw;
+    }
+
+    .vignette-photographe{
+        margin-bottom: 35px;
+    }
+}
+
+@media only screen and (max-width: 700px){
+    .picture-photographer{
+        grid-template-columns: 1fr;
+        & .img-page{
+            width: 350px;
+            height: 300px;
+        }
+    }
+}
+
+@media only screen and (max-width: 540px){
+    .image{
+        width: 100px;
+        height: 100px;
+    }
+
+    .vignette-photographe{
+        width: 100%;
+        background-color: initial;
+        margin-bottom: 10px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    .picture-photographer .img-page{
+        width: 90vw;
+        height: 80vw;
+    }
+}
+
+@media only screen and (max-width: 340px){
+    .image{
+        width: 70px;
+        height: 70px;
+    }
+}
+
+
