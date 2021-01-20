@@ -207,7 +207,7 @@ nav .nav_filtre p {
   padding: 30px 0;
   border-radius: 8px;
   background-color: #f4f4f4;
-  margin-bottom: 60px;
+  margin-bottom: 30px;
 }
 
 .location-photographer {
@@ -274,11 +274,53 @@ nav .nav_filtre p {
   width: 90%;
   margin: auto;
 }
+.picture-photographer_presentation {
+  margin-bottom: 20px;
+}
 .picture-photographer .img-page {
   object-fit: cover;
   width: 350px;
   height: 300px;
   border-radius: 7px;
+}
+
+.text-presentation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #901C1C;
+}
+
+.price-and-count {
+  display: flex;
+  align-items: center;
+}
+.price-and-count .paddeur {
+  padding-left: 13px;
+}
+
+.trie {
+  width: 90%;
+  max-width: 1240px;
+  margin: auto;
+  margin-bottom: 30px;
+}
+.trie p, .trie select {
+  display: inline;
+}
+
+.compteur {
+  display: flex;
+  padding: 10px 25px 6px;
+  border-radius: 7px 7px 0 0;
+  position: fixed;
+  bottom: 0;
+  right: 9%;
+  font-size: 0.9em;
+  background-color: #DB8876;
+}
+.compteur :first-child {
+  margin-right: 30px;
 }
 
 @media only screen and (max-width: 1260px) {
@@ -318,6 +360,10 @@ nav .nav_filtre p {
   .vignette-photographe {
     margin-bottom: 35px;
   }
+
+  .compteur {
+    display: none;
+  }
 }
 @media only screen and (max-width: 700px) {
   .picture-photographer {
@@ -326,6 +372,13 @@ nav .nav_filtre p {
   .picture-photographer .img-page {
     width: 350px;
     height: 300px;
+  }
+  .picture-photographer .vignette-photographe {
+    margin-bottom: 35px;
+  }
+
+  .trie {
+    display: none;
   }
 }
 @media only screen and (max-width: 540px) {
