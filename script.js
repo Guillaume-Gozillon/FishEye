@@ -1,5 +1,15 @@
-const img = document.getElementById('img')
+async function loadImages() {
+  const response = await fetch('./data_photographers.json')
+  const data = await response.json()
+  creatCard(data.photographers)
+}
 
-fetch('./data_photographers.json')
-    .then(res => res.json())
-    .then(data => img.src = data.url)
+loadImages()
+
+function creatCard (image) {
+  document.getElementById('test-card-photographer').innerHTML = `
+  <h3>${image.map(function(food) {
+    return food.city
+  })}</h3>
+  `
+}

@@ -36,7 +36,7 @@ nav {
 }
 nav .nav_filtre {
   border-radius: 20px;
-  border: #C4C4C4 0.1em solid;
+  border: #c4c4c4 0.1em solid;
   margin: 3px 5px;
 }
 nav .nav_filtre:hover {
@@ -45,7 +45,7 @@ nav .nav_filtre:hover {
 }
 nav .nav_filtre p {
   margin: 3px 8px 3px 4px;
-  color: #901C1C;
+  color: #901c1c;
   font-size: 12px;
 }
 
@@ -85,7 +85,7 @@ nav .nav_filtre p {
 #main-index .principal {
   font-size: 2em;
   font-weight: 400;
-  color: #901C1C;
+  color: #901c1c;
   text-align: right;
   position: absolute;
   top: 35px;
@@ -116,12 +116,12 @@ nav .nav_filtre p {
 }
 .photographers .name {
   font-size: 36px;
-  color: #D3573C;
+  color: #d3573c;
   margin-bottom: 2px;
 }
 .photographers .location {
   font-size: 13px;
-  color: #901C1C;
+  color: #901c1c;
   margin-bottom: 4px;
 }
 .photographers .bio {
@@ -140,7 +140,7 @@ nav .nav_filtre p {
 }
 .hastag .photographer-filter {
   border-radius: 20px;
-  border: #C4C4C4 0.1em solid;
+  border: #c4c4c4 0.1em solid;
   margin: 2px 5px;
 }
 .hastag .photographer-filter:hover {
@@ -149,7 +149,7 @@ nav .nav_filtre p {
 }
 .hastag .photographer-filter p {
   margin: 3px 8px 3px 4px;
-  color: #901C1C;
+  color: #901c1c;
   font-size: 12px;
 }
 
@@ -213,7 +213,7 @@ nav .nav_filtre p {
 .location-photographer {
   margin-bottom: 9px;
   font-size: 24px;
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .bio-photographer {
@@ -223,7 +223,7 @@ nav .nav_filtre p {
 
 .firstName {
   font-size: 64px;
-  color: #D3573C;
+  color: #d3573c;
   margin-bottom: 2px;
   font-weight: 400;
   line-height: 65px;
@@ -238,7 +238,7 @@ nav .nav_filtre p {
   height: 50px;
   border-radius: 5px;
   border: 0;
-  background-color: #901C1C;
+  background-color: #901c1c;
   color: white;
   font-family: inherit;
 }
@@ -288,7 +288,7 @@ nav .nav_filtre p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: #901C1C;
+  color: #901c1c;
 }
 
 .price-and-count {
@@ -305,7 +305,8 @@ nav .nav_filtre p {
   margin: auto;
   margin-bottom: 30px;
 }
-.trie p, .trie select {
+.trie p,
+.trie select {
   display: inline;
 }
 
@@ -317,7 +318,7 @@ nav .nav_filtre p {
   bottom: 0;
   right: 9%;
   font-size: 0.9em;
-  background-color: #DB8876;
+  background-color: #db8876;
 }
 .compteur :first-child {
   margin-right: 30px;

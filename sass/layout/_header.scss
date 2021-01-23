@@ -1,71 +1,67 @@
-#page-index{
+#page-index {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-width: 70vw;
+  padding: 20px 0;
+  & .home {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    justify-content: space-evenly;
-    max-width: 70vw;
-    padding: 20px 0;
-    & .home{
-        display: flex;
-        flex-direction: column;
-        align-items: center; 
-        justify-content: space-around;
+    justify-content: space-around;
+  }
+}
+
+#tohidden {
+  display: none;
+}
+
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  & .nav_filtre {
+    border-radius: 20px;
+    border: #c4c4c4 0.1em solid;
+    margin: 3px 5px;
+    &:hover {
+      background-color: #c4c4c477;
+      cursor: pointer;
     }
+    & p {
+      margin: 3px 8px 3px 4px;
+      color: $backgroundColor-primary-dark;
+      font-size: 12px;
+    }
+  }
 }
 
-#tohidden{
-    display: none;
+.logo {
+  height: 50px;
+  margin: 20px 50px 0;
 }
 
-nav{
+@media only screen and (max-width: 1185px) {
+  #page-index {
+    flex-direction: column;
+    padding: 0px 30px;
+  }
+}
+
+@media only screen and (max-width: 700px) {
+  nav {
+    justify-content: center;
+  }
+  #page-index {
     display: flex;
-    flex-wrap: wrap;
-    margin-top: 10px;
-    & .nav_filtre{
-        border-radius: 20px;
-        border: #C4C4C4 0.1em solid;
-        margin: 3px 5px;
-        &:hover{
-            background-color: #c4c4c477;
-            cursor: pointer;
-        }
-        & p{
-            margin: 3px 8px 3px 4px;
-            color: $backgroundColor-primary-dark;
-            font-size: 12px;
-        }
-    }
+    align-items: flex-start;
+    justify-content: space-between;
+    max-width: 85vw;
+    margin: auto;
+    padding: 0px 20px;
+  }
+  .logo {
+    height: 20px;
+    margin: 20px 10px 0;
+  }
 }
-
-.logo{
-    height: 50px;
-    margin: 20px 50px 0;
-}
-
-@media only screen and (max-width: 1185px){
-    #page-index{
-        flex-direction: column;
-        padding: 0px 30px;
-    }
-}
-
-@media only screen and (max-width: 700px){
-    nav{
-        justify-content: center;
-    }
-    #page-index{
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        max-width: 85vw;
-        margin: auto;
-        padding: 0px 20px;
-    }
-    .logo{
-        height: 20px;
-        margin: 20px 10px 0;
-    }
-}
-
-
-
-
