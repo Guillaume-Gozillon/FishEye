@@ -33,9 +33,23 @@
   align-items: center;
   margin-bottom: 45px;
   & .name {
+    text-decoration: none;
     font-size: 36px;
     color: $colour-primary;
     margin-bottom: 2px;
+    transition: 300ms;
+    &::after {
+      content: '';
+      width: 0px;
+      height: 2px;
+      display: block;
+      background: $colour-primary;
+      transition: 300ms;
+    }
+    &:hover::after {
+      width: 100%;
+    }
+
   }
   & .location {
     font-size: 13px;

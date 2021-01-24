@@ -115,9 +115,22 @@ nav .nav_filtre p {
   margin-bottom: 45px;
 }
 .photographers .name {
+  text-decoration: none;
   font-size: 36px;
   color: #d3573c;
   margin-bottom: 2px;
+  transition: 300ms;
+}
+.photographers .name::after {
+  content: "";
+  width: 0px;
+  height: 2px;
+  display: block;
+  background: #d3573c;
+  transition: 300ms;
+}
+.photographers .name:hover::after {
+  width: 100%;
 }
 .photographers .location {
   font-size: 13px;

@@ -27,6 +27,7 @@ Network Trash Folder
 Temporary Items
 .apdisk
 
+
 ### Node ###
 # Logs
 logs
@@ -151,3 +152,4 @@ dist
 !.vscode/launch.json
 !.vscode/extensions.json
 *.code-workspace
+

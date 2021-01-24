@@ -12,43 +12,108 @@
     <link rel="icon" href="#" />
 </head>
 <body>
-    <header id="page-index">
-        <img class="logo" src="/ID_pict/logo/fisheye-logo2.png" alt="logo">
-        <div class="home">
-            <div class="content">
-                <p id="tohidden">Passer au contenu</p>
-            </div>
-            <nav>
-                <div id="portaits" class="nav_filtre">
-                    <p>#Portrait</p>
-                </div>
-                <div class="nav_filtre">
-                    <p>#Art</p>
-                </div>
-                <div class="nav_filtre">
-                    <p>#Fashion</p>
-                </div>
-                <div class="nav_filtre">
-                    <p>#Architecture</p>
-                </div>
-                <div class="nav_filtre">
-                    <p>#Travel</p>
-                </div>
-                <div class="nav_filtre">
-                    <p>#Sport</p>
-                </div>
-                <div class="nav_filtre">
-                    <p>#Animals</p>
-                </div>
-                <div class="nav_filtre">
-                    <p>#Events</p>
-                </div>
-            </nav>
+    <header id="header-photographe">
+        <div id="bloc-logo-photographe">
+            <img class="logo-photographe" src="/img/logo/fisheye-logo.png" alt="logo">
         </div>
     </header>
-
-    <main id="main-index">
-        <h1 class="principal">Nos photographes</h1>
+    <main id="main-photographe">
+        <section class="vignette-photographe">
+            <div class="main-content-photographer">
+                <div class="firstElement">
+                    <h1 class="firstName">Mimi Keel</h1>
+                    <h2 class="location-photographer">London, UK</h2>
+                    <p class="bio-photographer">Voir le beau dans le quotidien</p>
+                    <div class="hastag">
+                        <div class="photographer-filter">
+                            <p>#Event</p>
+                        </div>
+                        <div class="photographer-filter">
+                            <p>#Travel</p>
+                        </div>
+                        <div class="photographer-filter">
+                            <p>#Animals</p>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn-contact">Contactez-moi</button>
+            </div>
+            <img class="image" src="/img/MimiKeel.jpg" alt="">
+        </section>
+        <section class="trie">
+            <p>Trier par</p>
+            <select name="filter" class="filter">
+                <option value="trend">Popularité</option>
+                <option value="date">Date</option>
+                <option value="title">Titre</option>
+            </select>
+        </section>
+        <section class="picture-photographer">
+            <div class="picture-photographer_presentation">
+                <img class="img-page" src="/img/Marcel/Architecture_Dome.jpg" alt="">
+                <div class="text-presentation">
+                    <p>Arc-en-ciel</p>
+                    <div class="price-and-count">
+                        <p>70€</p>
+                        <p class="paddeur">13 ❤</p>
+                    </div>
+                </div>
+            </div>
+            <div class="picture-photographer_presentation">
+                <img class="img-page" src="/img/Marcel/Architecture_Corner_Room.jpg" alt="">
+                <div class="text-presentation">
+                    <p>Arc-en-ciel</p>
+                    <div class="price-and-count">
+                        <p>70€</p>
+                        <p>13 ❤</p>
+                    </div>
+                </div>
+            </div>
+            <div class="picture-photographer_presentation">
+                <img class="img-page" src="/img/Marcel/Architecture_On_a_hill.jpg" alt="">
+                <div class="text-presentation">
+                    <p>Arc-en-ciel</p>
+                    <div class="price-and-count">
+                        <p>70€</p>
+                        <p>13 ❤</p>
+                    </div>
+                </div>
+            </div>
+            <div class="picture-photographer_presentation">
+                <img class="img-page" src="/img/Marcel/Architecure_Contrast.jpg" alt="">
+                <div class="text-presentation">
+                    <p>Arc-en-ciel</p>
+                    <div class="price-and-count">
+                        <p>70€</p>
+                        <p>13 ❤</p>
+                    </div>
+                </div>
+            </div>
+            <div class="picture-photographer_presentation">
+                <img class="img-page" src="/img/Marcel/Travel _Adventure_Door.jpg" alt="">
+                <div class="text-presentation">
+                    <p>Arc-en-ciel</p>
+                    <div class="price-and-count">
+                        <p>70€</p>
+                        <p>13 ❤</p>
+                    </div>
+                </div>
+            </div>
+            <div class="picture-photographer_presentation">
+                <img class="img-page" src="/img/Marcel/Travel_OpenMountain.jpg" alt="">
+                <div class="text-presentation">
+                    <p>Arc-en-ciel</p>
+                    <div class="price-and-count">
+                        <p>70€</p>
+                        <p>13 ❤</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <aside class="compteur">
+            <p>130 000 ❤</p>
+            <p>700€/jour</p>
+        </aside>
     </main>
     <script src="script.js"></script>
 </body>
