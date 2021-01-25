@@ -2,7 +2,6 @@ async function loadImages () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
   creatIndex(data.photographers)
-  creatCard(data.media)
 }
 
 loadImages()
@@ -38,13 +37,3 @@ function creatIndex (dataToGet) {
   }).join('')}
   `
 }
-
-function creatCard () {
-
-}
-
-const portaitsFilter = document.getElementById('portaits')
-
-portaitsFilter.addEventListener('click', function () {
-  console.log('hello')
-})

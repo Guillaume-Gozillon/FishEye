@@ -1,9 +1,18 @@
 async function loadImages () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
-  // creatIndex(data.photographers)
-  creatCard(data.media)
+  
+  creatIndex(data.photographers)
+  //creatCard(data.media)
+  portraitFilter.addEventListener('click', function () {
+    if (data.photographers.tags !== 'portrait') {
+      logo.classList.remove('logo')
+    }
+  })
 }
+
+let portraitFilter =  document.getElementById('portrait')
+let logo = document.getElementById('logo')
 
 loadImages()
 
@@ -13,17 +22,14 @@ function addFilter (hashtag) {
   ${hashtag.map(function (hashtagItems) {
     return `
     <div class="photographer-filter">
-    <p>${hashtagItems}</p>
-  </div>
+      <p>${hashtagItems}</p>
+    </div>
     `
   }).join('')}
 </div>
   `
 }
 
-function counter () {
-  
-}
 
 function creatIndex (dataToGet) {
   document.getElementById('main-index').innerHTML = `
@@ -32,32 +38,20 @@ function creatIndex (dataToGet) {
     return ` 
     <div class="photographers">
     <img src="/img/${thingsIntoTheData.portrait}" alt="" />
-    <a href="./photographe.html"class="name">${thingsIntoTheData.name}</a>
+    <a href="./test-page-photographe.html"class="name">${thingsIntoTheData.name}</a>
     <div class="location">${thingsIntoTheData.city}</div>
     <div class="bio">${thingsIntoTheData.tagline}</div>
     <div class="price">${thingsIntoTheData.price}/jour</div>
     ${addFilter(thingsIntoTheData.tags)}
   </div>
     `
-  }).join()}
-  `
-}
-
-function creatCard (dataForTheCard) {
-  document.getElementById('picture-photographer').innerHTML = `
-  ${dataForTheCard.map(function (thingsForCards) {
-    return `
-    <div class="picture-photographer_presentation">
-    <img class="img-page" src="/img/${thingsForCards.image}" alt="">
-    <div class="text-presentation">
-        <p>${thingsForCards.tags}</p>
-        <div class="price-and-count">
-            <p>70€</p>
-            <p class="paddeur">${thingsForCards.likes} ❤</p>
-        </div>
-    </div>
-</div>
-    `
   }).join('')}
   `
 }
+
+//creer une classe pour identifier la carte
+// au click on ecoute l'ID
+// on compare le tag à l'objet.tags
+// condition : on parcours la partie "tags" (boucle for) d'un objet média pour verifier si tags = true
+// si le tag est true alors la carte-photographe ne bouge pas
+// sinon on supprime la carte
