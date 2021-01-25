@@ -1,7 +1,7 @@
 async function loadImages () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
-  
+
   creatIndex(data.photographers)
   //creatCard(data.media)
   portraitFilter.addEventListener('click', function () {
@@ -30,7 +30,6 @@ function addFilter (hashtag) {
   `
 }
 
-
 function creatIndex (dataToGet) {
   document.getElementById('main-index').innerHTML = `
   <h1 class="principal">Nos photographes</h1>
@@ -55,3 +54,5 @@ function creatIndex (dataToGet) {
 // condition : on parcours la partie "tags" (boucle for) d'un objet média pour verifier si tags = true
 // si le tag est true alors la carte-photographe ne bouge pas
 // sinon on supprime la carte
+
+//je fais un test pour github
