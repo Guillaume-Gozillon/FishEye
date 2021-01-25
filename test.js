@@ -1,7 +1,8 @@
 async function loadImages () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
-  creatCard(data.photographers)
+  // creatIndex(data.photographers)
+  creatCard(data.media)
 }
 
 loadImages()
@@ -20,7 +21,11 @@ function addFilter (hashtag) {
   `
 }
 
-function creatCard (dataToGet) {
+function counter () {
+  
+}
+
+function creatIndex (dataToGet) {
   document.getElementById('main-index').innerHTML = `
   <h1 class="principal">Nos photographes</h1>
   <div class="container">${dataToGet.map(function (thingsIntoTheData) {
@@ -34,16 +39,25 @@ function creatCard (dataToGet) {
     ${addFilter(thingsIntoTheData.tags)}
   </div>
     `
-  }).join('')}
+  }).join()}
   `
 }
 
-function indexDom () {
-
+function creatCard (dataForTheCard) {
+  document.getElementById('picture-photographer').innerHTML = `
+  ${dataForTheCard.map(function (thingsForCards) {
+    return `
+    <div class="picture-photographer_presentation">
+    <img class="img-page" src="/img/${thingsForCards.image}" alt="">
+    <div class="text-presentation">
+        <p>${thingsForCards.tags}</p>
+        <div class="price-and-count">
+            <p>70€</p>
+            <p class="paddeur">${thingsForCards.likes} ❤</p>
+        </div>
+    </div>
+</div>
+    `
+  }).join('')}
+  `
 }
-
-const portaitsFilter = document.getElementById('portaits')
-
-portaitsFilter.addEventListener('click', function () {
-  console.log('hello')
-})

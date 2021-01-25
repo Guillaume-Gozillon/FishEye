@@ -1,7 +1,8 @@
 async function loadImages () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
-  creatCard(data.photographers)
+  creatIndex(data.photographers)
+  creatCard(data.media)
 }
 
 loadImages()
@@ -20,7 +21,7 @@ function addFilter (hashtag) {
   `
 }
 
-function creatCard (dataToGet) {
+function creatIndex (dataToGet) {
   document.getElementById('main-index').innerHTML = `
   <h1 class="principal">Nos photographes</h1>
   <div class="container">${dataToGet.map(function (thingsIntoTheData) {
@@ -38,7 +39,7 @@ function creatCard (dataToGet) {
   `
 }
 
-function indexDom () {
+function creatCard () {
 
 }
 
