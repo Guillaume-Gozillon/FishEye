@@ -193,6 +193,10 @@ nav .nav_filtre p {
     right: 10%;
   }
 }
+.todelet {
+  display: none;
+}
+
 #header-photographe {
   width: 100%;
   height: 70px;

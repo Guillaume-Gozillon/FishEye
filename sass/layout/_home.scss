@@ -48,6 +48,7 @@
     }
     &:hover::after {
       width: 100%;
+
     }
 
   }
@@ -113,4 +114,11 @@
     top: 15px;
     right: 10%;
   }
+}
+
+
+
+
+.todelet{
+  display: none;
 }

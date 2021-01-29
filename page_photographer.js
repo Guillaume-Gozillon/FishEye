@@ -25,10 +25,6 @@ function creatCard (dataForTheCard) {
     `
 }
 
-function listener () {
-  
-}
-
 // au click on ecoute l'ID
 // on compare le tag à l'objet.tags
 // condition : on parcours la partie "tags" (boucle for) d'un objet média pour verifier si tags = true
