@@ -3,64 +3,126 @@ async function loadImages () {
   const data = await response.json()
   creatIndex(data.photographers)
 
+
   const portraitFilter = document.getElementById('portaits')
-  const testCardToRemove = document.getElementById('testcardtoremove')
+  const artFilter = document.getElementById('art')
+  const fashionFilter = document.getElementById('fashion')
+  const architectureFilter = document.getElementById('architecture')
+  const travelFilter = document.getElementById('travel')
+  const sportFilter = document.getElementById('sport')
+  const animalsFilter = document.getElementById('animals')
+  const eventstFilter = document.getElementById('events')
 
-  portraitFilter.addEventListener('click', function () {
-
-
-console.log('OBJET', data.photographers)
-console.log('PROPRIETE', data.photographers[1].tags)
-
-const arrayShip = data.photographers
-const proprieteShip = data.photographers[1].tags
-
-
-for (const proprieteShip of arrayShip) {
-  
-
-  if(!proprieteShip.includes('fashion')) {
-    // si le tag est true alors la carte-photographe ne bouge pas
-    alert('NON')
-    //testCardToRemove.classList.add('todelet')
+  const testCardToRemove = document.getElementsByClassName('photographers')
 
 
-  } else {
 
-    alert('Ca fonctionne !')
+  eventstFilter.addEventListener('click', function (){
 
-  }
+    creatIndex(data.photographers)
 
-
-}
-
-
-/*
-
-    // DEBUT PREMIER TEST
-    for(i = 0; i < data.photographers.length; i++){
+    for (i = 0; i < data.photographers.length; i++) {
 
       console.log(data.photographers[i].tags)
-
-      if(!data.photographers[i].tags[1].includes('fashion')) {
-        // si le tag est true alors la carte-photographe ne bouge pas
-        alert('NON')
-        try{
-          testCardToRemove.classList.add('todelet')
-        } catch {}
-
-
-      } else {
-  
-        alert('Ca fonctionne !')
-
+      if (!data.photographers[i].tags.includes('events')) {
+        testCardToRemove[i].classList.add('tosort')
       }
     }
-// FIN PREMIER TEST
-*/
+  })
 
-})
-  console.log(data.photographers[2].tags[1])
+  animalsFilter.addEventListener('click', function (){
+
+    creatIndex(data.photographers)
+
+    for (i = 0; i < data.photographers.length; i++) {
+
+      console.log(data.photographers[i].tags)
+      if (!data.photographers[i].tags.includes('animals')) {
+        testCardToRemove[i].classList.add('tosort')
+      }
+    }
+  })
+
+
+  sportFilter.addEventListener('click', function (){
+
+    creatIndex(data.photographers)
+
+    for (i = 0; i < data.photographers.length; i++) {
+
+      console.log(data.photographers[i].tags)
+      if (!data.photographers[i].tags.includes('sport')) {
+        testCardToRemove[i].classList.add('tosort')
+      }
+    }
+  })
+
+
+  travelFilter.addEventListener('click', function (){
+
+    creatIndex(data.photographers)
+
+    for (i = 0; i < data.photographers.length; i++) {
+
+      console.log(data.photographers[i].tags)
+      if (!data.photographers[i].tags.includes('travel')) {
+        testCardToRemove[i].classList.add('tosort')
+      }
+    }
+  })
+
+  architectureFilter.addEventListener('click', function (){
+
+    creatIndex(data.photographers)
+
+    for (i = 0; i < data.photographers.length; i++) {
+
+      console.log(data.photographers[i].tags)
+      if (!data.photographers[i].tags.includes('architecture')) {
+        testCardToRemove[i].classList.add('tosort')
+      }
+    }
+  })
+
+  fashionFilter.addEventListener('click', function (){
+
+    creatIndex(data.photographers)
+
+    for (i = 0; i < data.photographers.length; i++) {
+
+      console.log(data.photographers[i].tags)
+      if (!data.photographers[i].tags.includes('fashion')) {
+        testCardToRemove[i].classList.add('tosort')
+      }
+    }
+  })
+
+  portraitFilter.addEventListener('click', function (){
+
+    creatIndex(data.photographers)
+
+    for (i = 0; i < data.photographers.length; i++) {
+
+      console.log(data.photographers[i].tags)
+      if (!data.photographers[i].tags.includes('portrait')) {
+        testCardToRemove[i].classList.add('tosort')
+      }
+    }
+  })
+
+  artFilter.addEventListener('click', function () {
+
+    creatIndex(data.photographers)
+
+    for (i = 0; i < data.photographers.length; i++) {
+
+      console.log(data.photographers[i].tags)
+      if (!data.photographers[i].tags.includes('art')) {
+        testCardToRemove[i].classList.add('tosort')
+      }
+    }
+  })
+
 }
 
 loadImages()
@@ -74,7 +136,7 @@ function addFilter (hashtag) {
       <p>${hashtagItems}</p>
     </div>
     `
-  }).join('')}
+ }).join('')}
 </div>
   `
 }
@@ -84,7 +146,7 @@ function creatIndex (dataToGet) {
   <h1 class="principal">Nos photographes</h1>
   <div class="container">${dataToGet.map(function (thingsIntoTheData) {
     return ` 
-    <div id="testcardtoremove" class="photographers">
+    <div id="testcardtoremove"  class="photographers">
     <img src="/img/${thingsIntoTheData.portrait}" alt="" />
     <a href="./test-page-photographe.html"class="name">${thingsIntoTheData.name}</a>
     <div class="location">${thingsIntoTheData.city}</div>
@@ -97,9 +159,5 @@ function creatIndex (dataToGet) {
   `
 }
 
-//creer une classe pour identifier la carte
-// au click on ecoute l'ID
-// on compare le tag à l'objet.tags
-// condition : on parcours la partie "tags" (boucle for) d'un objet média pour verifier si tags = true
-// si le tag est true alors la carte-photographe ne bouge pas
-// sinon on supprime la carte
+const insertTest = document.getElementById('principal');
+insertTest.insertAdjacentHTML('afterend', creatIndex)
