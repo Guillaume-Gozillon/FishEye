@@ -60,8 +60,7 @@ function addFilter (hashtagFilter) {
 function creatIndex (dataToGet) {
   document.getElementById('main-index').innerHTML = `
   <h1 id="principal" class="principal">Nos photographes</h1>
-  <div class="container">${dataToGet
-    .map(function (thingsIntoTheData) {
+  <div class="container">${dataToGet.map(function (thingsIntoTheData) {
       return ` 
     <div id="testcardtoremove"  class="photographers">
     <img src="/img/${thingsIntoTheData.portrait}" alt="" />
@@ -78,3 +77,4 @@ function creatIndex (dataToGet) {
     .join('')}
   `
 }
+// NE PAS OUBLIER DE REMPLACER LE INNER HTML (voir test.js)
