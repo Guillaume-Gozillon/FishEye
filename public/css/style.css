@@ -38,6 +38,7 @@ nav .nav_filtre {
   border-radius: 20px;
   border: #c4c4c4 0.1em solid;
   margin: 3px 5px;
+  transition-duration: 0.2s;
 }
 nav .nav_filtre:hover {
   background-color: #c4c4c477;
@@ -155,6 +156,7 @@ nav .nav_filtre p {
   border-radius: 20px;
   border: #c4c4c4 0.1em solid;
   margin: 2px 5px;
+  transition-duration: 0.2s;
 }
 .hastag .photographer-filter:hover {
   background-color: #c4c4c477;
@@ -164,6 +166,10 @@ nav .nav_filtre p {
   margin: 3px 8px 3px 4px;
   color: #901c1c;
   font-size: 12px;
+}
+
+.filter {
+  display: none;
 }
 
 @media only screen and (max-width: 1185px) {
@@ -193,10 +199,6 @@ nav .nav_filtre p {
     right: 10%;
   }
 }
-.tosort {
-  display: none;
-}
-
 #header-photographe {
   width: 100%;
   height: 70px;

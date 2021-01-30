@@ -46,7 +46,7 @@
         "city": "Barcelona",
         "country": "Spain",
         "tags": ["sport", "fashion", "events", "animals"],
-        "tagline": "Je crÃ©e des souvenirs",
+        "tagline": "Je crée des souvenirs",
         "price": 275,
         "portrait": "RhodeDubois.jpg"
       },
@@ -56,7 +56,7 @@
         "city": "Berlin",
         "country": "Germany",
         "tags": ["travel", "architecture"],
-        "tagline": "Toujours Ã  la recherche de LA photo",
+        "tagline": "Toujours à la recherche de LA photo",
         "price": 300,
         "portrait": "MarcelNikolic.jpg"
       }

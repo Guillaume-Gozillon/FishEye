@@ -41,13 +41,13 @@ async function loadContent () {
 
 loadContent()
 
-function addFilter (hashtag) {
+function addFilter (hashtagFilter) {
   return `
   <div class="hastag">
-  ${hashtag.map(function (hashtagItems) {
+  ${hashtagFilter.map(function (itemsFilter) {
     return `
     <div class="photographer-filter">
-      <p>${hashtagItems}</p>
+      <p>${itemsFilter}</p>
     </div>
     `
  }).join('')}

@@ -75,6 +75,7 @@
     border-radius: 20px;
     border: #c4c4c4 0.1em solid;
     margin: 2px 5px;
+    transition-duration: 0.2s;
     &:hover {
       background-color: #c4c4c477;
       cursor: pointer;
@@ -85,6 +86,10 @@
       font-size: 12px;
     }
   }
+}
+
+.filter{
+  display: none;
 }
 
 @media only screen and (max-width: 1185px) {
@@ -114,8 +119,4 @@
     top: 15px;
     right: 10%;
   }
-}
-
-.tosort{
-  display: none;
 }
