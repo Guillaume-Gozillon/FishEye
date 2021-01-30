@@ -1,10 +1,10 @@
-async function loadImages () {
+async function loadContent () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
   creatCard(data.media)
 }
 
-loadImages()
+loadContent()
 
 function creatCard (dataForTheCard) {
   document.getElementById('picture-photographer').innerHTML = `
