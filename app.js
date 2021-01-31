@@ -15,9 +15,9 @@ async function loadContent () {
   callbackEvent(eventstFilter, 'events')
 
   /**
-  * @param {condition} If keyword != data.photographers.tags
-  * @param {condition} Else add display: none
-  */
+   * @param {condition} keyword != data.photographers.tags
+   * @param {if statement} add display: none
+   */
 
   function callbackEvent (filterArgument, keyword) {
     filterArgument.addEventListener('click', function () {

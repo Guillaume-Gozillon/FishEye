@@ -3,19 +3,14 @@ async function loadContent() {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
 
-  creatCard(
-    data.media.sort(function (a, b) {
-      return a.likes - b.likes
-    })
-  )
-
-  console.log(data.media)
+  creatCard(data.media.sort((a, b) => a - b))
 
   /**
-  * @param URLSearchParams(window.location.search) fetch l'ID de l'URL
-  * @param console.log(params.get('id')) => affiche l'ID de l'URL
-  * @param {condition} verifie les ID != de l'URL, puis : display none
-  */
+   * @param {URLSearchParams} (window.location.search) fetch l'ID de l'URL
+   * @param {URLSearchParams.get()} params.get('id') => isole l'ID de l'URL
+   * @param {condition} compare si l'ID = de l'URL
+   * @param {if statement} ajoute une classe sur l'ID a supp (display none)
+   */
 
   for (i = 0; i < data.media.length; i++) {
     const params = new URLSearchParams(window.location.search)
@@ -26,12 +21,13 @@ async function loadContent() {
   }
 }
 
-const picturePhotographer = document.getElementsByClassName(
-  'picture-photographer_presentation'
-)
+// DOM éléments
+const picturePhotographer = document.getElementsByClassName('picture-photographer_presentation')
 
+// Fonction lancées
 loadContent()
 
+// Litéraux de gabarits
 function creatCard(dataForTheCard) {
   document.getElementById('picture-photographer').innerHTML = `
   ${dataForTheCard
