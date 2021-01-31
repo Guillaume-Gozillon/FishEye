@@ -1,7 +1,9 @@
+/* eslint-disable no-undef */
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
 
+  // Callback
   creatIndex(data.photographers)
   callbackEvent(portraitFilter, 'portrait')
   callbackEvent(artFilter, 'art')
@@ -12,12 +14,18 @@ async function loadContent () {
   callbackEvent(animalsFilter, 'animals')
   callbackEvent(eventstFilter, 'events')
 
+  /**
+   * @param {condition} If keyword != data.photographers.tags
+   * @param {condition} Else add display: none
+   */
+
   function callbackEvent (filterArgument, keyword) {
     filterArgument.addEventListener('click', function () {
       creatIndex(data.photographers)
 
       for (i = 0; i < data.photographers.length; i++) {
         console.log(data.photographers[i].tags)
+
         if (!data.photographers[i].tags.includes(keyword)) {
           testCardToRemove[i].classList.add('filter')
         }
@@ -26,6 +34,7 @@ async function loadContent () {
   }
 }
 
+// DOM éléments
 const portraitFilter = document.getElementById('portaits')
 const artFilter = document.getElementById('art')
 const fashionFilter = document.getElementById('fashion')
@@ -37,10 +46,11 @@ const eventstFilter = document.getElementById('events')
 const testCardToRemove = document.getElementsByClassName('photographers')
 const principal = document.getElementById('principal')
 
+// Fonction lancées
 loadContent()
-
 principal.insertAdjacentHTML('afterend', creatIndex)
 
+// Litéraux de gabarits
 function addFilter (hashtagFilter) {
   return `
   <div class="hastag">
@@ -78,3 +88,4 @@ function creatIndex (dataToGet) {
   `
 }
 // NE PAS OUBLIER DE REMPLACER LE INNER HTML (voir test.js)
+
