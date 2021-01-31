@@ -3,13 +3,13 @@ async function loadContent() {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
 
-  creatCard(data.media.sort((a, b) => a - b))
+  creatCard(data.media.sort((a, b) => a.likes - b.likes))
 
   /**
    * @param {URLSearchParams} (window.location.search) fetch l'ID de l'URL
    * @param {URLSearchParams.get()} params.get('id') => isole l'ID de l'URL
    * @param {condition} compare si l'ID = de l'URL
-   * @param {if statement} ajoute une classe sur l'ID a supp (display none)
+   * @param {if statement} ajoute une classe sur l'ID (display: none)
    */
 
   for (i = 0; i < data.media.length; i++) {

@@ -26,8 +26,9 @@ nav {
     margin: 3px 5px;
     transition-duration: 0.2s;
     &:hover {
-      background-color: #c4c4c477;
+      background-color: #901c1c14;
       cursor: pointer;
+      border: #901c1cab 0.1em solid;
     }
     & p {
       margin: 3px 8px 3px 4px;

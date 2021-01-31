@@ -41,8 +41,9 @@ nav .nav_filtre {
   transition-duration: 0.2s;
 }
 nav .nav_filtre:hover {
-  background-color: #c4c4c477;
+  background-color: #901c1c14;
   cursor: pointer;
+  border: #901c1cab 0.1em solid;
 }
 nav .nav_filtre p {
   margin: 3px 8px 3px 4px;
@@ -159,8 +160,9 @@ nav .nav_filtre p {
   transition-duration: 0.2s;
 }
 .hastag .photographer-filter:hover {
-  background-color: #c4c4c477;
+  background-color: #901c1c14;
   cursor: pointer;
+  border: #901c1cab 0.1em solid;
 }
 .hastag .photographer-filter p {
   margin: 3px 8px 3px 4px;
