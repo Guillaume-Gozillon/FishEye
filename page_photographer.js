@@ -12,10 +12,10 @@ async function loadContent() {
   console.log(data.media)
 
   /**
-   * @param URLSearchParams(window.location.search) fetch l'ID de l'URL
-   * @param console.log(params.get('id')) => affiche l'ID de l'URL
-   * @param {condition} verifie les ID != de l'URL, puis : display none
-   */
+  * @param URLSearchParams(window.location.search) fetch l'ID de l'URL
+  * @param console.log(params.get('id')) => affiche l'ID de l'URL
+  * @param {condition} verifie les ID != de l'URL, puis : display none
+  */
 
   for (i = 0; i < data.media.length; i++) {
     const params = new URLSearchParams(window.location.search)
