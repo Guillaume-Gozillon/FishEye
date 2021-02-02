@@ -1,3 +1,18 @@
+// DOM éléments
+const portraitFilter = document.getElementById('portaits')
+const artFilter = document.getElementById('art')
+const fashionFilter = document.getElementById('fashion')
+const architectureFilter = document.getElementById('architecture')
+const travelFilter = document.getElementById('travel')
+const sportFilter = document.getElementById('sport')
+const animalsFilter = document.getElementById('animals')
+const eventstFilter = document.getElementById('events')
+const testCardToRemove = document.getElementsByClassName('photographers')
+
+// const principal = document.getElementById('principal')
+
+
+
 /* eslint-disable no-undef */
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -17,6 +32,7 @@ async function loadContent () {
 
 // Fonctions
 
+
 loadContent()
 
 function callbackEvent (filterArgument, keyword, data) {
@@ -35,6 +51,7 @@ function callbackEvent (filterArgument, keyword, data) {
     }
   })
 }
+
 
 // Litéraux de gabarits
 function addFilter (hashtagFilter) {
@@ -58,7 +75,7 @@ function creatIndex (dataToGet) {
   <h1 id="principal" class="principal">Nos photographes</h1>
   <div class="container">${dataToGet.map(function (thingsIntoTheData) {
       return ` 
-    <div id="testcardtoremove"  class="photographers">
+    <div id="testcardtoremove"  class="photographers mousechange">
     <img src="/img/${thingsIntoTheData.portrait}" alt="" />
     <a href="./test-page-photographe.html?id=${thingsIntoTheData.id} "class="name">${
       thingsIntoTheData.name
@@ -74,16 +91,3 @@ function creatIndex (dataToGet) {
   `
 }
 // NE PAS OUBLIER DE REMPLACER LE INNER HTML (voir test.js)
-
-// DOM éléments
-const portraitFilter = document.getElementById('portaits')
-const artFilter = document.getElementById('art')
-const fashionFilter = document.getElementById('fashion')
-const architectureFilter = document.getElementById('architecture')
-const travelFilter = document.getElementById('travel')
-const sportFilter = document.getElementById('sport')
-const animalsFilter = document.getElementById('animals')
-const eventstFilter = document.getElementById('events')
-const testCardToRemove = document.getElementsByClassName('photographers')
-// const principal = document.getElementById('principal')
-

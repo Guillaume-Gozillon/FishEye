@@ -5,10 +5,10 @@ async function loadContent () {
   const data = await response.json()
 
   creatCard(data.media)
-  sortByTrendButTestedWithDate('date', data)
+  sortByPrice('date', data)
 
   /**
-   * @param {URLSearchParams} GET (window.location.search) fetch => ?id={number}
+   * @param {URLSearchParams} (window.location.search) fetch => ?id={number}
    * @param {URLSearchParams.get()} params.get('id') => isole l'ID de l'URL
    * @param {condition} compare si ID = URL
    * @param {if statement} ajoute une classe sur l'ID (display: none)
@@ -22,7 +22,7 @@ async function loadContent () {
     }
   }
 
-  function sortByTrendButTestedWithDate (catchCallcabk, data) {
+  function sortByPrice (catchCallcabk, data) {
     sortPhoto.addEventListener('change', () => {
       console.log('Valeur select :', sortPhoto.value)
       if (sortPhoto.value = catchCallcabk) {
@@ -63,4 +63,3 @@ function creatCard (dataForTheCard) {
   `
 }
 
-// recuperer
