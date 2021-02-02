@@ -48,9 +48,7 @@
     }
     &:hover::after {
       width: 100%;
-
     }
-
   }
   & .location {
     font-size: 13px;
@@ -89,8 +87,11 @@
   }
 }
 
-.filter{
-  display: none;
+.justatest{
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow:  20px 20px 60px #bebebe,
+               -20px -20px 60px #ffffff;
 }
 
 @media only screen and (max-width: 1185px) {

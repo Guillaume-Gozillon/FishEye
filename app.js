@@ -5,50 +5,36 @@ async function loadContent () {
 
   // Callback
   creatIndex(data.photographers)
-  callbackEvent(portraitFilter, 'portrait')
-  callbackEvent(artFilter, 'art')
-  callbackEvent(fashionFilter, 'fashion')
-  callbackEvent(architectureFilter, 'architecture')
-  callbackEvent(travelFilter, 'travel')
-  callbackEvent(sportFilter, 'sport')
-  callbackEvent(animalsFilter, 'animals')
-  callbackEvent(eventstFilter, 'events')
-
-  /**
-   * @param {condition} keyword != data.photographers.tags
-   * @param {if statement} add display: none
-   */
-
-  function callbackEvent (filterArgument, keyword) {
-    filterArgument.addEventListener('click', function () {
-      creatIndex(data.photographers)
-
-      for (i = 0; i < data.photographers.length; i++) {
-        console.log(data.photographers[i].tags)
-
-        if (!data.photographers[i].tags.includes(keyword)) {
-          testCardToRemove[i].classList.add('filter')
-        }
-      }
-    })
-  }
+  callbackEvent(portraitFilter, 'portrait', data)
+  callbackEvent(artFilter, 'art', data)
+  callbackEvent(fashionFilter, 'fashion', data)
+  callbackEvent(architectureFilter, 'architecture', data)
+  callbackEvent(travelFilter, 'travel', data)
+  callbackEvent(sportFilter, 'sport', data)
+  callbackEvent(animalsFilter, 'animals', data)
+  callbackEvent(eventstFilter, 'events', data)
 }
 
-// DOM éléments
-const portraitFilter = document.getElementById('portaits')
-const artFilter = document.getElementById('art')
-const fashionFilter = document.getElementById('fashion')
-const architectureFilter = document.getElementById('architecture')
-const travelFilter = document.getElementById('travel')
-const sportFilter = document.getElementById('sport')
-const animalsFilter = document.getElementById('animals')
-const eventstFilter = document.getElementById('events')
-const testCardToRemove = document.getElementsByClassName('photographers')
-const principal = document.getElementById('principal')
+// Fonctions
 
-// Fonction lancées
 loadContent()
-principal.insertAdjacentHTML('afterend', creatIndex)
+
+function callbackEvent (filterArgument, keyword, data) {
+  filterArgument.addEventListener('click', function () {
+    creatIndex(data.photographers)
+    /**
+     * @param {condition} compare ('keyword') != data.photographers.tags
+     * @param {if statement} add display: none
+     */
+    for (i = 0; i < data.photographers.length; i++) {
+      console.log(data.photographers[i].tags)
+
+      if (!data.photographers[i].tags.includes(keyword)) {
+        testCardToRemove[i].classList.add('card-filter')
+      }
+    }
+  })
+}
 
 // Litéraux de gabarits
 function addFilter (hashtagFilter) {
@@ -88,4 +74,16 @@ function creatIndex (dataToGet) {
   `
 }
 // NE PAS OUBLIER DE REMPLACER LE INNER HTML (voir test.js)
+
+// DOM éléments
+const portraitFilter = document.getElementById('portaits')
+const artFilter = document.getElementById('art')
+const fashionFilter = document.getElementById('fashion')
+const architectureFilter = document.getElementById('architecture')
+const travelFilter = document.getElementById('travel')
+const sportFilter = document.getElementById('sport')
+const animalsFilter = document.getElementById('animals')
+const eventstFilter = document.getElementById('events')
+const testCardToRemove = document.getElementsByClassName('photographers')
+// const principal = document.getElementById('principal')
 

@@ -170,8 +170,10 @@ nav .nav_filtre p {
   font-size: 12px;
 }
 
-.filter {
-  display: none;
+.justatest {
+  border-radius: 50px;
+  background: #e0e0e0;
+  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 @media only screen and (max-width: 1185px) {
@@ -318,6 +320,10 @@ nav .nav_filtre p {
 }
 .price-and-count .paddeur {
   padding-left: 13px;
+}
+
+.card-filter {
+  display: none;
 }
 
 .trie {
