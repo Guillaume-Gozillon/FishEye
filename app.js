@@ -84,7 +84,7 @@ function creatIndex (dataToGet) {
     ${addFilter(thingsIntoTheData.tags)}
   </div>
     `
-    })
+    }) 
     .join('')}
   `
 }
