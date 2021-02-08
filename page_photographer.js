@@ -62,7 +62,7 @@ ${newData.map(function (thingsForIdentity) {
       </div>
       <button class="btn-contact">Contactez-moi</button>
   </div>
-  <img class="image" src="/img/${thingsForIdentity.portrait}" alt="">
+  <img class="image" src="/FishEye/img/${thingsForIdentity.portrait}" alt="">
 </section>
   `
 })}
@@ -85,7 +85,7 @@ ${newData.map(function (thingsForIdentity) {
   ${dataForTheCard.map(function (thingsForCards) {
       return `
     <div class="picture-photographer_presentation">
-    <img class="img-page" src="/img/${thingsForCards.image}" alt="">
+    <img class="img-page" src="/FishEye//img/${thingsForCards.image}" alt="">
     <div class="text-presentation">
         <p>${thingsForCards.tags}</p>
         <div class="price-and-count">
