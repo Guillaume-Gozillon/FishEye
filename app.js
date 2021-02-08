@@ -74,7 +74,7 @@ function creatIndex (dataToGet) {
   <div class="container">${dataToGet.map(function (thingsIntoTheData) {
       return ` 
     <div id="testcardtoremove"  class="photographers mousechange">
-    <img src="/img/${thingsIntoTheData.portrait}" alt="" />
+    <img src="/FishEye/img/${thingsIntoTheData.portrait}" alt="" />
     <a href="./test-page-photographe.html?id=${thingsIntoTheData.id} "class="name">${
       thingsIntoTheData.name
     }</a>
