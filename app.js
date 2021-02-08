@@ -8,10 +8,7 @@ const sportFilter = document.getElementById('sport')
 const animalsFilter = document.getElementById('animals')
 const eventstFilter = document.getElementById('events')
 const testCardToRemove = document.getElementsByClassName('photographers')
-
 // const principal = document.getElementById('principal')
-
-
 
 /* eslint-disable no-undef */
 async function loadContent () {
@@ -32,16 +29,17 @@ async function loadContent () {
 
 // Fonctions
 
-
 loadContent()
 
 function callbackEvent (filterArgument, keyword, data) {
   filterArgument.addEventListener('click', function () {
     creatIndex(data.photographers)
+
     /**
      * @param {condition} compare ('keyword') != data.photographers.tags
      * @param {if statement} add display: none
      */
+    
     for (i = 0; i < data.photographers.length; i++) {
       console.log(data.photographers[i].tags)
 
@@ -51,7 +49,7 @@ function callbackEvent (filterArgument, keyword, data) {
     }
   })
 }
-
+// filter() itère comme map() mais retourne uniquement les lignes qui valident la condition
 
 // Litéraux de gabarits
 function addFilter (hashtagFilter) {
@@ -91,3 +89,4 @@ function creatIndex (dataToGet) {
   `
 }
 // NE PAS OUBLIER DE REMPLACER LE INNER HTML (voir test.js)
+//insertTest.insertAdjacentHTML('afterend', creatIndex)
