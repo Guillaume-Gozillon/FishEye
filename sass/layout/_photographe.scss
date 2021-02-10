@@ -93,12 +93,21 @@
   margin: auto;
   &_presentation {
     margin-bottom: 20px;
+    & .wrapper{
+      overflow: hidden;
+      border-radius: 10px;
   }
+}
   & .img-page {
     object-fit: cover;
     width: 350px;
     height: 300px;
     border-radius: 7px;
+    transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
+    &:hover{
+      transform: scale(1.3);
+      cursor: pointer;
+    }
   }
 }
 

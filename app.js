@@ -74,7 +74,7 @@ function creatIndex (dataToGet) {
   <div class="container">${dataToGet.map(function (thingsIntoTheData) {
       return ` 
     <div id="testcardtoremove"  class="photographers mousechange">
-    <img src="/FishEye/img/${thingsIntoTheData.portrait}" alt="" />
+    <img src="/img/${thingsIntoTheData.portrait}" alt="" />
     <a href="./test-page-photographe.html?id=${thingsIntoTheData.id} "class="name">${
       thingsIntoTheData.name
     }</a>
@@ -84,7 +84,7 @@ function creatIndex (dataToGet) {
     ${addFilter(thingsIntoTheData.tags)}
   </div>
     `
-    }) 
+    })
     .join('')}
   `
 }

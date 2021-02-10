@@ -14,32 +14,24 @@ async function loadContent () {
   const params = new URLSearchParams(window.location.search)
   const result = toSort.filter(word => word.photographerId == (params.get('id')))
 
-
-
-
   const peopleToSort = data.photographers
   const resultPhotographe = peopleToSort.filter(toTarget => toTarget.id == (params.get('id')))
 
-  console.log('HEYYY4', resultPhotographe);
+  console.log('HEYYY4', resultPhotographe)
 
-  sortPhoto.addEventListener('change', function (event) {
-    const elt = document.querySelectorAll('select')
-
-    if (event.target.value = 'date') {
-      creatCard(result.sort((a, b) => a.likes - b.likes))
-    } 
-
-
-
-
-    console.log('CONDITION', event.target.value)
+  sortPhoto.addEventListener('change', function (e) {
+    if (e.target.selected) {
+      creatCard(result.sort((a, b) => a.like - b.like))
+    } else if (e.target.value = 'title') {
+      creatCard(result.sort((a, b) => a.price - b.price))
+    }
+    console.log('CONDITION', e.target.selected)
   })
 
-  
-createIdentity(resultPhotographe)
+  createIdentity(resultPhotographe)
 
-function createIdentity(newData) {
-  document.getElementById('vignette-photographe').innerHTML = `
+  function createIdentity (newData) {
+    document.getElementById('vignette-photographe').innerHTML = `
 ${newData.map(function (thingsForIdentity) {
   return `
   <section id="vignette-photographe" class="vignette-photographe">
@@ -62,19 +54,12 @@ ${newData.map(function (thingsForIdentity) {
       </div>
       <button class="btn-contact">Contactez-moi</button>
   </div>
-  <img class="image" src="/FishEye/img/${thingsForIdentity.portrait}" alt="">
+  <img class="image" src="/img/${thingsForIdentity.portrait}" alt="">
 </section>
   `
 })}
   `
-
-}
-
-
-
-
-
-
+  }
 
   creatCard(result)
   console.log('HEY', result)
@@ -85,8 +70,10 @@ ${newData.map(function (thingsForIdentity) {
   ${dataForTheCard.map(function (thingsForCards) {
       return `
     <div class="picture-photographer_presentation">
-    <img class="img-page" src="/FishEye//img/${thingsForCards.image}" alt="">
-    <div class="text-presentation">
+      <div class="wrapper">
+        <img class="img-page" src="/img/${thingsForCards.image}" alt="">
+      </div>
+      <div class="text-presentation">
         <p>${thingsForCards.tags}</p>
         <div class="price-and-count">
             <p>${thingsForCards.price}€</p>
