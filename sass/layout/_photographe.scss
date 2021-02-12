@@ -96,6 +96,8 @@
     & .wrapper{
       overflow: hidden;
       border-radius: 10px;
+      width: 350px;
+      height: 300px;
   }
 }
   & .img-page {
@@ -185,9 +187,15 @@
     height: 150px;
   }
 
-  .picture-photographer .img-page {
-    width: 40vw;
-    height: 35vw;
+  .picture-photographer{
+    &   .wrapper{
+      width: 40vw;
+      height: 35vw;
+    }
+    & .img-page {
+      width: 40vw;
+      height: 35vw;
+    }
   }
 
   .vignette-photographe {
@@ -203,6 +211,10 @@
   .picture-photographer {
     grid-template-columns: 1fr;
     & .img-page {
+      width: 350px;
+      height: 300px;
+    }
+    & .wrapper{
       width: 350px;
       height: 300px;
     }
@@ -229,11 +241,17 @@
 }
 
 @media only screen and (max-width: 400px) {
-  .picture-photographer .img-page {
-    width: 90vw;
-    height: 80vw;
+  .picture-photographer{
+    & .wrapper{ 
+      width: 90vw;
+      height: 80vw;
+    }
+    & .img-page {
+      width: 90vw;
+      height: 80vw;
+    }
   }
-}
+} 
 
 @media only screen and (max-width: 340px) {
   .image {

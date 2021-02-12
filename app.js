@@ -55,8 +55,7 @@ function callbackEvent (filterArgument, keyword, data) {
 function addFilter (hashtagFilter) {
   return `
   <div class="hastag">
-  ${hashtagFilter
-    .map(function (itemsFilter) {
+  ${hashtagFilter.map(function (itemsFilter) {
       return `
     <div class="photographer-filter">
       <p>${itemsFilter}</p>

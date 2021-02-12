@@ -38,6 +38,7 @@ nav .nav_filtre {
   border-radius: 20px;
   border: #c4c4c4 0.1em solid;
   margin: 3px 5px;
+  padding-left: 2px;
   transition-duration: 0.2s;
 }
 nav .nav_filtre:hover {
@@ -158,6 +159,7 @@ nav .nav_filtre p {
   border: #c4c4c4 0.1em solid;
   margin: 2px 5px;
   transition-duration: 0.2s;
+  padding-left: 4px;
 }
 .hastag .photographer-filter:hover {
   background-color: #901c1c14;
@@ -303,6 +305,8 @@ nav .nav_filtre p {
 .picture-photographer_presentation .wrapper {
   overflow: hidden;
   border-radius: 10px;
+  width: 350px;
+  height: 300px;
 }
 .picture-photographer .img-page {
   object-fit: cover;
@@ -389,6 +393,10 @@ nav .nav_filtre p {
     height: 150px;
   }
 
+  .picture-photographer .wrapper {
+    width: 40vw;
+    height: 35vw;
+  }
   .picture-photographer .img-page {
     width: 40vw;
     height: 35vw;
@@ -407,6 +415,10 @@ nav .nav_filtre p {
     grid-template-columns: 1fr;
   }
   .picture-photographer .img-page {
+    width: 350px;
+    height: 300px;
+  }
+  .picture-photographer .wrapper {
     width: 350px;
     height: 300px;
   }
@@ -431,6 +443,10 @@ nav .nav_filtre p {
   }
 }
 @media only screen and (max-width: 400px) {
+  .picture-photographer .wrapper {
+    width: 90vw;
+    height: 80vw;
+  }
   .picture-photographer .img-page {
     width: 90vw;
     height: 80vw;

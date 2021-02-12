@@ -53,17 +53,7 @@ async function loadContent () {
           <h1 class="firstName">${thingsForIdentity.name}</h1>
           <h2 class="location-photographer">${thingsForIdentity.city}, ${thingsForIdentity.country}</h2>
           <p class="bio-photographer">${thingsForIdentity.tagline}</p>
-          <div class="hastag">
-              <div class="photographer-filter">
-                  <p>#Event</p>
-              </div>
-              <div class="photographer-filter">
-                  <p>#Travel</p>
-              </div>
-              <div class="photographer-filter">
-                  <p>#Animals</p>
-              </div>
-          </div>
+          ${addPhotographeFilter(thingsForIdentity.tags)}
       </div>
       <button class="btn-contact">Contactez-moi</button>
   </div>
@@ -73,9 +63,38 @@ async function loadContent () {
 })}
   `
   }
+  // Template des hastag
+  function addPhotographeFilter (hashtagPhotographeFilter) {
+    return `
+    <div class="hastag">
+    ${hashtagPhotographeFilter.map(function (itemsPhotographeFilter) {
+        return `
+      <div class="photographer-filter">
+        <p>${itemsPhotographeFilter}</p>
+      </div>
+      `
+      })
+      .join('')}
+  </div>
+    `
+  }
 
   creatCard(result)
   console.log('HEY', result)
+
+  function imageForPhotographe (toTry) {
+    return `
+  <img class="img-page" src="/img/${toTry}" alt="">
+  `
+  }
+
+  function videoForPhotographe (anotherTry) {
+    return `
+    <video class="img-page" alt="" preload loop autoplay>  
+      <source src="/img/${anotherTry}" type="video/mp4">
+    </video>
+  `
+  }
 
   // Litéraux de gabarits
   function creatCard (dataForTheCard) {
@@ -84,7 +103,8 @@ async function loadContent () {
       return `
     <div class="picture-photographer_presentation">
       <div class="wrapper">
-        <img class="img-page" src="/img/${thingsForCards.image}" alt="">
+        ${thingsForCards.image ? imageForPhotographe(thingsForCards.image) : ''}
+        ${thingsForCards.video ? videoForPhotographe(thingsForCards.video) : ''}
       </div>
       <div class="text-presentation">
         <p>${thingsForCards.name}</p>
