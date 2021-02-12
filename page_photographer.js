@@ -12,7 +12,7 @@ async function loadContent () {
 
   const toSort = data.media
   const params = new URLSearchParams(window.location.search)
-  const result = toSort.filter(word => word.photographerId == (params.get('id')))
+  const result = toSort.filter(newArray => newArray.photographerId == (params.get('id')))
 
   const peopleToSort = data.photographers
   const resultPhotographe = peopleToSort.filter(toTarget => toTarget.id == (params.get('id')))
@@ -20,10 +20,8 @@ async function loadContent () {
 
   sortPhoto.addEventListener('change', () => {
     if (sortPhoto.value == 'trend') { // POPULARITE
-      console.log('Valeur select :', sortPhoto)
-      return creatCard(result.sort((a, b) => a.likes - b.likes))
+      return creatCard(result.sort((a, b) => b.likes - a.likes))
     } else if (sortPhoto.value == 'date') { // DATE
-      console.log('Valeur select :', sortPhoto.value)
       creatCard(result.sort(function (a, b) {
         console.log('RESULTA :', result)
         const dateA = new Date(a.date)
@@ -31,8 +29,14 @@ async function loadContent () {
         return dateA - dateB
       }))
     } else if (sortPhoto.value == 'title') { // TITRE
-      console.log('Valeur select :', sortPhoto)
-      return creatCard(result.sort((a, b) => a.price - b.price))
+      creatCard(result.sort(function (a, b) {
+        console.log('RESULTA :', result)
+        const titleA = a.name.toLowerCase()
+        const titleB = b.name.toLowerCase()
+        if (titleA < titleB) return -1
+        if (titleA > titleB) return 1
+        return dateA - dateB
+      }))
     }
   })
 
