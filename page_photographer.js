@@ -18,30 +18,30 @@ async function loadContent () {
   const resultPhotographe = peopleToSort.filter(toTarget => toTarget.id == (params.get('id')))
   const sortPhoto = document.getElementById('sort-photo')
 
-  console.log('HEYYY4', resultPhotographe)
-
   sortPhoto.addEventListener('change', () => {
-    console.log('Valeur select :', sortPhoto.value)
-    if (sortPhoto.value == 'date') {
+    if (sortPhoto.value == 'trend') { // POPULARITE
+      console.log('Valeur select :', sortPhoto)
       return creatCard(result.sort((a, b) => a.likes - b.likes))
-    }
-  })
-
-  sortPhoto.addEventListener('change', () => {
-    console.log('Valeur select :', sortPhoto.value)
-    if (sortPhoto.value == 'title') {
+    } else if (sortPhoto.value == 'date') { // DATE
+      console.log('Valeur select :', sortPhoto.value)
+      creatCard(result.sort(function (a, b) {
+        console.log('RESULTA :', result)
+        const dateA = new Date(a.date)
+        const dateB = new Date(b.date)
+        return dateA - dateB
+      }))
+    } else if (sortPhoto.value == 'title') { // TITRE
+      console.log('Valeur select :', sortPhoto)
       return creatCard(result.sort((a, b) => a.price - b.price))
     }
   })
-  console.log('Result', result)
+
   creatCard(result)
-
-
   createIdentity(resultPhotographe)
 
   function createIdentity (newData) {
     document.getElementById('vignette-photographe').innerHTML = `
-${newData.map(function (thingsForIdentity) {
+  ${newData.map(function (thingsForIdentity) {
   return `
   <section id="vignette-photographe" class="vignette-photographe">
   <div class="main-content-photographer">
@@ -83,7 +83,7 @@ ${newData.map(function (thingsForIdentity) {
         <img class="img-page" src="/img/${thingsForCards.image}" alt="">
       </div>
       <div class="text-presentation">
-        <p>${thingsForCards.tags}</p>
+        <p>${thingsForCards.name}</p>
         <div class="price-and-count">
             <p>${thingsForCards.price}€</p>
             <p class="paddeur">${thingsForCards.likes} ❤</p>
@@ -97,5 +97,4 @@ ${newData.map(function (thingsForIdentity) {
   }
 }
 
-// Fonction lancées
 loadContent()
