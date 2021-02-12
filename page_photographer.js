@@ -16,17 +16,26 @@ async function loadContent () {
 
   const peopleToSort = data.photographers
   const resultPhotographe = peopleToSort.filter(toTarget => toTarget.id == (params.get('id')))
+  const sortPhoto = document.getElementById('sort-photo')
 
   console.log('HEYYY4', resultPhotographe)
 
-  sortPhoto.addEventListener('change', function (e) {
-    if (e.target.selected) {
-      creatCard(result.sort((a, b) => a.like - b.like))
-    } else if (e.target.value = 'title') {
-      creatCard(result.sort((a, b) => a.price - b.price))
+  sortPhoto.addEventListener('change', () => {
+    console.log('Valeur select :', sortPhoto.value)
+    if (sortPhoto.value == 'date') {
+      return creatCard(result.sort((a, b) => a.likes - b.likes))
     }
-    console.log('CONDITION', e.target.selected)
   })
+
+  sortPhoto.addEventListener('change', () => {
+    console.log('Valeur select :', sortPhoto.value)
+    if (sortPhoto.value == 'title') {
+      return creatCard(result.sort((a, b) => a.price - b.price))
+    }
+  })
+  console.log('Result', result)
+  creatCard(result)
+
 
   createIdentity(resultPhotographe)
 
@@ -87,9 +96,6 @@ ${newData.map(function (thingsForIdentity) {
   `
   }
 }
-
-// DOM éléments
-const sortPhoto = document.getElementById('sort-photo')
 
 // Fonction lancées
 loadContent()
