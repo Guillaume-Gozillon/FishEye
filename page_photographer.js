@@ -1,9 +1,10 @@
-/* eslint-disable no-cond-assign */
-/* eslint-disable no-undef */
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
+  return data
+}
 
+loadContent().then((data) => {
   /**
    * @param {URLSearchParams} (window.location.search) fetch => ?id={number}
    * @param {URLSearchParams.get()} params.get('id') => isole l'ID de l'URL
@@ -12,7 +13,7 @@ async function loadContent () {
 
   const toSort = data.media
   const params = new URLSearchParams(window.location.search)
-  const result = toSort.filter(newArray => newArray.photographerId == (params.get('id')))
+  const sortedData = toSort.filter(newArray => newArray.photographerId == (params.get('id')))
 
   const peopleToSort = data.photographers
   const resultPhotographe = peopleToSort.filter(toTarget => toTarget.id == (params.get('id')))
@@ -20,17 +21,15 @@ async function loadContent () {
 
   sortPhoto.addEventListener('change', () => {
     if (sortPhoto.value == 'trend') { // POPULARITE
-      return creatCard(result.sort((a, b) => b.likes - a.likes))
+      return creatCard(sortedData.sort((a, b) => b.likes - a.likes))
     } else if (sortPhoto.value == 'date') { // DATE
-      creatCard(result.sort(function (a, b) {
-        console.log('RESULTA :', result)
+      creatCard(sortedData.sort(function (a, b) {
         const dateA = new Date(a.date)
         const dateB = new Date(b.date)
         return dateA - dateB
       }))
-    } else if (sortPhoto.value == 'title') { // TITRE
-      creatCard(result.sort(function (a, b) {
-        console.log('RESULTA :', result)
+    } else { // TITRE
+      creatCard(sortedData.sort(function (a, b) {
         const titleA = a.name.toLowerCase()
         const titleB = b.name.toLowerCase()
         if (titleA < titleB) return -1
@@ -40,7 +39,38 @@ async function loadContent () {
     }
   })
 
-  creatCard(result)
+  /// ///////////////////////
+
+  for (i = 0; i < sortedData[i].likes.length; i++) {
+    // ecouteur
+    // commencer avec un coeur
+    const counterMatches = sortedData[i].likes
+    console.log(counterMatches)
+  }
+
+  function addCounterToHTML (counterMatches) {
+    function createTheNewContent () {
+      document.getElementById('compteur').innerHTML = `
+      <aside id="compteur" class="compteur">
+      <p>${counterMatches} ❤</p>
+      <p>700€/jour</p>
+  </aside>
+      `
+    }
+
+    return {
+      counterMatches,
+      createTheNewContent
+    }
+  }
+
+  const firstFactoryMethod = addCounterToHTML()
+
+  firstFactoryMethod.createTheNewContent()
+
+  /// ////////////////////////////
+
+  creatCard(sortedData)
   createIdentity(resultPhotographe)
 
   function createIdentity (newData) {
@@ -79,19 +109,18 @@ async function loadContent () {
     `
   }
 
-  creatCard(result)
-  console.log('HEY', result)
+  creatCard(sortedData)
 
-  function imageForPhotographe (toTry) {
+  function createImageCard (images) {
     return `
-  <img class="img-page" src="/img/${toTry}" alt="">
+  <img class="img-page" src="/img/${images}" alt="">
   `
   }
 
-  function videoForPhotographe (anotherTry) {
+  function createVideoCard (videos) {
     return `
     <video class="img-page" alt="" preload loop autoplay>  
-      <source src="/img/${anotherTry}" type="video/mp4">
+      <source src="/img/${videos}" type="video/mp4">
     </video>
   `
   }
@@ -103,8 +132,8 @@ async function loadContent () {
       return `
     <div class="picture-photographer_presentation">
       <div class="wrapper">
-        ${thingsForCards.image ? imageForPhotographe(thingsForCards.image) : ''}
-        ${thingsForCards.video ? videoForPhotographe(thingsForCards.video) : ''}
+        ${thingsForCards.image ? createImageCard(thingsForCards.image) : ''}
+        ${thingsForCards.video ? createVideoCard(thingsForCards.video) : ''}
       </div>
       <div class="text-presentation">
         <p>${thingsForCards.name}</p>
@@ -119,6 +148,4 @@ async function loadContent () {
     .join('')}
   `
   }
-}
-
-loadContent()
+})

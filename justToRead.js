@@ -1,187 +1,320 @@
-// use fetch to retrieve the products and pass them to init
-// report any errors that occur in the fetch operation
-// once the products have been successfully loaded and formatted as a JSON object
-// using response.json(), run the initialize() function
-fetch('products.json').then(function (response) {
-  return response.json()
-}).then(function (json) {
-  const products = json
-  initialize(products)
-}).catch(function (err) {
-  console.log('Fetch problem: ' + err.message)
-})
+const gallery = document.getElementById('mediaGallery')
+const photographerName = document.getElementById('photographerName')
+const photographerDesc = document.getElementById('photographerDesc')
+const photographerTags = document.getElementById('photographerTags')
+const photographerProfilePhoto = document.getElementById('photographerProfilePhoto')
+const photographerLikes = document.getElementById('photographerLikes')
+const photographerPrice = document.getElementById('photographerPrice')
+const selectOrder_roll = document.getElementById('selectedOrder')
 
-// sets up the app logic, declares required variables, contains all the other functions
-function initialize (products) {
-  // grab the UI elements that we need to manipulate
-  const category = document.querySelector('#category')
-  const searchTerm = document.querySelector('#searchTerm')
-  const searchBtn = document.querySelector('button')
-  const main = document.querySelector('main')
+const urlParams = new URLSearchParams(window.location.search)
+const photographerID = urlParams.get('id')
 
-  // keep a record of what the last category and search term entered were
-  let lastCategory = category.value
-  // no search has been made yet
-  let lastSearch = ''
+let selectedOrder
+let modalMediaIndex = 0
 
-  // these contain the results of filtering by category, and search term
-  // finalGroup will contain the products that need to be displayed after
-  // the searching has been done. Each will be an array containing objects.
-  // Each object will represent a product
-  let categoryGroup
-  let finalGroup
+async function getAsync () {
+  const response = await fetch('https://hugolainen.github.io/FishEye/public/data/FishEyeData.json')
+  const data = await response.json()
+  return data
+}
 
-  // To start with, set finalGroup to equal the entire products database
-  // then run updateDisplay(), so ALL products are displayed initially.
-  finalGroup = products
-  updateDisplay()
+getAsync().then((data) => {
+  const mediaList = data.media
+  const photographerList = data.photographers
+  const photgrapherIndex = getPhotographer(photographerID, photographerList)
+  const photographerMediaList = getPhotographerMediaList(photographerID, mediaList)
+  const orderPopularity = generateOrderList(photographerMediaList, 'popularity')
+  const orderDate = generateOrderList(photographerMediaList, 'date')
+  const orderName = generateOrderList(photographerMediaList, 'name')
+  const gallerySize = photographerMediaList.length
+  selectedOrder = orderPopularity
 
-  // Set both to equal an empty array, in time for searches to be run
-  categoryGroup = []
-  finalGroup = []
+  generateProfile(photgrapherIndex, photographerList, photographerMediaList)
+  generateGallery(photographerMediaList, selectedOrder)
+  generateModalMediaClickEvents()
 
-  // when the search button is clicked, invoke selectCategory() to start
-  // a search running to select the category of products we want to display
-  searchBtn.onclick = selectCategory
-
-  function selectCategory (e) {
-    // Use preventDefault() to stop the form submitting — that would ruin
-    // the experience
-    e.preventDefault()
-
-    // Set these back to empty arrays, to clear out the previous search
-    categoryGroup = []
-    finalGroup = []
-
-    // if the category and search term are the same as they were the last time a
-    // search was run, the results will be the same, so there is no point running
-    // it again — just return out of the function
-    if (category.value === lastCategory && searchTerm.value.trim() === lastSearch) {
-
+  // List select to modify the order
+  selectOrder_roll.addEventListener('change', (event) => {
+    if (event.target.value == 'date') {
+      selectedOrder = orderDate
+    } else if (event.target.value == 'title') {
+      selectedOrder = orderName
     } else {
-      // update the record of last category and search term
-      lastCategory = category.value
-      lastSearch = searchTerm.value.trim()
-      // In this case we want to select all products, then filter them by the search
-      // term, so we just set categoryGroup to the entire JSON object, then run selectProducts()
-      if (category.value === 'All') {
-        categoryGroup = products
-        selectProducts()
-        // If a specific category is chosen, we need to filter out the products not in that
-        // category, then put the remaining products inside categoryGroup, before running
-        // selectProducts()
-      } else {
-        // the values in the <option> elements are uppercase, whereas the categories
-        // store in the JSON (under "type") are lowercase. We therefore need to convert
-        // to lower case before we do a comparison
-        const lowerCaseType = category.value.toLowerCase()
-        for (let i = 0; i < products.length; i++) {
-          // If a product's type property is the same as the chosen category, we want to
-          // display it, so we push it onto the categoryGroup array
-          if (products[i].type === lowerCaseType) {
-            categoryGroup.push(products[i])
+      selectedOrder = orderPopularity
+    }
+    generateGallery(photographerMediaList, selectedOrder)
+    generateModalMediaClickEvents()
+  })
+
+
+
+  
+  // Utility function to get the data at a specific index
+  function getModalMedia (modalIndex) {
+    const index = selectedOrder[modalIndex].index
+    return photographerMediaList[index]
+  }
+
+  // Generation of modal media
+  function generateFocusElement (modalIndex) {
+    const media = getModalMedia(modalIndex)
+    if (media.image == undefined) {
+      imgShow.innerHTML = '<video tabIndex=0 controls> <source src="public/img/media/' + media.video + '" type="video/mp4">' + media.alt + '</video>'
+    } else {
+      imgShow.innerHTML = '<img tabIndex=0 src="public/img/media/' + media.image + '" alt="' + media.alt + '">'
+    }
+
+    imgName.innerHTML = media.alt
+  }
+
+  // Event to move to next media
+  nextImg.addEventListener('click', ($event) => {
+    $event.preventDefault()
+    goToNextImg()
+  })
+
+  function goToNextImg () {
+    modalMediaIndex = makeItRoll(modalMediaIndex, gallerySize, 'forward')
+    generateFocusElement(modalMediaIndex)
+    imgShow.firstChild.focus()
+  }
+
+  // Event to move to previous media
+  prevImg.addEventListener('click', ($event) => {
+    $event.preventDefault()
+    goToPrevImg()
+  })
+
+  function goToPrevImg () {
+    modalMediaIndex = makeItRoll(modalMediaIndex, gallerySize, 'backward')
+    generateFocusElement(modalMediaIndex)
+    imgShow.firstChild.focus()
+  }
+
+  // Generate the click events on the media cards (open modalMedia + like)
+  function generateModalMediaClickEvents () {
+    const modalMedia_Opener = document.getElementsByClassName('modalMedia_open')
+    const likeButton = document.getElementsByClassName('add_like_button')
+
+    for (let i = 0; i < modalMedia_Opener.length; i++) {
+      modalMedia_Opener[i].addEventListener('click', () => {
+        launchModalMedia()
+        modalMediaIndex = i
+        generateFocusElement(modalMediaIndex)
+        modalMedia.focus()
+      })
+
+      likeButton[i].addEventListener('click', () => {
+        likeButton[i].innerHTML = (parseInt(likeButton[i].textContent, 10) + 1) + ' <i class="fas fa-heart"></i>'
+        photographerLikes.innerHTML = (parseInt(photographerLikes.textContent, 10) + 1) + ' <i class="fas fa-heart"></i>'
+
+        for (let j = 0; j < photographerMediaList.length; j++) {
+          if (orderPopularity[i].name == photographerMediaList[j].alt) {
+            photographerMediaList[j].likes = parseInt(photographerMediaList[j].likes) + 1
           }
         }
 
-        // Run selectProducts() after the filtering has been done
-        selectProducts()
-      }
-    }
-  }
-
-  // selectProducts() Takes the group of products selected by selectCategory(), and further
-  // filters them by the tiered search term (if one has been entered)
-  function selectProducts () {
-    // If no search term has been entered, just make the finalGroup array equal to the categoryGroup
-    // array — we don't want to filter the products further — then run updateDisplay().
-    if (searchTerm.value.trim() === '') {
-      finalGroup = categoryGroup
-      updateDisplay()
-    } else {
-      // Make sure the search term is converted to lower case before comparison. We've kept the
-      // product names all lower case to keep things simple
-      const lowerCaseSearchTerm = searchTerm.value.trim().toLowerCase()
-      // For each product in categoryGroup, see if the search term is contained inside the product name
-      // (if the indexOf() result doesn't return -1, it means it is) — if it is, then push the product
-      // onto the finalGroup array
-      for (let i = 0; i < categoryGroup.length; i++) {
-        if (categoryGroup[i].name.indexOf(lowerCaseSearchTerm) !== -1) {
-          finalGroup.push(categoryGroup[i])
+        if (i > 0) {
+          if (photographerMediaList[orderPopularity[i].index].likes > photographerMediaList[orderPopularity[i - 1].index].likes) {
+            const temp = orderPopularity[i]
+            orderPopularity[i] = orderPopularity[i - 1]
+            orderPopularity[i - 1] = temp
+            if (selectOrder_roll.value == 'popularity') {
+              selectedOrder = orderPopularity
+              generateGallery(photographerMediaList, selectedOrder)
+              generateModalMediaClickEvents()
+            }
+          }
         }
-      }
-
-      // run updateDisplay() after this second round of filtering has been done
-      updateDisplay()
+      })
     }
   }
 
-  // start the process of updating the display with the new set of products
-  function updateDisplay () {
-    // remove the previous contents of the <main> element
-    while (main.firstChild) {
-      main.removeChild(main.firstChild)
+  // Add keyboard events to close the display
+  // Also add the use of keyboard arrow keys to do the modalMedia rotation
+  modalMedia.addEventListener('keyup', function (event) {
+    if (event.key === 'Escape') {
+      closeModalMedia()
     }
+    if (event.key == 'ArrowLeft') {
+      goToPrevImg()
+    }
+    if (event.key == 'ArrowRight') {
+      goToNextImg()
+    }
+  })
+})
 
-    // if no products match the search term, display a "No results to display" message
-    if (finalGroup.length === 0) {
-      const para = document.createElement('p')
-      para.textContent = 'No results to display!'
-      main.appendChild(para)
-      // for each product we want to display, pass its product object to fetchBlob()
-    } else {
-      for (let i = 0; i < finalGroup.length; i++) {
-        fetchBlob(finalGroup[i])
-      }
+// get the index of the photographer based on his ID number
+function getPhotographer (ID, photographerList) {
+  let photographIndex
+  for (let i = 0; i < photographerList.length; i++) {
+    if (photographerList[i].id == ID) {
+      photographIndex = i
+      return i
     }
   }
+}
 
-  // fetchBlob uses fetch to retrieve the image for that product, and then sends the
-  // resulting image display URL and product object on to showProduct() to finally
-  // display it
-  function fetchBlob (product) {
-    // construct the URL path to the image file from the product.image property
-    const url = 'images/' + product.image
-    // Use fetch to fetch the image, and convert the resulting response to a blob
-    // Again, if any errors occur we report them in the console.
-    fetch(url).then(function (response) {
-      return response.blob()
-    }).then(function (blob) {
-      // Convert the blob to an object URL — this is basically an temporary internal URL
-      // that points to an object stored inside the browser
-      const objectURL = URL.createObjectURL(blob)
-      // invoke showProduct
-      showProduct(objectURL, product)
+// get the list of index of the photograph medias based on his ID number
+function getPhotographerMediaList (ID, baseMediaList) {
+  const mediaList = []
+  for (let i = 0; i < baseMediaList.length; i++) {
+    if (baseMediaList[i].photographerId == ID) {
+      mediaList.push(baseMediaList[i])
+    }
+  }
+  return mediaList
+}
+
+// Generate the photographer profil and footer numbers
+function generateProfile (index, photographerList, photographerMediaList) {
+  const photographer = photographerList[index]
+  let ammountOfLikes = 0
+  for (var i = 0; i < photographerMediaList.length; i++) {
+    ammountOfLikes += photographerMediaList[i].likes
+  }
+
+  photographerName.innerText = photographer.name
+  photographerDesc.innerHTML = '<strong>' + photographer.city + ', ' + photographer.country + '</strong> <br>' + photographer.tagline + '<br>'
+  for (var i = 0; i < photographer.tags.length; i++) {
+    const tag = document.createElement('li')
+    tag.innerHTML = '#' + photographer.tags[i]
+    photographerTags.appendChild(tag)
+  }
+  photographerProfilePhoto.innerHTML = '<img tabindex=0 class="photographProfile__photo" src="public/img/photographersIDphotos/' + photographer.portrait + '" alt="' + photographer.name + '" >'
+  photographerLikes.innerHTML = ammountOfLikes + ' <em class="invisible"> likes</em> <i class="fas fa-heart"></i>'
+  photographerPrice.innerHTML = photographer.price + '$ / day'
+
+  modalForm_title.innerHTML = 'Contact me <br>' + photographer.name
+}
+
+// generate a new list of index re-arranged based on the order type
+function generateOrderList (mediaList, type) {
+  const orderList = []
+  for (let i = 0; i < mediaList.length; i++) {
+    const mediaItem = {
+      index: i,
+      likes: mediaList[i].likes,
+      date: mediaList[i].date,
+      name: mediaList[i].alt
+    }
+    orderList.push(mediaItem)
+  }
+
+  if (type == 'name') {
+    return orderList.sort(function (a, b) {
+      if (a.name < b.name) { return -1 }
+      if (a.name > b.name) { return 1 }
+      return 0
     })
+  } else if (type == 'date') {
+    return orderList.sort(function (a, b) {
+      // Turn the strings into dates, and then subtract them to get a value that is either negative, positive, or zero.
+      return new Date(b.date) - new Date(a.date)
+    })
+  } else {
+    return orderList.sort((a, b) => b.likes - a.likes)
+  }
+}
+
+// Generate the gallery
+function generateGallery (mediaList, orderList) {
+  while (gallery.firstChild) {
+    gallery.removeChild(gallery.firstChild)
   }
 
-  // Display a product inside the <main> element
-  function showProduct (objectURL, product) {
-    // create <section>, <h2>, <p>, and <img> elements
-    const section = document.createElement('section')
-    const heading = document.createElement('h2')
-    const para = document.createElement('p')
-    const image = document.createElement('img')
+  for (let i = 0; i < mediaList.length; i++) {
+    gallery.appendChild(generateMediaCard(mediaList[orderList[i].index]))
+  }
+}
 
-    // give the <section> a classname equal to the product "type" property so it will display the correct icon
-    section.setAttribute('class', product.type)
+// Call the factory constructors to build a mediaCard
+function generateMediaCard (media) {
+  const cardObj = new mediaCardPartsFactory('card', media)
+  const descObj = new mediaCardPartsFactory('desc', media)
 
-    // Give the <h2> textContent equal to the product "name" property, but with the first character
-    // replaced with the uppercase version of the first character
-    heading.textContent = product.name.replace(product.name.charAt(0), product.name.charAt(0).toUpperCase())
+  if (media.image == undefined) {
+    var mediaObj = new mediaCardPartsFactory('video', media)
+  } else {
+    var mediaObj = new mediaCardPartsFactory('image', media)
+  }
+  cardObj.mediaCard.appendChild(mediaObj.mediaMedia)
+  cardObj.mediaCard.appendChild(descObj.mediaDesc)
 
-    // Give the <p> textContent equal to the product "price" property, with a $ sign in front
-    // toFixed(2) is used to fix the price at 2 decimal places, so for example 1.40 is displayed
-    // as 1.40, not 1.4.
-    para.textContent = '$' + product.price.toFixed(2)
+  return cardObj.mediaCard
+}
 
-    // Set the src of the <img> element to the ObjectURL, and the alt to the product "name" property
-    image.src = objectURL
-    image.alt = product.name
+// Intermediary between the actual factories classes and the user
+class mediaCardPartsFactory {
+  constructor (type, mediaData) {
+    if (type === 'card') {
+      return new MediaFactory_card()
+    }
 
-    // append the elements to the DOM as appropriate, to add the product to the UI
-    main.appendChild(section)
-    section.appendChild(heading)
-    section.appendChild(para)
-    section.appendChild(image)
+    if (type === 'desc') {
+      return new MediaFactory_desc(mediaData)
+    }
+
+    if (type === 'video') {
+      return new MediaFactory_video(mediaData)
+    }
+
+    if (type === 'image') {
+      return new MediaFactory_image(mediaData)
+    }
+  }
+}
+
+// Various factories used to build a mediaCard
+class MediaFactory_card {
+  constructor () {
+    this.mediaCard = document.createElement('div')
+    this.mediaCard.classList.add('mediaCard')
+  }
+}
+
+class MediaFactory_video {
+  constructor (mediaData) {
+    this.mediaMedia = document.createElement('div')
+    this.mediaMedia.classList.add('mediaCard__image')
+    this.mediaMedia.classList.add('modalMedia_open')
+    this.mediaMedia.innerHTML = '<a href="#" > <video alt="' + mediaData.alt + '"> <source src="public/img/media/' + mediaData.video + '" type="video/mp4">' + mediaData.alt + ', closeup view </video> </a>'
+  }
+}
+
+class MediaFactory_image {
+  constructor (mediaData) {
+    this.mediaMedia = document.createElement('div')
+    this.mediaMedia.classList.add('mediaCard__image')
+    this.mediaMedia.classList.add('modalMedia_open')
+    this.mediaMedia.innerHTML = '<a href="#" > <img src="public/img/media/' + mediaData.image + '" alt="' + mediaData.alt + ', closeup view">  </a>'
+  }
+}
+
+class MediaFactory_desc {
+  constructor (mediaData) {
+    this.mediaDesc = document.createElement('div')
+    this.mediaName = document.createElement('p')
+    this.mediaPrice = document.createElement('p')
+    this.mediaLike = document.createElement('p')
+
+    this.mediaDesc.classList.add('mediaCard__desc')
+    this.mediaName.classList.add('mediaCard__desc__name')
+    this.mediaName.setAttribute('tabindex', '0')
+    this.mediaPrice.classList.add('mediaCard__desc__number')
+    this.mediaPrice.setAttribute('tabindex', '0')
+    this.mediaLike.classList.add('mediaCard__desc__number')
+    this.mediaLike.setAttribute('tabindex', '0')
+    this.mediaLike.classList.add('add_like_button')
+
+    this.mediaName.innerHTML = mediaData.alt
+    this.mediaPrice.innerHTML = mediaData.price + ' $'
+    this.mediaLike.innerHTML = mediaData.likes + ' <em class="invisible"> likes</em> <i class="fas fa-heart" aria-label="likes"></i>'
+
+    this.mediaDesc.appendChild(this.mediaName)
+    this.mediaDesc.appendChild(this.mediaPrice)
+    this.mediaDesc.appendChild(this.mediaLike)
   }
 }

@@ -219,7 +219,7 @@ nav .nav_filtre p {
   display: flex;
 }
 #header-photographe #bloc-logo-photographe .logo-photographe {
-  height: 30px;
+  height: 50px;
 }
 
 .vignette-photographe {
@@ -396,7 +396,7 @@ nav .nav_filtre p {
   .picture-photographer .wrapper {
     width: 40vw;
     height: 35vw;
-  }
+  
   .picture-photographer .img-page {
     width: 40vw;
     height: 35vw;
