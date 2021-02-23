@@ -18,32 +18,25 @@ loadContent().then((data) => {
 
   console.log('Instance buildHTML :', buildHTML)
 
-  // CREATION DES CARTES PHOTOS ---------------------------------------
+  // ITERATION DES CARTES PHOTOS ---------------------------------------
 
-  const imageMedia = new ImageMedia(dataSortedById.mediaSorted[0].name, dataSortedById.mediaSorted[0].id, dataSortedById.mediaSorted[0].photographerId, dataSortedById.mediaSorted[0].image, dataSortedById.mediaSorted[0].tags, dataSortedById.mediaSorted[0].likes, dataSortedById.mediaSorted[0].date, dataSortedById.mediaSorted[0].price)
-
-  // POUR DEMAIN IL FAUDRA PUSHER LES ELEMENT ITERES DANS LE TABLEAU =>>>
-
-  function addToDOM (imageMedia) {
-    const row = []
-    let lastCard = null
-
-    imageMedia.forEach(element => { // FAUX CAR PAS ITERER
-      if (element !== lastCard) {
-        row.push(imageMedia)
-      }
-    })
+  const images = []
+  for (key in dataSortedById.mediaSorted) {
+    const imageMedia = new ImageMedia(
+      dataSortedById.mediaSorted[key].name,
+      dataSortedById.mediaSorted[key].id,
+      dataSortedById.mediaSorted[key].photographerId,
+      dataSortedById.mediaSorted[key].image,
+      dataSortedById.mediaSorted[key].tags,
+      dataSortedById.mediaSorted[key].likes,
+      dataSortedById.mediaSorted[key].date,
+      dataSortedById.mediaSorted[key].price
+      )
+    images.push(imageMedia)
+    imageMedia.createHTML()
   }
-
-
-
-  imageMedia.createHTML()
-  console.log('IMPORTANT :', row)
-
-  addToDOM()
-
-  // ---------------------------------------
 })
+
 
 
 
