@@ -6,10 +6,11 @@ async function loadContent () {
 
 loadContent().then((data) => {
   /**
-   * @param {URLSearchParams} (window.location.search) fetch => ?id={number}
-   * @param {URLSearchParams.get()} params.get('id') => isole l'ID de l'URL
-   * @param {filter()} compare si ID = URL
-   */
+     * Recherche l'ID associé à la page
+     * @param {URLSearchParams} (window.location.search) fetch => ?id={number}
+     * @param {URLSearchParams.get()} params.get('id') => isole l'ID de l'URL
+     * @param {filter()} compare si ID = URL
+     */
 
   const toSort = data.media
   const params = new URLSearchParams(window.location.search)
