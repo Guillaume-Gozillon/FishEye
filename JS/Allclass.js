@@ -42,46 +42,47 @@ loadContent().then((data) => {
 
   buildHTML.createCard()
 
-  console.log('Instance buildHTML :', buildHTML)
-
-  // ------->
-
-  // ITERATION DES CARTES PHOTOS ------->
+  // ITERATION DES IMAGES ------->
 
   const images = []
   for (key in mediaSorted) {
     const shorterImage = mediaSorted[key]
-    const imageMedia = new ImageMedia(
-      shorterImage.name,
-      shorterImage.id,
-      shorterImage.photographerId,
-      shorterImage.image,
-      shorterImage.tags,
-      shorterImage.likes,
-      shorterImage.date,
-      shorterImage.price
-    )
-      if (shorterImage.image !== null) {
-        images.push(imageMedia)
-      }
-    imageMedia.createHTML()
+    if (shorterImage.image) {
+      const imageMedia = new ImageMedia(
+        shorterImage.name,
+        shorterImage.id,
+        shorterImage.photographerId,
+        shorterImage.image,
+        shorterImage.tags,
+        shorterImage.likes,
+        shorterImage.date,
+        shorterImage.price
+      )
+      images.push(imageMedia)
+      imageMedia.createHTML()
+    }
   }
+  console.log('IMAGE :', images)
+
+  // ITERATION DES VIDEOS ------->
 
   const videos = []
-  for (el in mediaSorted) {
-    const shorterVideo = mediaSorted[el]
-    const videoMedia = new VideoMedia(
-      shorterVideo.name,
-      shorterVideo.id,
-      shorterVideo.photographerId,
-      shorterVideo.video,
-      shorterVideo.tags,
-      shorterVideo.likes,
-      shorterVideo.date,
-      shorterVideo.price
-    )
-    videos.push(videoMedia)
-    videoMedia.createHTML()
+  for (key in mediaSorted) {
+    const shorterVideo = mediaSorted[key]
+    if (shorterVideo.video) {
+      const videoMedia = new VideoMedia(
+        shorterVideo.name,
+        shorterVideo.id,
+        shorterVideo.photographerId,
+        shorterVideo.video,
+        shorterVideo.tags,
+        shorterVideo.likes,
+        shorterVideo.date,
+        shorterVideo.price
+      )
+      videos.push(videoMedia)
+      videoMedia.createHTML() 
+    }
   }
 })
 

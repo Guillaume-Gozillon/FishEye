@@ -20,7 +20,7 @@ class VideoMedia {
     this.likes = likes
     this.date = date
     this.price = price
-    console.log('IMAGE', this.video)
+    console.log('VIDEO', this.video)
   }
 
   createHTML () {

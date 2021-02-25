@@ -20,7 +20,7 @@ class ImageMedia {
     this.likes = likes
     this.date = date
     this.price = price
-    console.log('IMAGE', this.image)
+
   }
 
   createHTML () {
