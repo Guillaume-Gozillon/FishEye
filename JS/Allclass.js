@@ -61,7 +61,9 @@ loadContent().then((data) => {
       shorterImage.date,
       shorterImage.price
     )
-    images.push(imageMedia)
+      if (shorterImage.image !== null) {
+        images.push(imageMedia)
+      }
     imageMedia.createHTML()
   }
 
