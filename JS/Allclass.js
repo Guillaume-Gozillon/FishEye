@@ -43,44 +43,6 @@ loadContent().then((data) => {
 })
 
 /*
-
-  const mediaList = []
-  for (key in mediaSorted) {
-    const imgObj = mediaSorted[key]
-    const vidObj = mediaSorted[key]
-    if (imgObj.image) {
-      const imageMedia = new ImageMedia(
-        imgObj.name,
-        imgObj.id,
-        imgObj.photographerId,
-        imgObj.image,
-        imgObj.tags,
-        imgObj.likes,
-        imgObj.date,
-        imgObj.price
-      )
-      mediaList.push(imageMedia)
-      imageMedia.createHTML()
-    }
-    if (vidObj.video) {
-      const videoMedia = new VideoMedia(
-        vidObj.name,
-        vidObj.id,
-        vidObj.photographerId,
-        vidObj.video,
-        vidObj.tags,
-        vidObj.likes,
-        vidObj.date,
-        vidObj.price
-      )
-      mediaList.push(videoMedia)
-      videoMedia.createHTML()
-    }
-  }
-})
-*/
-
-/*
 const images = dataSortedById.mediaSorted.map(imageRaw => return new ImageMedia(imageRaw.name, imageRaw.id, imageRaw.photographerId, imageRaw.image, imageRaw .tags, imageRaw.likes, imageRaw.date, imageRaw.price))
 */
 
