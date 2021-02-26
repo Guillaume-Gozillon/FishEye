@@ -1,14 +1,14 @@
-class VideoMedia {
+export class VideoMedia {
   /**
        *
-       * @param name
-       * @param id
-       * @param photographerId
-       * @param video
-       * @param tags
-       * @param likes
-       * @param date
-       * @param price
+       * @param {name}
+       * @param {id}
+       * @param {photographerId}
+       * @param {video}
+       * @param {tags}
+       * @param {likes}
+       * @param {date}
+       * @param {price}
        */
 
   constructor (name, id, photographerId, video, tags, likes, date, price) {
@@ -20,7 +20,6 @@ class VideoMedia {
     this.likes = likes
     this.date = date
     this.price = price
-    console.log('VIDEO', this.video)
   }
 
   createHTML () {

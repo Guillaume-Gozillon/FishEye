@@ -1,14 +1,14 @@
-class HeaderPhotographer {
+export class HeaderPhotographer {
   /**
          *
-         * @param name
-         * @param id
-         * @param city
-         * @param country
-         * @param tags
-         * @param tagline
-         * @param price
-         * @param portrait
+         * @param {name}
+         * @param {id}
+         * @param {city}
+         * @param {country}
+         * @param {tags}
+         * @param {tagline}
+         * @param {price}
+         * @param {portrait}
          */
 
   constructor (name, id, city, country, tags, tagline, price, portrait) {

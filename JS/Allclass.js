@@ -1,3 +1,7 @@
+import { FactoryMedia } from './FactoryMedia.class.js'
+import { HeaderPhotographer } from './baniere.class.js'
+
+
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
@@ -6,11 +10,11 @@ async function loadContent () {
 
 loadContent().then((data) => {
   /**
-       * Recherche l'ID associé à la page
-       * @param {URLSearchParams} (window.location.search) fetch => ?id={number}
-       * @param {URLSearchParams.get()} params.get('id') => isole l'ID de l'URL
-       * @param {filter()} compare si ID = URL
-       */
+   * Recherche l'ID associé à la page
+   * @param {URLSearchParams} (window.location.search) fetch => ?id={number}
+   * @param {URLSearchParams.get()}  params.get('id') => isole l'ID de l'URL
+   * @param {filter()} compare si ID = URL
+   */
 
   const requestId = window.location.search
   const urlParams = new URLSearchParams(requestId)
@@ -27,64 +31,54 @@ loadContent().then((data) => {
 
   // VIGNETTE SUPERIEUR ------->
 
-  const sameConst = resultPhotographe[0]
+  const x = resultPhotographe[0]
 
-  const buildHTML = new HeaderPhotographer(
-    sameConst.name,
-    sameConst.id,
-    sameConst.city,
-    sameConst.country,
-    sameConst.tags,
-    sameConst.tagline,
-    sameConst.price,
-    sameConst.portrait
-  )
-
+  const buildHTML = new HeaderPhotographer(x.name, x.id, x.city, x.country, x.tags, x.tagline, x.price, x.portrait)
   buildHTML.createCard()
 
-  // ITERATION DES IMAGES ------->
+  // ITERATION IMAGES + VIDEOS ------->
 
-  const images = []
+  const tryTheNewOne = new FactoryMedia(mediaSorted)
+  tryTheNewOne
+})
+
+/*
+
+  const mediaList = []
   for (key in mediaSorted) {
-    const shorterImage = mediaSorted[key]
-    if (shorterImage.image) {
+    const imgObj = mediaSorted[key]
+    const vidObj = mediaSorted[key]
+    if (imgObj.image) {
       const imageMedia = new ImageMedia(
-        shorterImage.name,
-        shorterImage.id,
-        shorterImage.photographerId,
-        shorterImage.image,
-        shorterImage.tags,
-        shorterImage.likes,
-        shorterImage.date,
-        shorterImage.price
+        imgObj.name,
+        imgObj.id,
+        imgObj.photographerId,
+        imgObj.image,
+        imgObj.tags,
+        imgObj.likes,
+        imgObj.date,
+        imgObj.price
       )
-      images.push(imageMedia)
+      mediaList.push(imageMedia)
       imageMedia.createHTML()
     }
-  }
-  console.log('IMAGE :', images)
-
-  // ITERATION DES VIDEOS ------->
-
-  const videos = []
-  for (key in mediaSorted) {
-    const shorterVideo = mediaSorted[key]
-    if (shorterVideo.video) {
+    if (vidObj.video) {
       const videoMedia = new VideoMedia(
-        shorterVideo.name,
-        shorterVideo.id,
-        shorterVideo.photographerId,
-        shorterVideo.video,
-        shorterVideo.tags,
-        shorterVideo.likes,
-        shorterVideo.date,
-        shorterVideo.price
+        vidObj.name,
+        vidObj.id,
+        vidObj.photographerId,
+        vidObj.video,
+        vidObj.tags,
+        vidObj.likes,
+        vidObj.date,
+        vidObj.price
       )
-      videos.push(videoMedia)
-      videoMedia.createHTML() 
+      mediaList.push(videoMedia)
+      videoMedia.createHTML()
     }
   }
 })
+*/
 
 /*
 const images = dataSortedById.mediaSorted.map(imageRaw => return new ImageMedia(imageRaw.name, imageRaw.id, imageRaw.photographerId, imageRaw.image, imageRaw .tags, imageRaw.likes, imageRaw.date, imageRaw.price))

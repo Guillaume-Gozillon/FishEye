@@ -1,14 +1,14 @@
-class ImageMedia {
+export class ImageMedia {
   /**
        *
-       * @param name
-       * @param id
-       * @param photographerId
-       * @param image
-       * @param tags
-       * @param likes
-       * @param date
-       * @param price
+       * @param {name}
+       * @param {id}
+       * @param {photographerId}
+       * @param {image}
+       * @param {tags}
+       * @param {likes}
+       * @param {date}
+       * @param {price}
        */
 
   constructor (name, id, photographerId, image, tags, likes, date, price) {
@@ -20,7 +20,6 @@ class ImageMedia {
     this.likes = likes
     this.date = date
     this.price = price
-
   }
 
   createHTML () {
