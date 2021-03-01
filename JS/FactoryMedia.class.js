@@ -1,14 +1,15 @@
+
+
 import { ImageMedia } from './image.class.js'
 import { VideoMedia } from './video.class.js'
 
-export class FactoryMedia {
+export class FactoryMediaRecup {
   constructor (mediaSorted) {
     const mediaList = []
     for (const key in mediaSorted) {
       if (mediaSorted[key].image) {
         const x = mediaSorted[key]
-        const imageMedia = new ImageMedia(
-          x.name,
+        const imageMedia = new ImageMedia(x.name,
           x.id,
           x.photographerId,
           x.image,
@@ -19,10 +20,9 @@ export class FactoryMedia {
         )
         mediaList.push(imageMedia)
         imageMedia.createHTML()
-      } else if (mediaSorted[key]) {
+      } else if (mediaSorted[key].video) {
         const y = mediaSorted[key]
-        const videoMedia = new VideoMedia(
-          y.name,
+        const videoMedia = new VideoMedia(y.name,
           y.id,
           y.photographerId,
           y.video,

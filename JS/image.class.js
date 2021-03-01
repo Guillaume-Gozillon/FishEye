@@ -1,3 +1,5 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-unused-expressions */
 export class ImageMedia {
   /**
        *
@@ -11,15 +13,15 @@ export class ImageMedia {
        * @param {price}
        */
 
-  constructor (name, id, photographerId, image, tags, likes, date, price) {
-    this.name = name
-    this.id = id
-    this.photographerId = photographerId
-    this.image = image
-    this.tags = tags
-    this.likes = likes
-    this.date = date
-    this.price = price
+  constructor (media) {
+    this.name = media.name,
+    this.id = media.id,
+    this.photographerId = media.photographerId,
+    this.image = media.image,
+    this.tags = media.tags,
+    this.likes = media.likes,
+    this.date = media.date,
+    this.price = media.price
   }
 
   createHTML () {
@@ -31,11 +33,11 @@ export class ImageMedia {
       <div class="text-presentation">
         <p>${this.name}</p>
         <div class="price-and-count">
-            <p>${this.price}€</p>
-            <p class="paddeur">${this.likes} ❤</p>
+          <p>${this.price}€</p>
+          <p class="paddeur">${this.likes} ❤</p>
         </div>
-    </div>
-</div>
-      `
+      </div>
+  </div>
+`
   }
 }

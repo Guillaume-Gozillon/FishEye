@@ -1,3 +1,5 @@
+/* eslint-disable no-sequences */
+/* eslint-disable no-unused-expressions */
 export class VideoMedia {
   /**
        *
@@ -11,15 +13,15 @@ export class VideoMedia {
        * @param {price}
        */
 
-  constructor (name, id, photographerId, video, tags, likes, date, price) {
-    this.name = name
-    this.id = id
-    this.photographerId = photographerId
-    this.video = video
-    this.tags = tags
-    this.likes = likes
-    this.date = date
-    this.price = price
+  constructor (media) {
+    this.name = media.name,
+    this.id = media.id,
+    this.photographerId = media.photographerId,
+    this.video = media.video,
+    this.tags = media.tags,
+    this.likes = media.likes,
+    this.date = media.date,
+    this.price = media.price
   }
 
   createHTML () {

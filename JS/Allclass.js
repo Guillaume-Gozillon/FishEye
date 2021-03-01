@@ -1,6 +1,7 @@
-import { FactoryMedia } from './FactoryMedia.class.js'
+/* eslint-disable eqeqeq */
+import { FactoryMediaRecup } from './FactoryMediaTest.class.js'
 import { HeaderPhotographer } from './baniere.class.js'
-
+// import { SortByFilter } from './sorted_by_id.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -37,33 +38,19 @@ loadContent().then((data) => {
   buildHTML.createCard()
 
   // ITERATION IMAGES + VIDEOS ------->
+  const domElement = new FactoryMediaRecup(mediaSorted)
+  domElement.build()
 
-  const tryTheNewOne = new FactoryMedia(mediaSorted)
-  tryTheNewOne
+  const sortPhoto = document.getElementById('sort-photo')
+  sortPhoto.addEventListener('change', () => {
+    console.log('inside', mediaSorted)
+
+    if (sortPhoto.value == 'trend') {
+      console.log('TEST :', mediaSorted)
+      mediaSorted.sort((a, b) => b.likes - a.likes)
+      domElement.mediaSorted = mediaSorted
+
+      domElement.build()
+    }
+  })
 })
-
-/*
-const images = dataSortedById.mediaSorted.map(imageRaw => return new ImageMedia(imageRaw.name, imageRaw.id, imageRaw.photographerId, imageRaw.image, imageRaw .tags, imageRaw.likes, imageRaw.date, imageRaw.price))
-*/
-
-/*
-sortPhoto.addEventListener('change', () => {
-  if (sortPhoto.value == 'trend') { // POPULARITE
-    return creatCard(sortedData.sort((a, b) => b.likes - a.likes))
-  } else if (sortPhoto.value == 'date') { // DATE
-    creatCard(sortedData.sort(function (a, b) {
-      const dateA = new Date(a.date)
-      const dateB = new Date(b.date)
-      return dateA - dateB
-    }))
-  } else if (sortPhoto.value == 'title') { // TITRE
-    creatCard(sortedData.sort(function (a, b) {
-      const titleA = a.name.toLowerCase()
-      const titleB = b.name.toLowerCase()
-      if (titleA < titleB) return -1
-      if (titleA > titleB) return 1
-      return dateA - dateB
-    }))
-  }
-})
-*/
