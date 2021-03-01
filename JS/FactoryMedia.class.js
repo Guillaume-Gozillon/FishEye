@@ -1,39 +1,24 @@
-
-
 import { ImageMedia } from './image.class.js'
 import { VideoMedia } from './video.class.js'
 
-export class FactoryMediaRecup {
+export class FactoryMedia {
   constructor (mediaSorted) {
+    this.mediaSorted = mediaSorted
+  }
+
+  build () {
     const mediaList = []
-    for (const key in mediaSorted) {
-      if (mediaSorted[key].image) {
-        const x = mediaSorted[key]
-        const imageMedia = new ImageMedia(x.name,
-          x.id,
-          x.photographerId,
-          x.image,
-          x.tags,
-          x.likes,
-          x.date,
-          x.price
-        )
+    for (const media of this.mediaSorted) {
+      if (media.image) {
+        const imageMedia = new ImageMedia(media)
         mediaList.push(imageMedia)
         imageMedia.createHTML()
-      } else if (mediaSorted[key].video) {
-        const y = mediaSorted[key]
-        const videoMedia = new VideoMedia(y.name,
-          y.id,
-          y.photographerId,
-          y.video,
-          y.tags,
-          y.likes,
-          y.date,
-          y.price
-        )
+      } else if (media.video) {
+        const videoMedia = new VideoMedia(media)
         mediaList.push(videoMedia)
         videoMedia.createHTML()
       }
     }
   }
+  // Créer un remove()
 }

@@ -1,7 +1,6 @@
 /* eslint-disable eqeqeq */
-import { FactoryMediaRecup } from './FactoryMediaTest.class.js'
+import { FactoryMedia } from './FactoryMedia.class.js'
 import { HeaderPhotographer } from './baniere.class.js'
-// import { SortByFilter } from './sorted_by_id.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -38,7 +37,7 @@ loadContent().then((data) => {
   buildHTML.createCard()
 
   // ITERATION IMAGES + VIDEOS ------->
-  const domElement = new FactoryMediaRecup(mediaSorted)
+  const domElement = new FactoryMedia(mediaSorted)
   domElement.build()
 
   const sortPhoto = document.getElementById('sort-photo')
