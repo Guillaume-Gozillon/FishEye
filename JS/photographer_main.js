@@ -18,8 +18,6 @@ loadContent().then((data) => {
 
   const requestId = window.location.search
   const urlParams = new URLSearchParams(requestId)
-  const id = urlParams.get('id')
-  console.log('Id :', id)
 
   // Créé un nouveau tableau filtrant le JSON si data.photographer OU data.media en fonction de l'ID
   const photographerSorted = data.photographers
@@ -27,12 +25,10 @@ loadContent().then((data) => {
 
   const toSort = data.media
   const mediaSorted = toSort.filter(newMediaArray => newMediaArray.photographerId == (urlParams.get('id')))
-  console.log('Tableau des photos filtrées :', mediaSorted)
 
   // VIGNETTE SUPERIEUR ------->
 
   const x = resultPhotographe[0]
-
   const buildHTML = new HeaderPhotographer(x.name, x.id, x.city, x.country, x.tags, x.tagline, x.price, x.portrait)
   buildHTML.createCard()
 
@@ -42,13 +38,11 @@ loadContent().then((data) => {
 
   const sortPhoto = document.getElementById('sort-photo')
   sortPhoto.addEventListener('change', () => {
-    console.log('inside', mediaSorted)
-
     if (sortPhoto.value == 'trend') {
       console.log('TEST :', mediaSorted)
       mediaSorted.sort((a, b) => b.likes - a.likes)
       domElement.mediaSorted = mediaSorted
-
+      // Fix error
       domElement.build()
     }
   })

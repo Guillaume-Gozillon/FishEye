@@ -20,5 +20,4 @@ export class FactoryMedia {
       }
     }
   }
-  // Créer un remove()
 }

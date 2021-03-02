@@ -39,7 +39,7 @@ function callbackEvent (filterArgument, keyword, data) {
      * @param {condition} compare ('keyword') != data.photographers.tags
      * @param {if statement} add display: none
      */
-    
+
     for (i = 0; i < data.photographers.length; i++) {
       console.log(data.photographers[i].tags)
 
@@ -88,4 +88,4 @@ function creatIndex (dataToGet) {
   `
 }
 // NE PAS OUBLIER DE REMPLACER LE INNER HTML (voir test.js)
-//insertTest.insertAdjacentHTML('afterend', creatIndex)
+// insertTest.insertAdjacentHTML('afterend', creatIndex)

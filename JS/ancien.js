@@ -1,3 +1,4 @@
+/* eslint-disable eqeqeq */
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
   const data = await response.json()
@@ -35,6 +36,7 @@ loadContent().then((data) => {
         const titleB = b.name.toLowerCase()
         if (titleA < titleB) return -1
         if (titleA > titleB) return 1
+        // eslint-disable-next-line no-undef
         return dateA - dateB
       }))
     }
@@ -42,7 +44,7 @@ loadContent().then((data) => {
 
   /// ///////////////////////
 
-  for (i = 0; i < sortedData[i].likes.length; i++) {
+  for (let i = 0; i < sortedData[i].likes.length; i++) {
     // ecouteur
     // commencer avec un coeur
     const counterMatches = sortedData[i].likes
@@ -69,7 +71,7 @@ loadContent().then((data) => {
 
   firstFactoryMethod.createTheNewContent()
 
-  /// ////////////////////////////
+  /// //////////////////////////
 
   creatCard(sortedData)
   createIdentity(resultPhotographe)
