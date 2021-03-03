@@ -33,8 +33,12 @@ loadContent().then((data) => {
   buildHTML.createCard()
 
   // ITERATION IMAGES + VIDEOS ------->
+
   const domElement = new FactoryMedia(mediaSorted)
   domElement.build()
+
+
+
 
   const sortPhoto = document.getElementById('sort-photo')
   sortPhoto.addEventListener('change', () => {

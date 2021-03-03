@@ -12,12 +12,11 @@ export class FactoryMedia {
       if (media.image) {
         const imageMedia = new ImageMedia(media)
         mediaList.push(imageMedia)
-        imageMedia.createHTML()
       } else if (media.video) {
         const videoMedia = new VideoMedia(media)
+        console.log(mediaList)
         mediaList.push(videoMedia)
-        videoMedia.createHTML()
       }
-    }
+    } console.log(mediaList)
   }
 }
