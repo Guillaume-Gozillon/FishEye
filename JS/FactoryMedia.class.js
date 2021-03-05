@@ -8,15 +8,17 @@ export class FactoryMedia {
 
   build () {
     const mediaList = []
+    console.log(mediaList)
     for (const media of this.mediaSorted) {
       if (media.image) {
         const imageMedia = new ImageMedia(media)
         mediaList.push(imageMedia)
+        imageMedia.createHTML()
       } else if (media.video) {
         const videoMedia = new VideoMedia(media)
-        console.log(mediaList)
         mediaList.push(videoMedia)
+        videoMedia.createHTML()
       }
-    } console.log(mediaList)
+    }
   }
 }

@@ -1,4 +1,5 @@
 /* eslint-disable eqeqeq */
+import { display } from './display.js'
 import { FactoryMedia } from './FactoryMedia.class.js'
 import { HeaderPhotographer } from './baniere.class.js'
 
@@ -8,18 +9,21 @@ async function loadContent () {
   return data
 }
 
-loadContent().then((data) => {
-  /**
-   * Recherche l'ID associé à la page
-   * @param {URLSearchParams} (window.location.search) fetch => ?id={number}
-   * @param {URLSearchParams.get()}  params.get('id') => isole l'ID de l'URL
-   * @param {filter()} compare si ID = URL
+/**
+   * Sort if ID = URL
+   * @param {URL_API} window.location.search fetch => ?id={number}
    */
 
-  const requestId = window.location.search
-  const urlParams = new URLSearchParams(requestId)
+const requestId = window.location.search
+const urlParams = new URLSearchParams(requestId)
 
-  // Créé un nouveau tableau filtrant le JSON si data.photographer OU data.media en fonction de l'ID
+loadContent().then((data) => {
+  /**
+   * New Array sorted with ID
+   * @param {String} resultPhotographe New JSON array for data.photographer
+   * @param {String} mediaSorted New JSON array for data.media
+   */
+
   const photographerSorted = data.photographers
   const resultPhotographe = photographerSorted.filter(newPhotographerArray => newPhotographerArray.id == (urlParams.get('id')))
 
@@ -36,18 +40,5 @@ loadContent().then((data) => {
 
   const domElement = new FactoryMedia(mediaSorted)
   domElement.build()
-
-
-
-
-  const sortPhoto = document.getElementById('sort-photo')
-  sortPhoto.addEventListener('change', () => {
-    if (sortPhoto.value == 'trend') {
-      console.log('TEST :', mediaSorted)
-      mediaSorted.sort((a, b) => b.likes - a.likes)
-      domElement.mediaSorted = mediaSorted
-      // Fix error
-      domElement.build()
-    }
-  })
+  display.trieLesCartes(mediaSorted)
 })

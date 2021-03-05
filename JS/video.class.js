@@ -25,7 +25,7 @@ export class VideoMedia {
   }
 
   createHTML () {
-    document.getElementById('picture-photographer').innerHTML = `
+    document.getElementById('picture-photographer').innerHTML += `
     <div class="picture-photographer_presentation">
       <div class="wrapper">
       <video class="img-page" alt="" preload loop autoplay>  
