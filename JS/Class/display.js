@@ -1,7 +1,17 @@
 import { FactoryMedia } from './FactoryMedia.class.js'
 
+console.log(mediaList);
+
 export const display = {
-  trieLesCartes (mediaSorted) {
+/*
+  // ID + DOM
+  elementShown: function (id, text) {
+    // eslint-disable-next-line prefer-const
+    let element = document.getElementById(id)
+    element.innerHTML = text
+  },
+  */
+  trieLesCartes: function (mediaSorted) {
     const domElement = new FactoryMedia(mediaSorted)
     const sortPhoto = document.getElementById('sort-photo')
     sortPhoto.addEventListener('change', () => {
@@ -13,5 +23,6 @@ export const display = {
         domElement.build()
       }
     })
-  }
+  },
+  supprimeAncienDom () {}
 }

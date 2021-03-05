@@ -1,7 +1,7 @@
 /* eslint-disable eqeqeq */
-import { display } from './display.js'
-import { FactoryMedia } from './FactoryMedia.class.js'
-import { HeaderPhotographer } from './baniere.class.js'
+import { display } from './Class/display.js'
+import { FactoryMedia } from './Class/FactoryMedia.class.js'
+import { HeaderPhotographer } from './Class/baniere.class.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -40,5 +40,9 @@ loadContent().then((data) => {
 
   const domElement = new FactoryMedia(mediaSorted)
   domElement.build()
-  display.trieLesCartes(mediaSorted)
+
+  const photoApp = () => {
+    console.log('HEY')
+  }
+  photoApp()
 })
