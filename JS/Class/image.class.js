@@ -25,7 +25,7 @@ export class ImageMedia {
   }
 
   createHTML () {
-    let imageHTML = `
+    document.getElementById('picture-photographer').innerHTML += `
     <div class="picture-photographer_presentation">
       <div class="wrapper">
       <img class="img-page" src="/img/${this.image}" alt="">

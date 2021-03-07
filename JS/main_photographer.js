@@ -1,6 +1,6 @@
 /* eslint-disable eqeqeq */
 import { display } from './Class/display.js'
-import { FactoryMedia } from './Class/FactoryMedia.class.js'
+// import { FactoryMedia } from './Class/FactoryMedia.class.js'
 import { HeaderPhotographer } from './Class/baniere.class.js'
 
 async function loadContent () {
@@ -8,7 +8,6 @@ async function loadContent () {
   const data = await response.json()
   return data
 }
-
 /**
    * Sort if ID = URL
    * @param {URL_API} window.location.search fetch => ?id={number}
@@ -20,29 +19,31 @@ const urlParams = new URLSearchParams(requestId)
 loadContent().then((data) => {
   /**
    * New Array sorted with ID
-   * @param {String} resultPhotographe New JSON array for data.photographer
+   * @param {String} resultPhoto New JSON array for data.photographer
    * @param {String} mediaSorted New JSON array for data.media
    */
 
-  const photographerSorted = data.photographers
-  const resultPhotographe = photographerSorted.filter(newPhotographerArray => newPhotographerArray.id == (urlParams.get('id')))
+  const photo = data.photographers
+  const resultPhoto = photo.filter(PhotoArr => PhotoArr.id == (urlParams.get('id')))
 
-  const toSort = data.media
-  const mediaSorted = toSort.filter(newMediaArray => newMediaArray.photographerId == (urlParams.get('id')))
+  const media = data.media
+  const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
   // VIGNETTE SUPERIEUR ------->
 
-  const x = resultPhotographe[0]
-  const buildHTML = new HeaderPhotographer(x.name, x.id, x.city, x.country, x.tags, x.tagline, x.price, x.portrait)
+  const buildHTML = new HeaderPhotographer(resultPhoto[0])
   buildHTML.createCard()
 
   // ITERATION IMAGES + VIDEOS ------->
 
-  const domElement = new FactoryMedia(mediaSorted)
-  domElement.build()
-
-  const photoApp = () => {
-    console.log('HEY')
+  const domApp = (data) => {
+    console.log(typeof display.trieLesCartes.bind(display))
+    if (display.trieLesCartes(data) === undefined) {
+      display.initDOM(data)
+    } else {
+      display.trieLesCartes(data)
+    }
   }
-  photoApp()
+
+  domApp(resultMedia)
 })

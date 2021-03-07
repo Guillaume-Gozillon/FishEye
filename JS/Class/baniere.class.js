@@ -11,15 +11,15 @@ export class HeaderPhotographer {
          * @param {portrait}
          */
 
-  constructor (name, id, city, country, tags, tagline, price, portrait) {
-    this.name = name
-    this.id = id
-    this.city = city
-    this.country = country
-    this.tags = tags
-    this.tagline = tagline
-    this.price = price
-    this.portrait = portrait
+  constructor (media) {
+    this.name = media.name,
+    this.id = media.id,
+    this.city = media.city,
+    this.country = media.country,
+    this.tags = media.tags,
+    this.tagline = media.tagline,
+    this.price = media.price,
+    this.portrait = media.portrait
   }
 
   createCard () {
