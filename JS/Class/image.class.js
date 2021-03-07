@@ -2,16 +2,16 @@
 /* eslint-disable no-unused-expressions */
 export class ImageMedia {
   /**
-       *
-       * @param {name}
-       * @param {id}
-       * @param {photographerId}
-       * @param {image}
-       * @param {tags}
-       * @param {likes}
-       * @param {date}
-       * @param {price}
-       */
+   *
+   * @param {name}
+   * @param {id}
+   * @param {photographerId}
+   * @param {image}
+   * @param {tags}
+   * @param {likes}
+   * @param {date}
+   * @param {price}
+   */
 
   constructor (media) {
     this.name = media.name,

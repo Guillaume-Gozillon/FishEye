@@ -2,14 +2,14 @@ import { FactoryMedia } from './FactoryMedia.class.js'
 
 export const display = {
 
-  printElement: function (id, text) {
+  printElement (id, text) {
     const element = document.getElementById(id)
     element.innerHTML = text
   },
-  initDOM: function (data) {
+  initDOM (data) {
     new FactoryMedia(data).build()
   },
-  cardSorter: function (data) {
+  cardSorter (data) {
     const sortPhoto = document.getElementById('sort-photo')
     sortPhoto.addEventListener('change', () => {
       if (sortPhoto.value == 'trend') {

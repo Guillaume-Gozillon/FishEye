@@ -8,9 +8,9 @@ async function loadContent () {
   return data
 }
 /**
-   * Sort if ID = URL
-   * @param {URL_API} window.location.search fetch => ?id={number}
-   */
+ * Sort if ID = URL
+ * @param {URL_API} window.location.search fetch => ?id={number}
+ */
 
 const requestId = window.location.search
 const urlParams = new URLSearchParams(requestId)
@@ -18,22 +18,20 @@ const urlParams = new URLSearchParams(requestId)
 loadContent().then((data) => {
   /**
    * New Array sorted with ID
-   * @param {String} resultPhoto New JSON array for data.photographer
-   * @param {String} mediaSorted New JSON array for data.media
+   * @param {String} resultPhoto New Arr for data.photographer
+   * @param {String} resultMedia New Arr for data.media
    */
 
   const photo = data.photographers
-  const resultPhoto = photo.filter(PhotoArr => PhotoArr.id == (urlParams.get('id')))
+  const resultPhoto = photo.filter(photoArr => photoArr.id == (urlParams.get('id')))
 
   const media = data.media
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
   // Build profil picture
-
   new HeaderPhotographer(resultPhoto[0]).createCard()
 
   // ITERATION IMAGES + VIDEOS ------->
-
   const domApp = (data) => {
     if ((display.cardSorter(data)) === undefined) {
       display.initDOM(data)

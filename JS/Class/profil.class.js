@@ -2,16 +2,16 @@
 /* eslint-disable no-sequences */
 export class HeaderPhotographer {
   /**
-         *
-         * @param {name}
-         * @param {id}
-         * @param {city}
-         * @param {country}
-         * @param {tags}
-         * @param {tagline}
-         * @param {price}
-         * @param {portrait}
-         */
+   *
+   * @param {name}
+   * @param {id}
+   * @param {city}
+   * @param {country}
+   * @param {tags}
+   * @param {tagline}
+   * @param {price}
+   * @param {portrait}
+   */
 
   constructor (media) {
     this.name = media.name,
@@ -26,7 +26,7 @@ export class HeaderPhotographer {
 
   createCard () {
     document.getElementById('vignette-photographe').innerHTML = `
-        <section id="vignette-photographeTEST" class="vignette-photographe">
+        <section id="vignette-photographe" class="vignette-photographe">
         <div class="main-content-photographer">
             <div class="firstElement">
                 <h1 class="firstName">${this.name}</h1>
