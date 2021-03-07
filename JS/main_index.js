@@ -74,7 +74,7 @@ function creatIndex (dataToGet) {
       return ` 
     <div id="testcardtoremove"  class="photographers mousechange">
     <img src="/img/${thingsIntoTheData.portrait}" alt="" />
-    <a href="./test-page-photographe.html?id=${thingsIntoTheData.id} "class="name">${
+    <a href="./main-photographe.html?id=${thingsIntoTheData.id} "class="name">${
       thingsIntoTheData.name
     }</a>
     <div class="location">${thingsIntoTheData.city}</div>
