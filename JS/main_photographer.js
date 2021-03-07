@@ -1,7 +1,6 @@
 /* eslint-disable eqeqeq */
 import { display } from './Class/display.js'
-// import { FactoryMedia } from './Class/FactoryMedia.class.js'
-import { HeaderPhotographer } from './Class/baniere.class.js'
+import { HeaderPhotographer } from './Class/profil.class.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -29,19 +28,17 @@ loadContent().then((data) => {
   const media = data.media
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
-  // VIGNETTE SUPERIEUR ------->
+  // Build profil picture
 
-  const buildHTML = new HeaderPhotographer(resultPhoto[0])
-  buildHTML.createCard()
+  new HeaderPhotographer(resultPhoto[0]).createCard()
 
   // ITERATION IMAGES + VIDEOS ------->
 
   const domApp = (data) => {
-    console.log(typeof display.trieLesCartes.bind(display))
-    if (display.trieLesCartes(data) === undefined) {
+    if ((display.cardSorter(data)) === undefined) {
       display.initDOM(data)
     } else {
-      display.trieLesCartes(data)
+      display.cardSorter(data)
     }
   }
 
