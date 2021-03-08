@@ -2,19 +2,17 @@ import { FactoryMedia } from './FactoryMedia.class.js'
 
 export const display = {
 
-  printElement (id, text) {
-    const element = document.getElementById(id)
-    element.innerHTML = text
-  },
   initDOM (data) {
-    new FactoryMedia(data).build()
+    const theOther = new FactoryMedia(data).build()
+    console.log(theOther)
   },
   cardSorter (data) {
     const sortPhoto = document.getElementById('sort-photo')
-    sortPhoto.addEventListener('change', () => {
+    sortPhoto.addEventListener('change', (e) => {
       if (sortPhoto.value == 'trend') {
         console.log('TEST :', data)
         data.sort((a, b) => b.likes - a.likes)
+        e.preventDefault()
         return this.initDOM(data)
       }
     })

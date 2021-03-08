@@ -31,12 +31,17 @@ loadContent().then((data) => {
   // Build profil picture
   new HeaderPhotographer(resultPhoto[0]).createCard()
 
-  // ITERATION IMAGES + VIDEOS ------->
+  // Build photo or video card
+  display.initDOM(resultMedia)
+  display.cardSorter(resultMedia)
+
   const domApp = (data) => {
-    if ((display.cardSorter(data)) === undefined) {
-      display.initDOM(data)
-    } else {
+    // fetch
+
+    if (display.cardSorter(data)) {
       display.cardSorter(data)
+    } else {
+      display.buildDOM(data)
     }
   }
 
