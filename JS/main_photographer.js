@@ -28,22 +28,10 @@ loadContent().then((data) => {
   const media = data.media
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
-  // Build profil picture
-  new HeaderPhotographer(resultPhoto[0]).createCard()
+  // Build profil photographer
+  const banner = new HeaderPhotographer(resultPhoto[0])
+  banner.createCard()
 
-  // Build photo or video card
+  // Build DOM photographer
   display.initDOM(resultMedia)
-  display.cardSorter(resultMedia)
-
-  const domApp = (data) => {
-    // fetch
-
-    if (display.cardSorter(data)) {
-      display.cardSorter(data)
-    } else {
-      display.buildDOM(data)
-    }
-  }
-
-  domApp(resultMedia)
 })

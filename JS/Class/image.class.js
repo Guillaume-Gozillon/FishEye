@@ -29,14 +29,14 @@ export class ImageMedia {
     <div class="picture-photographer_presentation">
       <div class="wrapper">
       <img class="img-page" src="/img/${this.image}" alt="">
+    </div>
+    <div class="text-presentation">
+      <p>${this.name}</p>
+      <div class="price-and-count">
+        <p>${this.price}€</p>
+        <p class="paddeur">${this.likes} ❤</p>
       </div>
-      <div class="text-presentation">
-        <p>${this.name}</p>
-        <div class="price-and-count">
-          <p>${this.price}€</p>
-          <p class="paddeur">${this.likes} ❤</p>
-        </div>
-      </div>
+    </div>
   </div>
 `
   }
