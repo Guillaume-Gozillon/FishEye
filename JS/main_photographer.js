@@ -1,6 +1,7 @@
+/* eslint-disable no-new */
 /* eslint-disable eqeqeq */
 import { Display } from './Class/Display.js'
-import { HeaderPhotographer } from './Class/profil.class.js'
+import { HeaderPhotographer } from './Class/Profil.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -30,8 +31,7 @@ loadContent().then((data) => {
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
   // Build profil photographer
-  const banner = new HeaderPhotographer(resultPhoto[0])
-  banner.createCard()
+  new HeaderPhotographer(resultPhoto[0])
 
   // Build DOM photographer
   resultMedia.forEach(i => new Display(i))
