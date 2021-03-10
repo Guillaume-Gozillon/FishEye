@@ -17,17 +17,15 @@ export class VideoMedia {
     <div class="picture-photographer_presentation">
       <div class="wrapper">
       <video class="img-page" alt="" preload loop autoplay>  
-      <source src="/img/${this.video}" type="video/mp4">
-    </video>
-      </div>
-      <div class="text-presentation">
-        <p>${this.name}</p>
-        <div class="price-and-count">
-            <p>${this.price}€</p>
-            <p class="paddeur">${this.likes} ❤</p>
-        </div>
+        <source src="/img/${this.video}" type="video/mp4">
+      </video>
     </div>
-</div>
-      `
+    <div class="text-presentation">
+      <p>${this.name}</p>
+      <div class="price-and-count">
+        <p>${this.price}€</p>
+        <p class="paddeur">${this.likes} ❤</p>
+      </div>
+    </div>`
   }
 }

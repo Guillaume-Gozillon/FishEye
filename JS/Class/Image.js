@@ -14,6 +14,8 @@ export class ImageMedia {
     this.price = media.price
   }
 
+  // <i class="fas fa-heart">
+
   createHTML () {
     const toTest = document.createElement('div')
     toTest.innerHTML = `

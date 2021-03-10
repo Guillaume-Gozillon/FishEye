@@ -1,10 +1,19 @@
 export class Display {
   constructor (media) {
-    const section = document.getElementById('picture-photographer')
+    const section = document.getElementsByClassName('picture-photographer')
+
+    // const toTest = []
+
     this.info = this.infoDOM(media)
+    this.content = this.contentDOM(media)
+
+    // toTest.push(this.info)
+    // toTest.push(this.content)
+
     section.appendChild(this.info)
-    // this.image = this.contentDOM(media)
-    // section.appendChild(this.image)
+    section.appendChild(this.content)
+
+    console.log(section)
   }
 
   /**
@@ -33,6 +42,8 @@ export class Display {
     <img class="img-page" src="/img/${media.image}" alt="">`
     return content
   }
+
+  // ------------------ Pour plus tard ------------------
 
   initDOM (data) {
     const factory = new FactoryMedia(data)
