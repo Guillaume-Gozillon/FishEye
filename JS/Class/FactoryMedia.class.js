@@ -7,14 +7,17 @@ export class FactoryMedia {
   }
 
   build () {
+    const photoArray = []
+    console.log('Tableau des éléments :', photoArray)
     for (const media of this.data) {
       if (media.image) {
         const imageMedia = new ImageMedia(media)
-        imageMedia.createHTML()
+        photoArray.push(imageMedia)
       } else if (media.video) {
         const videoMedia = new VideoMedia(media)
-        videoMedia.createHTML()
+        photoArray.push(videoMedia)
+        // videoMedia.createHTML()
       }
-    }
+    } return photoArray
   }
 }

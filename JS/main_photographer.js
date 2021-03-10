@@ -1,5 +1,5 @@
 /* eslint-disable eqeqeq */
-import { display } from './Class/display.js'
+import { Display } from './Class/Display.js'
 import { HeaderPhotographer } from './Class/profil.class.js'
 
 async function loadContent () {
@@ -33,5 +33,7 @@ loadContent().then((data) => {
   banner.createCard()
 
   // Build DOM photographer
-  display.initDOM(resultMedia)
+  resultMedia.forEach(element => {
+    new Display(element)
+  })
 })

@@ -1,19 +1,9 @@
 /* eslint-disable no-sequences */
 /* eslint-disable no-unused-expressions */
 export class ImageMedia {
-  /**
-   *
-   * @param {name}
-   * @param {id}
-   * @param {photographerId}
-   * @param {image}
-   * @param {tags}
-   * @param {likes}
-   * @param {date}
-   * @param {price}
-   */
-
   constructor (media) {
+    const element = this.createHTML()
+    document.getElementById('picture-photographer').appendChild(element)
     this.name = media.name,
     this.id = media.id,
     this.photographerId = media.photographerId,
@@ -25,7 +15,8 @@ export class ImageMedia {
   }
 
   createHTML () {
-    document.getElementById('picture-photographer').innerHTML += `
+    const toTest = document.createElement('div')
+    toTest.innerHTML = `
     <div class="picture-photographer_presentation">
       <div class="wrapper">
       <img class="img-page" src="/img/${this.image}" alt="">
@@ -36,8 +27,8 @@ export class ImageMedia {
         <p>${this.price}€</p>
         <p class="paddeur">${this.likes} ❤</p>
       </div>
-    </div>
-  </div>
-`
+    </div>`
+    return toTest
   }
 }
+// document.getElementById('picture-photographer').innerHTML +=
