@@ -1,8 +1,10 @@
 export class Display {
   constructor (media) {
     const section = document.getElementById('picture-photographer')
-    this.element = this.infoDOM(media)
-    section.appendChild(this.element)
+    this.info = this.infoDOM(media)
+    section.appendChild(this.info)
+    // this.image = this.contentDOM(media)
+    // section.appendChild(this.image)
   }
 
   /**
@@ -21,6 +23,15 @@ export class Display {
       <p class="paddeur">${media.likes} ❤</p>
     </div>`
     return dom
+  }
+
+  contentDOM (media) {
+    const content = document.createElement('div')
+    content.classList.add('picture-photographer_presentation')
+    content.innerHTML = `
+    <div class="wrapper">
+    <img class="img-page" src="/img/${media.image}" alt="">`
+    return content
   }
 
   initDOM (data) {
@@ -54,17 +65,3 @@ export class Display {
     })
   }
 }
-
-/*
-cards.forEach(element => {
-  cardContainer.removeChild(element)
-})
-*/
-
- // static init (media) {
- //   const requestId = window.location.search
- //   const urlParams = new URLSearchParams(requestId)
-//
- //   const mediaSorted = data.media
- //   const resultMedia = mediaSorted.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
- // }
