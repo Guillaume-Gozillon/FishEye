@@ -2,30 +2,26 @@
 /* eslint-disable no-unused-expressions */
 export class VideoMedia {
   constructor (media) {
-    this.name = media.name,
-    this.id = media.id,
-    this.photographerId = media.photographerId,
-    this.video = media.video,
-    this.tags = media.tags,
-    this.likes = media.likes,
-    this.date = media.date,
-    this.price = media.price
+    this.videoDOM = this.buildVideo(media)
   }
 
-  createHTML () {
-    document.getElementById('picture-photographer').innerHTML += `
+  buildVideo (media) {
+    const videoContent = document.createElement('div')
+    videoContent.classList.add('picture-photographer_presentation')
+    videoContent.innerHTML = `
     <div class="picture-photographer_presentation">
       <div class="wrapper">
       <video class="img-page" alt="" preload loop autoplay>  
-        <source src="/img/${this.video}" type="video/mp4">
+        <source src="/img/${media.video}" type="video/mp4">
       </video>
     </div>
     <div class="text-presentation">
-      <p>${this.name}</p>
+      <p>${media.name}</p>
       <div class="price-and-count">
-        <p>${this.price}€</p>
-        <p class="paddeur">${this.likes} ❤</p>
+        <p>${media.price}€</p>
+        <p class="paddeur">${media.likes} ❤</p>
       </div>
     </div>`
+    return videoContent
   }
 }
