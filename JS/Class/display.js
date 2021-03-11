@@ -1,14 +1,9 @@
 export class Display {
   constructor (media) {
-    const section = document.getElementsByClassName('picture-photographer')
-
-    // const toTest = []
+    const section = document.getElementById('picture-photographer')
 
     this.info = this.infoDOM(media)
     this.content = this.contentDOM(media)
-
-    // toTest.push(this.info)
-    // toTest.push(this.content)
 
     section.appendChild(this.info)
     section.appendChild(this.content)
@@ -22,6 +17,18 @@ export class Display {
    * @return {HTMLElement}
    */
 
+  // IL VA FALOIR FUSIONNER CONTENTDOM + INFODOM.
+
+  contentDOM (media) {
+    const content = document.createElement('div')
+    content.classList.add('picture-photographer_presentation')
+    content.innerHTML = `
+    <section id="picture-photographer" class="picture-photographer">
+    <div class="wrapper">
+    <img class="img-page" src="/img/${media.image}" alt="">`
+    return content
+  }
+
   infoDOM (media) {
     const dom = document.createElement('div')
     dom.classList.add('text-presentation')
@@ -30,20 +37,12 @@ export class Display {
     <div class="price-and-count">
       <p>${media.price}€</p>
       <p class="paddeur">${media.likes} ❤</p>
-    </div>`
+    </div>
+    </section>`
     return dom
   }
 
-  contentDOM (media) {
-    const content = document.createElement('div')
-    content.classList.add('picture-photographer_presentation')
-    content.innerHTML = `
-    <div class="wrapper">
-    <img class="img-page" src="/img/${media.image}" alt="">`
-    return content
-  }
-
-  // ------------------ Pour plus tard ------------------
+  // ------------------ Pour plus  ------------------
 
   initDOM (data) {
     const factory = new FactoryMedia(data)
