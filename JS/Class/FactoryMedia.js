@@ -8,9 +8,9 @@ export class FactoryMedia {
 
   isImageOrVideo (media) {
     if (media.image) {
-      this.factoryToDOM = new ImageMedia(media).imageDOM
+      this.factoryClass = new ImageMedia(media).imageDOM
     } else if (media.video) {
-      this.factoryToDOM = new VideoMedia(media).videoDOM
+      this.factoryClass = new VideoMedia(media).videoDOM
     }
   }
 }

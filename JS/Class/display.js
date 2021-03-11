@@ -2,14 +2,14 @@ import { FactoryMedia } from './FactoryMedia.js'
 
 export class Display {
   constructor (media) {
-    const section = document.getElementById('picture-photographer')
+    const sectionHTML = document.getElementById('picture-photographer')
 
     this.factoryDOM(media)
-    section.appendChild(this.facto)
+    sectionHTML.appendChild(this.factoryReadyForDOM)
   }
 
   factoryDOM (media) {
-    this.facto = new FactoryMedia(media).factoryToDOM
+    this.factoryReadyForDOM = new FactoryMedia(media).factoryClass
   }
 
   // ------------------ Pour plus tard ------------------
