@@ -8,17 +8,17 @@ export class Display {
     sectionHTML.appendChild(this.factoryReadyForDOM)
   }
 
-  factoryDOM (media) {
-    this.factoryReadyForDOM = new FactoryMedia(media).factoryClass
-  }
-
-  // ------------------ Pour plus tard ------------------
-
   /**
    * expliquer cette ligne..
    * @param {JSON} resultMedia fetch JSON data
    * @return {HTMLElement}
    */
+
+  factoryDOM (media) {
+    this.factoryReadyForDOM = new FactoryMedia(media).factoryClass
+  }
+
+  // ------------------ Pour plus tard ------------------
 
   initDOM (data) {
     const factory = new FactoryMedia(data)
