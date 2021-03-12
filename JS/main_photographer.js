@@ -1,7 +1,7 @@
 /* eslint-disable no-new */
 /* eslint-disable eqeqeq */
 import { HeaderPhotographer } from './Class/Profil.js'
-import { sortElements } from './Class/sort.js'
+import { buildCardDOM } from './Class/sort.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -30,6 +30,7 @@ loadContent().then((data) => {
   const media = data.media
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
+  // Const used to sort element's array
   const sortByLike = resultMedia.sort((a, b) => b.likes - a.likes)
   const sortByDate = resultMedia.sort(function (a, b) {
     const c = new Date(a.date)
@@ -49,5 +50,5 @@ loadContent().then((data) => {
   new HeaderPhotographer(resultPhoto[0])
 
   // Build DOM photographer
-  sortElements.cardSorter(resultMedia, sortByLike, sortByDate, sortByTitle)
+  buildCardDOM.cardSorter(resultMedia, sortByLike, sortByDate, sortByTitle)
 })
