@@ -1,7 +1,7 @@
 /* eslint-disable no-new */
 /* eslint-disable eqeqeq */
-import { Display } from './Class/Display.js'
 import { HeaderPhotographer } from './Class/Profil.js'
+import { Display } from './Class/Display.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -30,9 +30,46 @@ loadContent().then((data) => {
   const media = data.media
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
+  const sortByLike = resultMedia.sort((a, b) => b.likes - a.likes)
+
+  const sortByDate = resultMedia.sort(function (a, b) {
+    const c = new Date(a.date)
+    const d = new Date(b.date)
+    return c - d
+  })
+
+  const sortByTitle = resultMedia.sort(function (a, b) {
+    if (a.firstname < b.firstname) { return -1 }
+    if (a.firstname > b.firstname) { return 1 }
+    return 0
+  })
+
+  console.log('trie', sortByLike)
+  console.log('sans trie', resultMedia)
+
   // Build profil photographer
   new HeaderPhotographer(resultPhoto[0])
 
+  const sortElements = {
+    cardSorter: function (normal, byLike, byDate, byTitle) {
+      normal.forEach(i => new Display(i))
+      const sortPhoto = document.getElementById('sort-photo')
+      sortPhoto.addEventListener('change', () => {
+        if (sortPhoto.value === 'trend') {
+          sortPhoto.remove(this.normal)
+          byLike.forEach(i => new Display(i))
+        }
+        if (sortPhoto.value === 'date') {
+          byDate.forEach(i => new Display(i))
+        }
+        if (sortPhoto.value === 'title') {
+          byTitle.forEach(i => new Display(i))
+        }
+      })
+    }
+  }
+
+  sortElements.cardSorter(resultMedia, sortByLike, sortByDate, sortByTitle)
+
   // Build DOM photographer
-  resultMedia.forEach(i => new Display(i))
 })

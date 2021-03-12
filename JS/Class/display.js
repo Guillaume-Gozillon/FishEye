@@ -4,27 +4,17 @@ export class Display {
   constructor (media) {
     const sectionHTML = document.getElementById('picture-photographer')
 
-    this.factoryDOM(media)
+    this.factoryBuildDOM(media)
     sectionHTML.appendChild(this.factoryReadyForDOM)
   }
 
-  /**
-   * expliquer cette ligne..
-   * @param {JSON} resultMedia fetch JSON data
-   * @return {HTMLElement}
-   */
-
-  factoryDOM (media) {
+  factoryBuildDOM (media) {
     this.factoryReadyForDOM = new FactoryMedia(media).factoryClass
   }
+}
 
-  // ------------------ Pour plus tard ------------------
-
-  initDOM (data) {
-    const factory = new FactoryMedia(data)
-    factory.build(data)
-    this.cardSorter(data)
-  }
+// -------------------- Pour plus tard --------------------
+/*
 
   cleanCard () {
     const cardContainer = document.getElementById('picture-photographer')
@@ -42,7 +32,6 @@ export class Display {
   cardSorter (media) {
     const sortPhoto = document.getElementById('sort-photo')
     sortPhoto.addEventListener('change', () => {
-      // this.cleanCard()
       if (sortPhoto.value == 'trend') {
         console.log('TEST :', media)
         media.sort((a, b) => b.likes - a.likes)
@@ -50,4 +39,4 @@ export class Display {
       }
     })
   }
-}
+  */

@@ -1,14 +1,12 @@
-/* eslint-disable no-sequences */
-/* eslint-disable no-unused-expressions */
 export class ImageMedia {
   constructor (media) {
     this.imageDOM = this.buildImage(media)
   }
 
   buildImage (media) {
-    const content = document.createElement('div')
-    content.classList.add('picture-photographer_presentation')
-    content.innerHTML = `
+    const imageContent = document.createElement('div')
+    imageContent.classList.add('picture-photographer_presentation')
+    imageContent.innerHTML = `
     <div class="picture-photographer_presentation">
       <div class="wrapper">
       <img class="img-page" src="/img/${media.image}" alt="">
@@ -20,6 +18,6 @@ export class ImageMedia {
         <p class="paddeur">${media.likes} ❤</p>
       </div>
     </div>`
-    return content
+    return imageContent
   }
 }

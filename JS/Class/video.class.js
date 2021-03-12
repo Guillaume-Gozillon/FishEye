@@ -1,5 +1,3 @@
-/* eslint-disable no-sequences */
-/* eslint-disable no-unused-expressions */
 export class VideoMedia {
   constructor (media) {
     this.videoDOM = this.buildVideo(media)
