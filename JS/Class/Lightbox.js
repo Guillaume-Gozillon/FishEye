@@ -1,17 +1,21 @@
 /* eslint-disable no-new */
 class Lightbox {
   static init () {
-    //const links = document.getElementById('picture-photographer')
-    const links = document.querySelectorAll('img[src$=".png"], img[src$=".jpg"], img[src$=".jpeg"], img[src$=".mp4"]')
-    const aze = document.querySelectorAll('option')
-    console.log('liens', aze);
+    // const links = document.getElementById('picture-photographer')
+    // const links = document.querySelectorAll('img[src$=".png"], img[src$=".jpg"], img[src$=".jpeg"], img[src$=".mp4"]')
+    //    const links = document.getElementsByClassName('logo-photographe')
+    // const aze = document.getElementById('picture-photographer')
+    //    links.addEventListener('click', () => {
+    // links.forEach(links => links.addEventListener('click', (e) => {
+    // e.preventDefault()
 
-    links.addEventListener('click', e => {
-       // links.forEach(links => links.addEventListener('click', (e) => {
-      // e.preventDefault()
-      
-      console.log('hey', e.target)
-      //new Lightbox(e.currentTarget.getAttribute('src'))
+    //      console.log('hey')
+    // new Lightbox(e.currentTarget.getAttribute('src'))
+
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.picture-photographer_presentation').addEventListener('click', () => {
+        console.log('hey')
+      })
     })
   }
 
@@ -20,12 +24,12 @@ class Lightbox {
    */
 
   constructor (data) {
-
     this.lightElement = this.buildLightbox(data)
     document.body.appendChild(this.lightElement)
     window.setTimeout(() => {
-     this.lightElement.parentElement.removeChild(this.lightElement)
+      this.lightElement.parentElement.removeChild(this.lightElement)
     }, 500)
+    console.log('test')
   }
 
   openLightbox (media) {
@@ -40,7 +44,7 @@ class Lightbox {
     * @param {MouseEvent} e
     */
 
-  close (e) {
+  close () {
     this.lightElement.classList.add('fadeOut')
   }
 

@@ -10,6 +10,5 @@ export class Display {
 
   factoryBuildDOM (media) {
     this.factoryReadyForDOM = new FactoryMedia(media).factoryClass
-    console.log(this.factoryReadyForDOM)
   }
 }
