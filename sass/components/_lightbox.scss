@@ -9,6 +9,7 @@
     background-color: rgba(255, 255, 255, 0.9);
     z-index: 10;
     animation: lightboxIn .5s;
+    transition: opacity .3s;
     &__next, &__prev{
         border: none;
         background: url(/img/arrow.svg) center center / 45px 45px no-repeat;
@@ -43,6 +44,9 @@
     }
     & button:hover{
         opacity: 1;
+    }
+    & .fadeOut{
+        opacity: 0;
     }
 }
 

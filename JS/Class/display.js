@@ -1,5 +1,4 @@
 import { FactoryMedia } from './FactoryMedia.js'
-import { Lightbox } from './Lightbox.js'
 
 export class Display {
   constructor (media) {

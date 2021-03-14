@@ -2,7 +2,6 @@
 /* eslint-disable eqeqeq */
 import { HeaderPhotographer } from './Class/Profil.js'
 import { buildCardDOM } from './Class/sort.js'
-import { Lightbox } from './Class/Lightbox.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -51,6 +50,4 @@ loadContent().then((data) => {
 
   // Build DOM photographer
   buildCardDOM.cardSorter(resultMedia, sortByLike, sortByDate, sortByTitle)
-
-  new Lightbox(resultMedia[2])
 })

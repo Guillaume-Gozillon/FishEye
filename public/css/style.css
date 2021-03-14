@@ -469,6 +469,7 @@ nav .nav_filtre p {
   background-color: rgba(255, 255, 255, 0.9);
   z-index: 10;
   animation: lightboxIn 0.5s;
+  transition: opacity 0.3s;
 }
 .lightbox__next, .lightbox__prev {
   border: none;
@@ -504,6 +505,9 @@ nav .nav_filtre p {
 }
 .lightbox button:hover {
   opacity: 1;
+}
+.lightbox .fadeOut {
+  opacity: 0;
 }
 
 .lightbox__container {

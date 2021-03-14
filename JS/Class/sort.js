@@ -7,6 +7,7 @@ export const buildCardDOM = {
 
     const sortPhoto = document.getElementById('sort-photo')
     sortPhoto.addEventListener('change', () => {
+    //  e.preventDefault()
       this.cleanCard()
       if (sortPhoto.value === 'trend') {
         byLike.forEach(i => new Display(i))
