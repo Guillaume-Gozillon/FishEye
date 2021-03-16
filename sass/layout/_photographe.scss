@@ -10,7 +10,7 @@
     margin: auto;
     display: flex;
     & .logo-photographe {
-      height: 50px;
+      height: 35px;
     }
   }
 }
@@ -222,9 +222,6 @@
       margin-bottom: 35px;
     }
   }
-  .trie {
-    display: none;
-  }
 }
 
 @media only screen and (max-width: 540px) {
@@ -234,7 +231,7 @@
   }
 
   .vignette-photographe {
-    width: 100%;
+    width: 90%;
     background-color: initial;
     margin-bottom: 10px;
   }

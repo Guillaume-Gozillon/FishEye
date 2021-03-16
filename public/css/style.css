@@ -42,7 +42,7 @@ nav .nav_filtre {
   transition-duration: 0.2s;
 }
 nav .nav_filtre:hover {
-  background-color: #901c1c14;
+  background-color: #901c1c;
   cursor: pointer;
   border: #901c1cab 0.1em solid;
 }
@@ -50,6 +50,9 @@ nav .nav_filtre p {
   margin: 3px 8px 3px 4px;
   color: #901c1c;
   font-size: 12px;
+}
+nav .nav_filtre p:hover {
+  color: white;
 }
 
 .logo {
@@ -162,14 +165,18 @@ nav .nav_filtre p {
   padding-left: 4px;
 }
 .hastag .photographer-filter:hover {
-  background-color: #901c1c14;
+  background-color: #901c1c;
   cursor: pointer;
-  border: #901c1cab 0.1em solid;
+  border: #901c1c 0.1em solid;
+  color: white;
 }
 .hastag .photographer-filter p {
   margin: 3px 8px 3px 4px;
   color: #901c1c;
   font-size: 12px;
+}
+.hastag .photographer-filter p:hover {
+  color: white;
 }
 
 .justatest {
@@ -219,7 +226,7 @@ nav .nav_filtre p {
   display: flex;
 }
 #header-photographe #bloc-logo-photographe .logo-photographe {
-  height: 50px;
+  height: 35px;
 }
 
 .vignette-photographe {
@@ -425,10 +432,6 @@ nav .nav_filtre p {
   .picture-photographer .vignette-photographe {
     margin-bottom: 35px;
   }
-
-  .trie {
-    display: none;
-  }
 }
 @media only screen and (max-width: 540px) {
   .image {
@@ -437,7 +440,7 @@ nav .nav_filtre p {
   }
 
   .vignette-photographe {
-    width: 100%;
+    width: 90%;
     background-color: initial;
     margin-bottom: 10px;
   }

@@ -76,14 +76,18 @@
     transition-duration: 0.2s;
     padding-left: 4px;
     &:hover {
-      background-color: #901c1c14;
+      background-color: #901c1c;
       cursor: pointer;
-      border: #901c1cab 0.1em solid;
+      border: #901c1c 0.1em solid;
+      color: white;
     }
     & p {
       margin: 3px 8px 3px 4px;
       color: $backgroundColor-primary-dark;
       font-size: 12px;
+      &:hover{
+        color: white;
+      }
     }
   }
 }

@@ -56,36 +56,30 @@ function addFilter (hashtagFilter) {
   return `
   <div class="hastag">
   ${hashtagFilter.map(function (itemsFilter) {
-      return `
+    return `
     <div class="photographer-filter">
       <p>${itemsFilter}</p>
-    </div>
-    `
+    </div>`
     })
     .join('')}
-</div>
-  `
+</div>`
 }
 
-function creatIndex (dataToGet) {
+function creatIndex (dataX) {
   document.getElementById('main-index').innerHTML = `
   <h1 id="principal" class="principal">Nos photographes</h1>
-  <div class="container">${dataToGet.map(function (thingsIntoTheData) {
+    <div class="container">${dataX.map(function (dataY) {
       return ` 
-    <div id="testcardtoremove"  class="photographers mousechange">
-    <img src="/img/${thingsIntoTheData.portrait}" alt="" />
-    <a href="./main-photographe.html?id=${thingsIntoTheData.id} "class="name">${
-      thingsIntoTheData.name
-    }</a>
-    <div class="location">${thingsIntoTheData.city}</div>
-    <div class="bio">${thingsIntoTheData.tagline}</div>
-    <div class="price">${thingsIntoTheData.price}€/jour</div>
-    ${addFilter(thingsIntoTheData.tags)}
-  </div>
-    `
+    <div id="testcardtoremove" class="photographers">
+      <img src="/img/${dataY.portrait}" alt="" />
+        <a href="./main-photographe.html?id=${dataY.id} "class="name">${dataY.name}</a>
+        <div class="location">${dataY.city}</div>
+        <div class="bio">${dataY.tagline}</div>
+        <div class="price">${dataY.price}€/jour</div>
+    ${addFilter(dataY.tags)}
+    </div>`
     })
-    .join('')}
-  `
+    .join('')}`
 }
 // NE PAS OUBLIER DE REMPLACER LE INNER HTML (voir test.js)
 // insertTest.insertAdjacentHTML('afterend', creatIndex)

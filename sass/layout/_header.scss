@@ -27,7 +27,7 @@ nav {
     padding-left: 2px;
     transition-duration: 0.2s;
     &:hover {
-      background-color: #901c1c14;
+      background-color: #901c1c;
       cursor: pointer;
       border: #901c1cab 0.1em solid;
     }
@@ -35,6 +35,9 @@ nav {
       margin: 3px 8px 3px 4px;
       color: $backgroundColor-primary-dark;
       font-size: 12px;
+      &:hover{
+        color: white;
+      }
     }
   }
 }
