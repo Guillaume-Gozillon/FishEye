@@ -1,8 +1,7 @@
 /* eslint-disable no-new */
 /* eslint-disable eqeqeq */
 import { HeaderPhotographer } from './Class/Profil.js'
-import { Display } from './Class/Display.js'
-// import { buildCardDOM } from './Class/sort.js'
+import { buildCardDOM } from './Class/sort.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -32,25 +31,17 @@ loadContent().then((data) => {
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
   // Const used to sort element's array
+  const sortByLike = (media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))).sort((a, b) => b.likes - a.likes)
 
-  const sortByLike = (media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))).sort((a, b) => a - b)
-
-
-
-
-  console.log('tableau TREND', sortByLike);
-  const sortByDate = resultMedia.sort(function (a, b) {
-    const c = new Date(a.date)
-    const d = new Date(b.date)
-    return c - d
+  const sortByDate = (media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))).sort(function (a, b) {
+    return new Date(b.date) - new Date(a.date)
   })
-  const sortByTitle = resultMedia.sort(function (a, b) {
-    if (a.firstname < b.firstname) { return -1 }
-    if (a.firstname > b.firstname) { return 1 }
+
+  const sortByTitle = (media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))).sort(function (a, b) {
+    if (a.name < b.name) { return -1 }
+    if (a.name > b.name) { return 1 }
     return 0
   })
-
-  // console.log('sans trie', resultMedia)
 
   // Build profil photographer
   new HeaderPhotographer(resultPhoto[0])
@@ -58,40 +49,3 @@ loadContent().then((data) => {
   // Build DOM photographer
   buildCardDOM.cardSorter(resultMedia, sortByLike, sortByDate, sortByTitle)
 })
-
-const buildCardDOM = {
-  cardSorter: function (normal, byLike, byDate, byTitle) {
-    normal.forEach(i => new Display(i))
-
-    const sortPhoto = document.getElementById('sort-photo')
-    sortPhoto.addEventListener('change', () => {
-      this.cleanCard()
-      if (sortPhoto.value === 'trend') {
-        console.log('reussi')
-
-        byLike.forEach(i => new Display(i))
-      }
-      if (sortPhoto.value === 'date') {
-
-        byDate.forEach(i => new Display(i))
-      }
-      if (sortPhoto.value === 'title') {
-
-        byTitle.forEach(i => new Display(i))
-      }
-    })
-  },
-  cleanCard () {
-    const cardContainer = document.getElementById('picture-photographer')
-    console.log('cardContainer :', cardContainer)
-
-    const cards = document.getElementsByClassName('picture-photographer_presentation')
-    console.log('cards :', cards)
-
-    console.log('test', cards.length)
-    for (let i = cards.length - 1; i >= 0; i--) {
-      console.log('Clean', cards[i], i)
-      cardContainer.removeChild(cards[i])
-    }
-  }
-}
