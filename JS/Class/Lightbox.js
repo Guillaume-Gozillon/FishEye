@@ -6,6 +6,7 @@ class Lightbox {
       if (e.target.classList == 'img-page') {
         console.log('Target :', e.target)
         console.log('SRC :', e.target.src)
+        console.log('Current :', e.currentTarget.querySelectorAll('img'))
         e.preventDefault()
         new Lightbox(e.target.src)
       }
@@ -17,8 +18,8 @@ class Lightbox {
    */
 
   constructor (data) {
-    this.lightElement = this.buildLightbox(data)
-    document.body.appendChild(this.lightElement)
+    // this.lightElement = this.buildLightbox(data)
+    // document.body.appendChild(this.lightElement)
     //  window.setTimeout(() => {
     //    this.lightElement.parentElement.removeChild(this.lightElement)
     //  }, 500)
