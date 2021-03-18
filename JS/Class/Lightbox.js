@@ -1,21 +1,14 @@
+/* eslint-disable eqeqeq */
 /* eslint-disable no-new */
 class Lightbox {
   static init () {
-    // const links = document.getElementById('picture-photographer')
-    // const links = document.querySelectorAll('img[src$=".png"], img[src$=".jpg"], img[src$=".jpeg"], img[src$=".mp4"]')
-    //    const links = document.getElementsByClassName('logo-photographe')
-    // const aze = document.getElementById('picture-photographer')
-    //    links.addEventListener('click', () => {
-    // links.forEach(links => links.addEventListener('click', (e) => {
-    // e.preventDefault()
-
-    //      console.log('hey')
-    // new Lightbox(e.currentTarget.getAttribute('src'))
-
-    document.addEventListener('DOMContentLoaded', () => {
-      document.querySelectorAll('.picture-photographer_presentation').addEventListener('click', () => {
-        console.log('hey')
-      })
+    document.getElementById('picture-photographer').addEventListener('click', e => {
+      if (e.target.classList == 'img-page') {
+        console.log('Target :', e.target)
+        console.log('SRC :', e.target.src)
+        e.preventDefault()
+        new Lightbox(e.target.src)
+      }
     })
   }
 
@@ -26,9 +19,9 @@ class Lightbox {
   constructor (data) {
     this.lightElement = this.buildLightbox(data)
     document.body.appendChild(this.lightElement)
-    window.setTimeout(() => {
-      this.lightElement.parentElement.removeChild(this.lightElement)
-    }, 500)
+    //  window.setTimeout(() => {
+    //    this.lightElement.parentElement.removeChild(this.lightElement)
+    //  }, 500)
     console.log('test')
   }
 
@@ -60,7 +53,7 @@ class Lightbox {
     <button class="lightbox__next">Suivant</button>
     <button class="lightbox__prev">Précedent</button>
     <div class="lightbox__container">
-        <img src="/img/${data.image}" alt="">
+        <img src="/img/Travel_Lonesome.jpg" alt="">
     </div>`
     // lightDOM.querySelector('lightbox__close').addEventListener('click', this.close.bind(this))
     return lightDOM
