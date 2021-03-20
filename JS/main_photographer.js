@@ -32,7 +32,6 @@ loadContent().then((data) => {
   const resultMedia = media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))
 
   // Const used to sort element's array
-
   const sortByLike = (media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))).sort((a, b) => b.likes - a.likes)
 
   const sortByDate = (media.filter(mediaArr => mediaArr.photographerId == (urlParams.get('id')))).sort(function (a, b) {
@@ -50,7 +49,4 @@ loadContent().then((data) => {
 
   // Build DOM photographer
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
-
-  // Build Lightbox
-
 })
