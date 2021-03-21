@@ -4,28 +4,26 @@ export class Lightbox {
   static init () {
     document.getElementById('picture-photographer').addEventListener('click', e => {
       if (e.target.classList == 'img-page') {
+        // Build Event's array
         const firedEvent = e.currentTarget.querySelectorAll('img, source')
         const fileArr = Array.from(firedEvent)
+        const gallery = fileArr.map(x => x.getAttribute('src'))
 
-        const images = fileArr.map(x => x.getAttribute('src'))
+        // Build element targeted
         const imgTarget = e.target.getAttribute('src')
-
-        console.log('Tableau target :', fileArr)
         console.log('Current :', imgTarget)
-        console.log('images', images[2])
-        // Pour trouver l'index : this.images.findIndex(i => i === this.data)
 
-        new Lightbox(imgTarget, images)
+        new Lightbox(imgTarget, gallery)
       }
     })
   }
 
-  constructor (data, images) {
+  constructor (data, gallery) {
     this.lightElement = this.buildLightbox(data)
     document.body.appendChild(this.lightElement)
 
     this.data = data
-    this.images = images
+    this.gallery = gallery
 
     this.onKeyUp = this.onKeyUp.bind(this)
     document.addEventListener('keyup', this.onKeyUp)
@@ -59,19 +57,19 @@ export class Lightbox {
 
   next (e) {
     e.preventDefault()
-    this.lightElement = ''
-    // eslint-disable-next-line prefer-const
-    let j = this.images.findIndex(i => i === this.data)
+    this.lightDOM.innerHTML = ''
+
+    const j = this.gallery.findIndex(i => i === this.data)
+
     console.log(j)
-    console.log('TEST', this.buildLightbox(this.images[j + 1]))
-    // this.lightElement.innerHTML = this.buildLightbox(this.images[index + 1])
-    // this.lightElement = ''
-    this.buildLightbox(this.images[j + 1])
+
+    this.lightDOM.parentElement.appendChild(this.buildLightbox(this.gallery[j + 1]))
+    console.log('lightdom', this.lightDOM)
   }
 
-  prev (e) {
-    e.preventDefault()
-  }
+  // prev (e) {
+  //   e.preventDefault()
+  // }
 
   /**
    * @param {String} URL de l'image
@@ -79,21 +77,23 @@ export class Lightbox {
    */
 
   buildLightbox (img) {
-    const lightDOM = document.createElement('div')
-    lightDOM.classList.add('lightbox')
-    lightDOM.innerHTML = `
+    this.lightDOM = document.createElement('div')
+    this.lightDOM.classList.add('lightbox')
+    this.lightDOM.innerHTML = `
     <button class="lightbox__close">Fermer</button>
     <button class="lightbox__next">Suivant</button>
     <button class="lightbox__prev">Précedent</button>
     <div class="lightbox__container">
       <img src="${img}" alt="">
     </div>`
-    lightDOM.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
-    lightDOM.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
-    lightDOM.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
-    return lightDOM
+    this.lightDOM.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
+    this.lightDOM.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
+    // this.lightDOM.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
+    return this.lightDOM
   }
 }
+
+// Pour trouver l'index : this.images.findIndex(i => i === this.data)
 
 /*
   buildVideoLightbox () {
