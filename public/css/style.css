@@ -315,14 +315,14 @@ nav .nav_filtre p:hover {
   width: 350px;
   height: 300px;
 }
-.picture-photographer .img-page {
+.picture-photographer .img-page, .picture-photographer .video-page {
   object-fit: cover;
   width: 350px;
   height: 300px;
   border-radius: 7px;
   transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
-.picture-photographer .img-page:hover {
+.picture-photographer .img-page:hover, .picture-photographer .video-page:hover {
   transform: scale(1.3);
   cursor: pointer;
 }
@@ -509,7 +509,7 @@ nav .nav_filtre p:hover {
 .lightbox button:hover {
   opacity: 1;
 }
-.lightbox .fadeOut {
+.lightbox.fadeOut {
   opacity: 0;
 }
 

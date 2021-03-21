@@ -50,3 +50,5 @@ loadContent().then((data) => {
   // Build DOM photographer
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
 })
+
+Lightbox.init()
