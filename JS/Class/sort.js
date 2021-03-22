@@ -8,20 +8,25 @@ export class BuildCardDOM {
   }
 
   cardSorter (normal, byLike, byDate, byTitle) {
+    // Array not sorted
     normal.forEach(i => new Display(i))
+
     const sortPhoto = document.getElementsByClassName('custom-option')
     console.log(sortPhoto)
-    sortPhoto.addEventListener('click', () => {
-      this.cleanCard()
-      if (sortPhoto.datavalue === 'trend') {
-        byLike.forEach(i => new Display(i))
-      }
-      if (sortPhoto.value === 'date') {
-        byDate.forEach(i => new Display(i))
-      }
-      if (sortPhoto.value === 'title') {
-        byTitle.forEach(i => new Display(i))
-      }
+
+    sortPhoto.forEach(element => {
+      element.addEventListener('click', () => {
+        this.cleanCard()
+        if (byLike.getAttribute('data-value') === 'trend') {
+          byLike.forEach(i => new Display(i))
+        }
+        if (sortPhoto.getAttribute('data-value') === 'date') {
+          byDate.forEach(i => new Display(i))
+        }
+        if (sortPhoto.getAttribute('data-value') === 'title') {
+          byTitle.forEach(i => new Display(i))
+        }
+      })
     })
   }
 

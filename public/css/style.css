@@ -108,6 +108,8 @@ nav .nav_filtre:hover {
   justify-items: center;
   justify-self: center;
   padding: 60px 0 30px;
+  max-width: 1240px;
+  margin: auto;
 }
 
 .photographers {
@@ -464,10 +466,10 @@ nav .nav_filtre:hover {
 .lightbox__next, .lightbox__prev {
   border: none;
   background: url(/img/arrow.svg) center center/45px 45px no-repeat;
-  width: 50px;
-  height: 100%;
+  width: 7%;
+  height: 60%;
   position: fixed;
-  top: 0%;
+  top: 20%;
   right: 0;
   margin-top: -14px;
   z-index: 11;
@@ -478,14 +480,16 @@ nav .nav_filtre:hover {
   transform: rotate(180deg);
 }
 .lightbox__close {
-  height: 30px;
-  width: 30px;
-  background: url(/img/cross.svg) center center/100% 100% no-repeat transparent;
+  height: 10px;
+  width: 10px;
+  background: url(/img/cross.svg) center center/30% 30% no-repeat transparent;
   border: none;
   position: fixed;
   top: 50px;
-  right: 20px;
+  right: 10px;
   z-index: 12;
+  padding: 43px;
+  margin: 0px;
 }
 .lightbox button {
   opacity: 0.5;
@@ -495,6 +499,9 @@ nav .nav_filtre:hover {
 }
 .lightbox button:hover {
   opacity: 1;
+}
+.lightbox button:hover:focus {
+  outline: none;
 }
 .lightbox.fadeOut {
   opacity: 0;
@@ -508,7 +515,7 @@ nav .nav_filtre:hover {
   margin-right: 50px;
 }
 .lightbox__container img {
-  max-width: 100%;
+  max-width: 87%;
   height: auto;
   max-height: 90vh;
   animation: lightboxIn 0.5s;
@@ -577,6 +584,7 @@ nav .nav_filtre:hover {
 .custom-options .custom-option:hover {
   cursor: pointer;
   background-color: #b82121;
+  border-radius: 5px;
 }
 
 .custom-select.open .custom-options {
