@@ -8,6 +8,7 @@ export class Lightbox {
         const firedEvent = e.currentTarget.querySelectorAll('img, source')
         const fileArr = Array.from(firedEvent)
         const gallery = fileArr.map(x => x.getAttribute('src'))
+        console.log(gallery)
 
         // Build element targeted
         const imgTarget = e.target.getAttribute('src')
@@ -57,13 +58,14 @@ export class Lightbox {
 
   next (e) {
     e.preventDefault()
+
     this.lightDOM.innerHTML = ''
 
-    const j = this.gallery.findIndex(i => i === this.data)
-
+    let j = this.gallery.findIndex(i => i === this.data)
+    console.log(this.gallery.findIndex(i => i === this.data))
     console.log(j)
 
-    this.lightDOM.parentElement.appendChild(this.buildLightbox(this.gallery[j + 1]))
+    this.lightDOM.append(this.buildLightbox(this.gallery[j + 1]))
     console.log('lightdom', this.lightDOM)
   }
 
@@ -87,7 +89,9 @@ export class Lightbox {
       <img src="${img}" alt="">
     </div>`
     this.lightDOM.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
+
     this.lightDOM.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
+    this.lightDOM.querySelector('.lightbox__next').addEventListener('click', () => { console.log('YES') })
     // this.lightDOM.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
     return this.lightDOM
   }
