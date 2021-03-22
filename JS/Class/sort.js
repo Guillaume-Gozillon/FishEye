@@ -9,10 +9,11 @@ export class BuildCardDOM {
 
   cardSorter (normal, byLike, byDate, byTitle) {
     normal.forEach(i => new Display(i))
-    const sortPhoto = document.getElementById('sort-photo')
-    sortPhoto.addEventListener('change', () => {
+    const sortPhoto = document.getElementsByClassName('custom-option')
+    console.log(sortPhoto)
+    sortPhoto.addEventListener('click', () => {
       this.cleanCard()
-      if (sortPhoto.value === 'trend') {
+      if (sortPhoto.datavalue === 'trend') {
         byLike.forEach(i => new Display(i))
       }
       if (sortPhoto.value === 'date') {

@@ -11,6 +11,7 @@
     <meta name="description" content="An accessible platform for photographers">
     <link rel="icon" href="#" />
     <script type="module" src="js/main_photographer.js" defer></script>
+    <script src="js/dropdown.js" defer></script>
 </head>
 <body>
     <header id="header-photographe">
@@ -23,13 +24,19 @@
     <main id="main-photographe">
         <section id="vignette-photographe" class="vignette-photographe"></section>
         <section class="trie">
-            <a href="./main-index.html">Trier par</a>
-            <select name="filter" id="sort-photo" class="filter">
-                <option value="">Choix</option>
-                <option value="trend">Popularité</option>
-                <option value="date">Date</option>
-                <option value="title">Titre</option>
-            </select>
+            <p>Trier par</p>
+            <div class="custom-select-wrapper">
+                <div class="custom-select">
+                    <div class="custom-select__trigger"><span>Choix</span>
+                        <div class="arrow"></div>
+                    </div>
+                    <div class="custom-options">
+                        <span class="custom-option selected" data-value="trend">Popularité</span>
+                        <span class="custom-option" data-value="date">Date</span>
+                        <span class="custom-option" data-value="title">Titre</span>
+                    </div>
+                </div>
+            </div>
         </section>
         <section id="picture-photographer" class="picture-photographer"></section>
         <aside id="compteur" class="compteur">
@@ -51,3 +58,9 @@
 
 
 
+<!-- <select name="filter" id="sort-photo" class="filter">
+    <option value="">Choix</option>
+    <option value="trend">Popularité</option>
+    <option value="date">Date</option>
+    <option value="title">Titre</option>
+</select> -->

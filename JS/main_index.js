@@ -57,9 +57,7 @@ function addFilter (hashtagFilter) {
   <div class="hastag">
   ${hashtagFilter.map(function (itemsFilter) {
     return `
-    <div class="photographer-filter">
-      <p>${itemsFilter}</p>
-    </div>`
+      <p class="photographer-filter">${itemsFilter}</p>`
     })
     .join('')}
 </div>`

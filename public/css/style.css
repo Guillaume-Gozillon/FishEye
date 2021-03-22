@@ -38,20 +38,16 @@ nav .nav_filtre {
   border-radius: 20px;
   border: #c4c4c4 0.1em solid;
   margin: 3px 5px;
-  padding-left: 2px;
+  padding: 3px 9px;
   transition-duration: 0.2s;
+  margin: 3px 8px 3px 4px;
+  color: #901c1c;
+  font-size: 12px;
 }
 nav .nav_filtre:hover {
   background-color: #901c1c;
   cursor: pointer;
   border: #901c1cab 0.1em solid;
-}
-nav .nav_filtre p {
-  margin: 3px 8px 3px 4px;
-  color: #901c1c;
-  font-size: 12px;
-}
-nav .nav_filtre p:hover {
   color: white;
 }
 
@@ -162,27 +158,14 @@ nav .nav_filtre p:hover {
   border: #c4c4c4 0.1em solid;
   margin: 2px 5px;
   transition-duration: 0.2s;
-  padding-left: 4px;
+  padding: 3px 9px;
+  color: #901c1c;
 }
 .hastag .photographer-filter:hover {
   background-color: #901c1c;
   cursor: pointer;
   border: #901c1c 0.1em solid;
   color: white;
-}
-.hastag .photographer-filter p {
-  margin: 3px 8px 3px 4px;
-  color: #901c1c;
-  font-size: 12px;
-}
-.hastag .photographer-filter p:hover {
-  color: white;
-}
-
-.justatest {
-  border-radius: 50px;
-  background: #e0e0e0;
-  box-shadow: 20px 20px 60px #bebebe, -20px -20px 60px #ffffff;
 }
 
 @media only screen and (max-width: 1185px) {
@@ -262,10 +245,9 @@ nav .nav_filtre p:hover {
 }
 
 .btn-contact {
-  width: 150px;
+  width: 240px;
   font-weight: 400;
-  margin-top: 20px;
-  margin: 0 30px;
+  margin: 20px 0 0px;
   font-size: 17px;
   height: 50px;
   border-radius: 5px;
@@ -273,9 +255,13 @@ nav .nav_filtre p:hover {
   background-color: #901c1c;
   color: white;
   font-family: inherit;
+  padding: 5px 0;
+}
+.btn-contact:focus {
+  outline: none;
 }
 .btn-contact:active {
-  background-color: red;
+  background-color: #ba2424;
 }
 
 .image {
@@ -286,7 +272,7 @@ nav .nav_filtre p:hover {
 }
 
 .main-content-photographer {
-  width: 45%;
+  width: 55%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -351,6 +337,7 @@ nav .nav_filtre p:hover {
   max-width: 1240px;
   margin: auto;
   margin-bottom: 30px;
+  font-size: 19px;
 }
 .trie p,
 .trie select {
@@ -534,6 +521,110 @@ nav .nav_filtre p:hover {
   to {
     opacity: 1;
   }
+}
+.custom-select-wrapper {
+  display: inline-block;
+  position: relative;
+  user-select: none;
+  width: 130px;
+}
+
+.custom-select {
+  display: flex;
+  flex-direction: column;
+}
+
+.custom-select__trigger {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 22px;
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  height: 55px;
+  line-height: 60px;
+  background-color: #901c1c;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.custom-options {
+  position: absolute;
+  display: block;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #901c1c;
+  transition: all 0.5s;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 2;
+}
+.custom-options .custom-option {
+  position: relative;
+  display: block;
+  padding: 0 22px 0 12px;
+  font-size: 18px;
+  font-weight: 300;
+  color: white;
+  line-height: 60px;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+.custom-options .custom-option:hover {
+  cursor: pointer;
+  background-color: #b82121;
+}
+
+.custom-select.open .custom-options {
+  margin-top: 4px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all;
+  border-radius: 5px;
+}
+
+.custom-option.selected {
+  color: #ffffff;
+  background-color: #581515;
+  border-radius: 5px 5px 0px 0px;
+}
+
+.arrow {
+  position: relative;
+  height: 15px;
+  width: 15px;
+}
+.arrow::before, .arrow::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  width: 0.15rem;
+  height: 100%;
+  transition: all 0.5s;
+}
+.arrow::before {
+  left: -5px;
+  transform: rotate(45deg);
+  background-color: white;
+}
+.arrow::after {
+  left: 5px;
+  transform: rotate(-45deg);
+  background-color: white;
+}
+
+.open .arrow::before {
+  left: -5px;
+  transform: rotate(-45deg);
+}
+
+.open .arrow::after {
+  left: 5px;
+  transform: rotate(45deg);
 }
 
 /*# sourceMappingURL=style.css.map */

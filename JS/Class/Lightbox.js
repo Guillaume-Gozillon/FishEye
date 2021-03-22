@@ -12,9 +12,25 @@ export class Lightbox {
 
         // Build element targeted
         const imgTarget = e.target.getAttribute('src')
-        console.log('Current :', imgTarget)
+        console.log('image Target :', imgTarget)
 
         new Lightbox(imgTarget, gallery)
+      }
+    })
+
+    document.getElementById('picture-photographer').addEventListener('click', e => {
+      if (e.target.classList == 'video-page') {
+        // Build Event's array
+        const firedEvent = e.currentTarget.querySelectorAll('img, source')
+        const fileArr = Array.from(firedEvent)
+        const gallery = fileArr.map(y => y.getAttribute('src'))
+        console.log(gallery)
+
+        // Build element targeted
+        const vidTarget = e.target
+        console.log('video Target :', vidTarget)
+
+        new Lightbox(vidTarget, gallery)
       }
     })
   }
@@ -62,8 +78,8 @@ export class Lightbox {
     this.lightDOM.innerHTML = ''
 
     let j = this.gallery.findIndex(i => i === this.data)
-    console.log(this.gallery.findIndex(i => i === this.data))
-    console.log(j)
+    // console.log(this.gallery.findIndex(i => i === this.data))
+    // console.log(j)
 
     this.lightDOM.append(this.buildLightbox(this.gallery[j + 1]))
     console.log('lightdom', this.lightDOM)

@@ -74,29 +74,15 @@
     border: #c4c4c4 0.1em solid;
     margin: 2px 5px;
     transition-duration: 0.2s;
-    padding-left: 4px;
+    padding: 3px 9px;
+    color: $backgroundColor-primary-dark;
     &:hover {
       background-color: #901c1c;
       cursor: pointer;
       border: #901c1c 0.1em solid;
       color: white;
     }
-    & p {
-      margin: 3px 8px 3px 4px;
-      color: $backgroundColor-primary-dark;
-      font-size: 12px;
-      &:hover{
-        color: white;
-      }
-    }
   }
-}
-
-.justatest{
-  border-radius: 50px;
-  background: #e0e0e0;
-  box-shadow:  20px 20px 60px #bebebe,
-               -20px -20px 60px #ffffff;
 }
 
 @media only screen and (max-width: 1185px) {
