@@ -2,37 +2,39 @@
 /* eslint-disable no-new */
 export class Lightbox {
   static init () {
-    document.getElementById('picture-photographer').addEventListener('click', e => {
-      if (e.target.classList == 'img-page') {
+    document.getElementById('picture-photographer')
+      .addEventListener('click', e => {
+        if (e.target.classList == 'img-page') {
         // Build Event's array
-        const firedEvent = e.currentTarget.querySelectorAll('img, source')
-        const fileArr = Array.from(firedEvent)
-        const gallery = fileArr.map(x => x.getAttribute('src'))
-        console.log(gallery)
+          const firedEvent = e.currentTarget.querySelectorAll('img, source')
+          const fileArr = Array.from(firedEvent)
+          const gallery = fileArr.map(x => x.getAttribute('src'))
+          console.log(gallery)
 
-        // Build element targeted
-        const imgTarget = e.target.getAttribute('src')
-        console.log('image Target :', imgTarget)
+          // Build element targeted
+          const imgTarget = e.target.getAttribute('src')
+          console.log('image Target :', imgTarget)
 
-        new Lightbox(imgTarget, gallery)
-      }
-    })
+          new Lightbox(imgTarget, gallery)
+        }
+      })
 
-    document.getElementById('picture-photographer').addEventListener('click', e => {
-      if (e.target.classList == 'video-page') {
+    document.getElementById('picture-photographer')
+      .addEventListener('click', e => {
+        if (e.target.classList == 'video-page') {
         // Build Event's array
-        const firedEvent = e.currentTarget.querySelectorAll('img, source')
-        const fileArr = Array.from(firedEvent)
-        const gallery = fileArr.map(y => y.getAttribute('src'))
-        console.log(gallery)
+          const firedEvent = e.currentTarget.querySelectorAll('img, source')
+          const fileArr = Array.from(firedEvent)
+          const gallery = fileArr.map(y => y.getAttribute('src'))
+          console.log(gallery)
 
-        // Build element targeted
-        const vidTarget = e.target
-        console.log('video Target :', vidTarget)
+          // Build element targeted
+          const vidTarget = e.target
+          console.log('video Target :', vidTarget)
 
-        new Lightbox(vidTarget, gallery)
-      }
-    })
+          new Lightbox(vidTarget, gallery)
+        }
+      })
   }
 
   constructor (data, gallery) {
@@ -75,34 +77,38 @@ export class Lightbox {
   next (e) {
     e.preventDefault()
 
-    const truc = document.getElementsByClassName('lightbox')[0].getElementsByTagName('img')[0].getAttribute('src')
-    console.log('truc', truc)
+    const iterate = document
+      .getElementsByClassName('lightbox')[0]
+      .getElementsByTagName('img')[0]
+      .getAttribute('src')
 
     this.lightDOM.innerHTML = ''
 
-    const j = this.gallery.findIndex(i => i === truc)
     // console.log(this.gallery.findIndex(i => i === this.data))
+    const j = this.gallery.findIndex(i => i === iterate)
     console.log(j)
 
     this.lightDOM.append(this.buildLightbox(this.gallery[j + 1]))
     console.log('lightdom', this.lightDOM)
   }
 
-   prev (e) {
+  prev (e) {
     e.preventDefault()
 
-    const truc = document.getElementsByClassName('lightbox')[0].getElementsByTagName('img')[0].getAttribute('src')
-    console.log('truc', truc)
+    const iterate = document
+      .getElementsByClassName('lightbox')[0]
+      .getElementsByTagName('img')[0]
+      .getAttribute('src')
 
     this.lightDOM.innerHTML = ''
 
-    const j = this.gallery.findIndex(i => i === truc)
     // console.log(this.gallery.findIndex(i => i === this.data))
+    const j = this.gallery.findIndex(i => i === iterate)
     console.log(j)
 
     this.lightDOM.append(this.buildLightbox(this.gallery[j - 1]))
     console.log('lightdom', this.lightDOM)
-   }
+  }
 
   /**
    * @param {String} URL de l'image
@@ -119,15 +125,15 @@ export class Lightbox {
     <div class="lightbox__container">
       <img src="${img}" alt="">
     </div>`
-    this.lightDOM.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
-
-    this.lightDOM.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
-    this.lightDOM.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
+    this.lightDOM.querySelector('.lightbox__close')
+      .addEventListener('click', this.close.bind(this))
+    this.lightDOM.querySelector('.lightbox__next')
+      .addEventListener('click', this.next.bind(this))
+    this.lightDOM.querySelector('.lightbox__prev')
+      .addEventListener('click', this.prev.bind(this))
     return this.lightDOM
   }
 }
-
-// Pour trouver l'index : this.images.findIndex(i => i === this.data)
 
 /*
   buildVideoLightbox () {
