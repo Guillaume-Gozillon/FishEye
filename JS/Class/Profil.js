@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-expressions */
-/* eslint-disable no-sequences */
 export class HeaderPhotographer {
   constructor (media) {
     const sectionCard = document.getElementById('vignette-photographe')

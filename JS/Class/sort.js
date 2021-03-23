@@ -1,4 +1,3 @@
-/* eslint-disable no-new */
 import { Display } from './Display.js'
 
 // Sort the elements before being built
