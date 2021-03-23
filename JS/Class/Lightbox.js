@@ -75,19 +75,34 @@ export class Lightbox {
   next (e) {
     e.preventDefault()
 
+    const truc = document.getElementsByClassName('lightbox')[0].getElementsByTagName('img')[0].getAttribute('src')
+    console.log('truc', truc)
+
     this.lightDOM.innerHTML = ''
 
-    let j = this.gallery.findIndex(i => i === this.data)
+    const j = this.gallery.findIndex(i => i === truc)
     // console.log(this.gallery.findIndex(i => i === this.data))
-    // console.log(j)
+    console.log(j)
 
     this.lightDOM.append(this.buildLightbox(this.gallery[j + 1]))
     console.log('lightdom', this.lightDOM)
   }
 
-  // prev (e) {
-  //   e.preventDefault()
-  // }
+   prev (e) {
+    e.preventDefault()
+
+    const truc = document.getElementsByClassName('lightbox')[0].getElementsByTagName('img')[0].getAttribute('src')
+    console.log('truc', truc)
+
+    this.lightDOM.innerHTML = ''
+
+    const j = this.gallery.findIndex(i => i === truc)
+    // console.log(this.gallery.findIndex(i => i === this.data))
+    console.log(j)
+
+    this.lightDOM.append(this.buildLightbox(this.gallery[j - 1]))
+    console.log('lightdom', this.lightDOM)
+   }
 
   /**
    * @param {String} URL de l'image
@@ -107,8 +122,7 @@ export class Lightbox {
     this.lightDOM.querySelector('.lightbox__close').addEventListener('click', this.close.bind(this))
 
     this.lightDOM.querySelector('.lightbox__next').addEventListener('click', this.next.bind(this))
-    this.lightDOM.querySelector('.lightbox__next').addEventListener('click', () => { console.log('YES') })
-    // this.lightDOM.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
+    this.lightDOM.querySelector('.lightbox__prev').addEventListener('click', this.prev.bind(this))
     return this.lightDOM
   }
 }
