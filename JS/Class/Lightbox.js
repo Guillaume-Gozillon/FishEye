@@ -7,10 +7,9 @@ export class Lightbox {
       .addEventListener('click', e => {
         if (e.target.classList == 'img-page') {
         // Build Event's array
-          const firedEvent = e.currentTarget.querySelectorAll('img, source')
-          const fileArr = Array.from(firedEvent)
-          const gallery = fileArr.map(x => x.getAttribute('src'))
-          console.log(gallery)
+          const gallery = Array
+            .from(e.currentTarget.querySelectorAll('img, source'))
+            .map(x => x.getAttribute('src'))
 
           // Build element targeted
           const imgTarget = e.target.getAttribute('src')
@@ -23,10 +22,9 @@ export class Lightbox {
     document.getElementById('picture-photographer')
       .addEventListener('click', e => {
         if (e.target.classList == 'video-page') {
-          const firedEvent = e.currentTarget.querySelectorAll('img, source')
-          const fileArr = Array.from(firedEvent)
-          const gallery = fileArr.map(y => y.getAttribute('src'))
-          console.log(gallery)
+          const gallery = Array
+            .from(e.currentTarget.querySelectorAll('img, source'))
+            .map(x => x.getAttribute('src'))
 
           const vidTarget = e.target
           console.log('video Target :', vidTarget)
@@ -131,6 +129,27 @@ export class Lightbox {
     return this.lightboxDOM
   }
 }
+
+/*
+  buildLightbox (img) {
+    this.lightboxDOM = document.createElement('div')
+    this.lightboxDOM.classList.add('lightbox')
+    this.lightboxDOM.innerHTML = `
+    <button class="lightbox__close">Fermer</button>
+    <button class="lightbox__next">Suivant</button>
+    <button class="lightbox__prev">Précedent</button>
+    <div class="lightbox__container">
+      <img src="${img}" alt="">
+    </div>`
+    this.lightboxDOM.querySelector('.lightbox__close')
+      .addEventListener('click', this.close.bind(this))
+    this.lightboxDOM.querySelector('.lightbox__next')
+      .addEventListener('click', this.next.bind(this))
+    this.lightboxDOM.querySelector('.lightbox__prev')
+      .addEventListener('click', this.prev.bind(this))
+    return this.lightboxDOM
+  }
+  /*
 
 /*
 <video alt="" preload loop autoplay>

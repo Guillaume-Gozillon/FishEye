@@ -14,15 +14,21 @@ export class HeaderPhotographer {
             <h1 class="firstName">${media.name}</h1>
             <h2 class="location-photographer">${media.city}, ${media.country}</h2>
             <p class="bio-photographer">${media.tagline}</p>
-            <div class="hastag">
-              <p class="photographer-filter">#Event</p>
-              <p class="photographer-filter">#Travel</p>
-              <p class="photographer-filter">#Animals</p>
-            </div>
+            ${this.tags(media.tags)}
         </div>
         <button class="btn-contact">Contactez-moi</button>
     </div>
     <img class="image" src="/img/${media.portrait}" alt="">`
     return profilDom
+  }
+
+  tags (data) {
+    return `
+    <div class="hastag">
+    ${data.map(function (items) {
+      return `
+      <p class="photographer-filter">#${items}</p>`
+    }).join('')}
+    </div>`
   }
 }
