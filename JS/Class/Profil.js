@@ -17,9 +17,9 @@ export class HeaderPhotographer {
             <h2 class="location-photographer">${media.city}, ${media.country}</h2>
             <p class="bio-photographer">${media.tagline}</p>
             <div class="hastag">
-                    <p class="photographer-filter">#Event</p>
-                    <p class="photographer-filter">#Travel</p>
-                    <p class="photographer-filter">#Animals</p>
+              <p class="photographer-filter">#Event</p>
+              <p class="photographer-filter">#Travel</p>
+              <p class="photographer-filter">#Animals</p>
             </div>
         </div>
         <button class="btn-contact">Contactez-moi</button>

@@ -258,7 +258,7 @@ nav .nav_filtre:hover {
   color: white;
   font-family: inherit;
   padding: 5px 0;
-  transition: 0.2s;
+  transition: 0.4s ease-in-out;
 }
 .btn-contact:hover {
   background-color: #802121;

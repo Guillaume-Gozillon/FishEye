@@ -63,18 +63,18 @@ function addFilter (hashtagFilter) {
 </div>`
 }
 
-function creatIndex (dataX) {
+function creatIndex (x) {
   document.getElementById('main-index').innerHTML = `
   <h1 id="principal" class="principal">Nos photographes</h1>
-    <div class="container">${dataX.map(function (dataY) {
+    <div class="container">${x.map(function (y) {
       return ` 
     <div id="testcardtoremove" class="photographers">
-      <img src="/img/${dataY.portrait}" alt="" />
-        <a href="./main-photographe.html?id=${dataY.id} "class="name">${dataY.name}</a>
-        <div class="location">${dataY.city}</div>
-        <div class="bio">${dataY.tagline}</div>
-        <div class="price">${dataY.price}€/jour</div>
-    ${addFilter(dataY.tags)}
+      <img src="/img/${y.portrait}" alt="" />
+        <a href="./main-photographe.html?id=${y.id} "class="name">${y.name}</a>
+        <div class="location">${y.city}</div>
+        <div class="bio">${y.tagline}</div>
+        <div class="price">${y.price}€/jour</div>
+    ${addFilter(y.tags)}
     </div>`
     })
     .join('')}`
