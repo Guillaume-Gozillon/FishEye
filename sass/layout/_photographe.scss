@@ -59,11 +59,15 @@
   color: white;
   font-family: inherit;
   padding: 5px 0;
+  transition: .2s;
+  &:hover{
+    background-color: #802121;
+  }
   &:focus{
     outline: none;
   }
   &:active {
-    background-color: #ba2424;
+    background-color: #501414;
   }
 }
 
@@ -140,10 +144,13 @@
   max-width: 1240px;
   margin: auto;
   margin-bottom: 30px;
+  display: flex;
   font-size: 19px;
+  justify-content: flex-start;
+  align-items: center;
   & p,
   select {
-    display: inline;
+    margin-right: 15px;
   }
 }
 

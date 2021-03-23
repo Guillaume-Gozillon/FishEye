@@ -258,12 +258,16 @@ nav .nav_filtre:hover {
   color: white;
   font-family: inherit;
   padding: 5px 0;
+  transition: 0.2s;
+}
+.btn-contact:hover {
+  background-color: #802121;
 }
 .btn-contact:focus {
   outline: none;
 }
 .btn-contact:active {
-  background-color: #ba2424;
+  background-color: #501414;
 }
 
 .image {
@@ -339,11 +343,14 @@ nav .nav_filtre:hover {
   max-width: 1240px;
   margin: auto;
   margin-bottom: 30px;
+  display: flex;
   font-size: 19px;
+  justify-content: flex-start;
+  align-items: center;
 }
 .trie p,
 .trie select {
-  display: inline;
+  margin-right: 15px;
 }
 
 .compteur {
