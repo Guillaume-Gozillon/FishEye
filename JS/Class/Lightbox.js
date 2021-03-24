@@ -6,12 +6,12 @@ export class Lightbox {
     document.getElementById('picture-photographer')
       .addEventListener('click', e => {
         if (e.target.classList == 'img-page') {
-        // Build Event's array
+        // Build array to loop through
           const gallery = Array
             .from(e.currentTarget.querySelectorAll('img, source'))
             .map(x => x.getAttribute('src'))
 
-          // Build element targeted
+          // Select element targeted
           const imgTarget = e.target.getAttribute('src')
           console.log('image Target :', imgTarget)
 
@@ -26,7 +26,7 @@ export class Lightbox {
             .from(e.currentTarget.querySelectorAll('img, source'))
             .map(x => x.getAttribute('src'))
 
-          const vidTarget = e.target
+          const vidTarget = e.currentTarget.querySelector('source').getAttribute('src')
           console.log('video Target :', vidTarget)
 
           new Lightbox(vidTarget, gallery)
@@ -113,13 +113,13 @@ export class Lightbox {
   buildLightbox (img) {
     this.lightboxDOM = document.createElement('div')
     this.lightboxDOM.classList.add('lightbox')
-    this.lightboxDOM.innerHTML = `
+    this.lightboxDOM.insertAdjacentHTML('afterbegin', `
     <button class="lightbox__close">Fermer</button>
     <button class="lightbox__next">Suivant</button>
     <button class="lightbox__prev">Précedent</button>
     <div class="lightbox__container">
       <img src="${img}" alt="">
-    </div>`
+    </div>`)
     this.lightboxDOM.querySelector('.lightbox__close')
       .addEventListener('click', this.close.bind(this))
     this.lightboxDOM.querySelector('.lightbox__next')
@@ -134,13 +134,13 @@ export class Lightbox {
   buildLightbox (img) {
     this.lightboxDOM = document.createElement('div')
     this.lightboxDOM.classList.add('lightbox')
-    this.lightboxDOM.innerHTML = `
+    this.lightboxDOM.insertAdjacentHTML('afterbegin', `
     <button class="lightbox__close">Fermer</button>
     <button class="lightbox__next">Suivant</button>
     <button class="lightbox__prev">Précedent</button>
     <div class="lightbox__container">
       <img src="${img}" alt="">
-    </div>`
+    </div>`)
     this.lightboxDOM.querySelector('.lightbox__close')
       .addEventListener('click', this.close.bind(this))
     this.lightboxDOM.querySelector('.lightbox__next')

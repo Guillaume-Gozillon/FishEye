@@ -315,7 +315,7 @@ nav .nav_filtre:hover {
   transition: transform 0.7s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 .picture-photographer .img-page:hover, .picture-photographer .video-page:hover {
-  transform: scale(1.3);
+  transform: scale(1.2);
   cursor: pointer;
 }
 
