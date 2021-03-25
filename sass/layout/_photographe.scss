@@ -59,9 +59,10 @@
   color: white;
   font-family: inherit;
   padding: 5px 0;
-  transition: .4s ease-in-out;
+  transition: .2s ease;
   &:hover{
-    background-color: #802121;
+    background-color: #2eb632;
+    cursor: pointer;
   }
   &:focus{
     outline: none;

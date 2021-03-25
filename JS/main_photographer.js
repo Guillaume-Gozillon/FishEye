@@ -3,6 +3,7 @@
 import { HeaderPhotographer } from './Class/Profil.js'
 import { BuildCardDOM } from './Class/sort.js'
 import { Lightbox } from './Class/Lightbox.js'
+import { Modal } from './components/modal.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -52,3 +53,4 @@ loadContent().then((data) => {
 })
 
 Lightbox.init()
+Modal.init()

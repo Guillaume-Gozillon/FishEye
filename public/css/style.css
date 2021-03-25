@@ -258,10 +258,11 @@ nav .nav_filtre:hover {
   color: white;
   font-family: inherit;
   padding: 5px 0;
-  transition: 0.4s ease-in-out;
+  transition: 0.2s ease;
 }
 .btn-contact:hover {
-  background-color: #802121;
+  background-color: #2eb632;
+  cursor: pointer;
 }
 .btn-contact:focus {
   outline: none;
