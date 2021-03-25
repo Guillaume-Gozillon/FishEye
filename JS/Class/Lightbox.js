@@ -2,7 +2,7 @@
 /* eslint-disable no-new */
 export class Lightbox {
   static init () {
-    // When image is clicked, it show the lightbox
+    // init() : when image is clicked, it show the lightbox
     document.getElementById('picture-photographer')
       .addEventListener('click', e => {
         if (e.target.classList == 'img-page') {
@@ -13,12 +13,11 @@ export class Lightbox {
 
           // Select element targeted
           const imgTarget = e.target.getAttribute('src')
-          console.log('image Target :', imgTarget)
 
           new Lightbox(imgTarget, gallery)
         }
       })
-    // Same for video
+    // Same features for video
     document.getElementById('picture-photographer')
       .addEventListener('click', e => {
         if (e.target.classList == 'video-page') {
@@ -26,8 +25,9 @@ export class Lightbox {
             .from(e.currentTarget.querySelectorAll('img, source'))
             .map(x => x.getAttribute('src'))
 
-          const vidTarget = e.currentTarget.querySelector('source').getAttribute('src')
-          console.log('video Target :', vidTarget)
+          const vidTarget = e.currentTarget
+            .querySelector('source')
+            .getAttribute('src')
 
           new Lightbox(vidTarget, gallery)
         }
@@ -79,9 +79,8 @@ export class Lightbox {
     e.preventDefault()
 
     const iterate = document
-      .getElementsByClassName('lightbox')[0]
-      .getElementsByTagName('img')[0]
-      .getAttribute('src')
+      .getElementsByClassName('lightbox__container')[0]
+      .firstElementChild.getAttribute('src')
 
     this.lightboxDOM.innerHTML = ''
 
@@ -94,9 +93,8 @@ export class Lightbox {
     e.preventDefault()
 
     const iterate = document
-      .getElementsByClassName('lightbox')[0]
-      .getElementsByTagName('img')[0]
-      .getAttribute('src')
+      .getElementsByClassName('lightbox__container')[0]
+      .firstElementChild.getAttribute('src')
 
     this.lightboxDOM.innerHTML = ''
 
@@ -117,9 +115,7 @@ export class Lightbox {
     <button class="lightbox__close">Fermer</button>
     <button class="lightbox__next">Suivant</button>
     <button class="lightbox__prev">Précedent</button>
-    <div class="lightbox__container">
-      <img src="${img}" alt="">
-    </div>`)
+    ${img.includes('jpg') ? this.imgLightbox(img) : this.videoLightbox(img)}`)
     this.lightboxDOM.querySelector('.lightbox__close')
       .addEventListener('click', this.close.bind(this))
     this.lightboxDOM.querySelector('.lightbox__next')
@@ -127,32 +123,19 @@ export class Lightbox {
     this.lightboxDOM.querySelector('.lightbox__prev')
       .addEventListener('click', this.prev.bind(this))
     return this.lightboxDOM
+  }
+
+  imgLightbox (data) {
+    return `
+    <div class="lightbox__container">
+      <img src="${data}" alt="">
+    </div>`
+  }
+
+  videoLightbox (data) {
+    return `
+    <div class="lightbox__container">
+      <video src="${data}" type="video/mp4" alt="" preload loop autoplay></video>
+    </div>`
   }
 }
-
-/*
-  buildLightbox (img) {
-    this.lightboxDOM = document.createElement('div')
-    this.lightboxDOM.classList.add('lightbox')
-    this.lightboxDOM.insertAdjacentHTML('afterbegin', `
-    <button class="lightbox__close">Fermer</button>
-    <button class="lightbox__next">Suivant</button>
-    <button class="lightbox__prev">Précedent</button>
-    <div class="lightbox__container">
-      <img src="${img}" alt="">
-    </div>`)
-    this.lightboxDOM.querySelector('.lightbox__close')
-      .addEventListener('click', this.close.bind(this))
-    this.lightboxDOM.querySelector('.lightbox__next')
-      .addEventListener('click', this.next.bind(this))
-    this.lightboxDOM.querySelector('.lightbox__prev')
-      .addEventListener('click', this.prev.bind(this))
-    return this.lightboxDOM
-  }
-  /*
-
-/*
-<video alt="" preload loop autoplay>
-  <source src=/img/Art_Wooden_Horse_Sculpture.mp4" type="video/mp4">
-</video>
-*/

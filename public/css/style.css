@@ -521,7 +521,7 @@ nav .nav_filtre:hover {
   margin-left: 50px;
   margin-right: 50px;
 }
-.lightbox__container img {
+.lightbox__container img, .lightbox__container video {
   max-width: 87%;
   height: auto;
   max-height: 90vh;
