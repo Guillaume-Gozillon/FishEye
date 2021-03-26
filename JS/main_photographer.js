@@ -61,10 +61,11 @@ loadContent().then((data) => {
 
   // Build DOM for profil photographer
   new HeaderPhotographer(resultPhoto[0])
+  Modal.init(resultPhoto)
 
   // Build DOM for photographer image/video
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
 })
 
 Lightbox.init()
-Modal.init()
+

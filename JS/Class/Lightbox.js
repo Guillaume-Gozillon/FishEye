@@ -128,14 +128,17 @@ export class Lightbox {
     this.lightboxDOM = document.createElement('div')
     this.lightboxDOM.classList.add('lightbox')
     this.lightboxDOM.insertAdjacentHTML('afterbegin', `
-    <button class="lightbox__close">Fermer</button>
-    <button class="lightbox__next">Suivant</button>
-    <button class="lightbox__prev">Précedent</button>
-    ${img.includes('jpg') ? this.imgLightbox(img) : this.videoLightbox(img)}`)
+      <button class="lightbox__close">Fermer</button>
+      <button class="lightbox__next">Suivant</button>
+      <button class="lightbox__prev">Précedent</button>
+      ${img.includes('jpg') ? this.imgLightbox(img) : this.videoLightbox(img)}`)
+
     this.lightboxDOM.querySelector('.lightbox__close')
       .addEventListener('click', this.close.bind(this))
+
     this.lightboxDOM.querySelector('.lightbox__next')
       .addEventListener('click', this.next.bind(this))
+
     this.lightboxDOM.querySelector('.lightbox__prev')
       .addEventListener('click', this.prev.bind(this))
     return this.lightboxDOM

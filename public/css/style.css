@@ -637,4 +637,101 @@ nav .nav_filtre:hover {
   transform: rotate(45deg);
 }
 
+.modal__container {
+  background: #DB8876;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 490px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  animation: modal_In 0.3s;
+  padding: 30px 50px;
+  border-radius: 4px;
+  transition: opacity 0.3s;
+}
+.modal__container .open-modal {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 100;
+  margin-bottom: 24px;
+}
+.modal__container .open-modal .modal__close {
+  height: 10px;
+  width: 10px;
+  background: url(/img/cross-modale.svg) center center/50% 50% no-repeat;
+  z-index: 12;
+  padding: 30px;
+  margin: 0px;
+  cursor: pointer;
+  text-indent: -9999px;
+  color: white;
+  border: none;
+}
+.modal__container .open-modal .modal__close:focus {
+  outline: none;
+}
+.modal__container .open-modal h1 {
+  font-weight: 500;
+  line-height: 43px;
+}
+.modal__container.fadeOut {
+  opacity: 0;
+}
+
+.formData {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin: auto;
+}
+.formData label {
+  font-size: 23px;
+  margin-bottom: 4px;
+}
+.formData input {
+  height: 40px;
+  border-radius: 6px;
+  border: none;
+  padding: 0 13px;
+  font-size: 17px;
+  margin-bottom: 15px;
+}
+.formData input:focus {
+  outline: none;
+}
+.formData .message {
+  height: 120px;
+}
+
+.btn-submit {
+  width: 160px;
+  color: white;
+  height: 50px;
+  border-radius: 6px;
+  border: none;
+  background: #901C1C;
+  font-size: 18px;
+  transition: 0.3s;
+}
+.btn-submit:hover {
+  background: white;
+  color: #901C1C;
+  cursor: pointer;
+}
+.btn-submit:focus {
+  outline: none;
+}
+
+@keyframes modal_In {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 /*# sourceMappingURL=style.css.map */
