@@ -2,7 +2,12 @@
 /* eslint-disable no-new */
 export class Lightbox {
   static init () {
-    // init() : when image is clicked, it show the lightbox
+  /**
+    * To avoid Event Delegation => e.target
+    * @param {EventTarget | currentTarget} e
+    */
+
+    // init() : when image is clicked, it give us the INDEX
     document.getElementById('picture-photographer')
       .addEventListener('click', e => {
         if (e.target.classList == 'img-page') {
@@ -62,7 +67,7 @@ export class Lightbox {
 
   /**
     * Close the lightbox
-    * @param {MouseEvent} e
+    * @param {MouseEvent | KeyboardEvent} e
     */
 
   close (e) {
@@ -74,6 +79,11 @@ export class Lightbox {
     }, 500)
     document.removeEventListener('keyup', this.onKeyUp)
   }
+
+  /**
+    * +1 in the lightbox
+    * @param {MouseEvent | KeyboardEvent} e
+    */
 
   next (e) {
     e.preventDefault()
@@ -88,6 +98,11 @@ export class Lightbox {
     if (j === this.gallery.length - 1) { j = -1 }
     this.lightboxDOM.append(this.buildLightbox(this.gallery[j + 1]))
   }
+
+  /**
+    * -1 in the lightbox
+    * @param {MouseEvent | KeyboardEvent} e
+    */
 
   prev (e) {
     e.preventDefault()
@@ -104,8 +119,9 @@ export class Lightbox {
   }
 
   /**
-   * @param {String} URL de l'image
-   * @return {HTMLElement}
+   * Build the lightbox
+   * @param {String} SRC image/video
+   * @return {HTMLElement} Build DOM for the lightbox
    */
 
   buildLightbox (img) {
