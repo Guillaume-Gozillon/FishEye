@@ -503,7 +503,7 @@ nav .nav_filtre:hover {
   opacity: 0.5;
   transition: opacity 0.25s;
   cursor: pointer;
-  text-indent: -3000px;
+  text-indent: -9999px;
 }
 .lightbox button:hover {
   opacity: 1;
