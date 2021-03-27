@@ -43,10 +43,8 @@ export class Modal {
     </div>
     <input class="btn-submit" type="submit" value="Envoyer"/>
     `)
-    this.modalDOM.querySelector('.modal__close')
-      .addEventListener('click', this.closeModal.bind(this))
-    this.modalDOM.querySelector('.btn-submit')
-      .addEventListener('click', this.closeModal.bind(this))
+    this.modalDOM.querySelector('.modal__close').addEventListener('click', this.closeModal.bind(this))
+    this.modalDOM.querySelector('.btn-submit').addEventListener('click', this.closeModal.bind(this))
     return this.modalDOM
   }
 }

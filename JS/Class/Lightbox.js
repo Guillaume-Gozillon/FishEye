@@ -5,9 +5,10 @@ export class Lightbox {
   /**
     * To avoid Event Delegation => e.target
     * @param {EventTarget | currentTarget} e
+    * @returns {string[]}
     */
 
-    // init() : when image is clicked, it give us the INDEX
+    // init() : when image is clicked, it give us the [index]
     document.getElementById('picture-photographer')
       .addEventListener('click', e => {
         if (e.target.classList == 'img-page') {
