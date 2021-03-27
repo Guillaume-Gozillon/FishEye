@@ -82,7 +82,7 @@ export class Lightbox {
   }
 
   /**
-    * +1 in the lightbox
+    * Next image in the lightbox
     * @param {MouseEvent | KeyboardEvent} e
     */
 
@@ -101,7 +101,7 @@ export class Lightbox {
   }
 
   /**
-    * -1 in the lightbox
+    * Previous image in the lightbox
     * @param {MouseEvent | KeyboardEvent} e
     */
 

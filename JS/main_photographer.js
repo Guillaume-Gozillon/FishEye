@@ -4,6 +4,7 @@ import { HeaderPhotographer } from './Class/Profil.js'
 import { BuildCardDOM } from './Class/sort.js'
 import { Lightbox } from './Class/Lightbox.js'
 import { Modal } from './components/modal.js'
+import { Likes } from './components/likes.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -62,10 +63,10 @@ loadContent().then((data) => {
   // Build DOM for profil photographer
   new HeaderPhotographer(resultPhoto[0])
   Modal.init(resultPhoto)
+  new Likes(resultPhoto, resultMedia)
 
   // Build DOM for photographer image/video
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
 })
 
 Lightbox.init()
-

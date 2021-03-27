@@ -1,10 +1,10 @@
+/* eslint-disable no-new */
 /* eslint-disable eqeqeq */
 export class Modal {
   static init (data) {
     const bouton = document.getElementById('vignette-photographe')
     bouton.addEventListener('click', e => {
       if (e.target.classList == 'btn-contact') {
-        // eslint-disable-next-line no-new
         new Modal(data)
       }
     })
@@ -42,9 +42,9 @@ export class Modal {
       <input type="text" class="message" id="message" name="message"/>
     </div>
     <input class="btn-submit" type="submit" value="Envoyer"/>
-    `)
-    this.modalDOM.querySelector('.modal__close').addEventListener('click', this.closeModal.bind(this))
-    this.modalDOM.querySelector('.btn-submit').addEventListener('click', this.closeModal.bind(this))
+    `);
+    [...this.modalDOM.querySelectorAll('.modal__close, .btn-submit')]
+      .forEach(el => el.addEventListener('click', this.closeModal.bind(this)))
     return this.modalDOM
   }
 }
