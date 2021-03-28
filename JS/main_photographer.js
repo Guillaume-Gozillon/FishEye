@@ -1,7 +1,7 @@
 /* eslint-disable no-new */
 /* eslint-disable eqeqeq */
 import { HeaderPhotographer } from './Class/Profil.js'
-import { BuildCardDOM } from './Class/sort.js'
+import { BuildCardDOM } from './Class/Sort.js'
 import { Lightbox } from './Class/Lightbox.js'
 import { Modal } from './components/modal.js'
 import { Likes } from './components/likes.js'
@@ -62,7 +62,11 @@ loadContent().then((data) => {
 
   // Build DOM for profil photographer
   new HeaderPhotographer(resultPhoto[0])
+
+  // Content for the contact modal
   Modal.init(resultPhoto)
+
+  // Add likes counter
   new Likes(resultPhoto, resultMedia)
 
   // Build DOM for photographer image/video

@@ -1,5 +1,5 @@
 import { ImageMedia } from './Image.js'
-import { VideoMedia } from './Video.class.js'
+import { VideoMedia } from './Video.js'
 
 export class FactoryMedia {
   constructor (media) {
