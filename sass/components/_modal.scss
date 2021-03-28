@@ -28,8 +28,12 @@
             text-indent: -9999px;
             color: white;
             border: none;
+            transition: .3s;
             &:focus{
                 outline: none;
+            }
+            &:hover{
+                filter: invert(1);
             }
         }
         & h1{

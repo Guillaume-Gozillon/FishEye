@@ -673,9 +673,13 @@ nav .nav_filtre:hover {
   text-indent: -9999px;
   color: white;
   border: none;
+  transition: 0.3s;
 }
 .modal__container .open-modal .modal__close:focus {
   outline: none;
+}
+.modal__container .open-modal .modal__close:hover {
+  filter: invert(1);
 }
 .modal__container .open-modal h1 {
   font-weight: 500;

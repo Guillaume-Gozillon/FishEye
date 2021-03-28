@@ -23,8 +23,8 @@ const urlParams = new URLSearchParams(requestId)
 loadContent().then((data) => {
 /**
  * New Array sorted with ID
- * @param {String} resultPhoto New array for data.photographer
- * @param {String} resultMedia New array for data.media
+ * @param {String[]} resultPhoto New array for data.photographer
+ * @param {String[]} resultMedia New array for data.media
  */
 
   const photo = data.photographers
@@ -37,9 +37,9 @@ loadContent().then((data) => {
 
   /**
    * Const used to sort element's array
-   * @param {String} sortByLike New array to sort by like
-   * @param {String} sortByDate New array to sort by date
-   * @param {String} sortByTitle New array to sort by title
+   * @param {String[]} sortByLike New array to sort by like
+   * @param {String[]} sortByDate New array to sort by date
+   * @param {String[]} sortByTitle New array to sort by title
    */
 
   const sortByLike = (media
