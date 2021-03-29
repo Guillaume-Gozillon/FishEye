@@ -66,11 +66,11 @@ loadContent().then((data) => {
   // Content for the contact modal
   Modal.init(resultPhoto)
 
-  // Add likes counter
-  new Likes(resultPhoto, resultMedia)
-
   // Build DOM for photographer image/video
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
+
+  // Add likes counter
+  new Likes(resultPhoto, resultMedia)
 })
 
 Lightbox.init()

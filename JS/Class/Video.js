@@ -8,7 +8,7 @@ export class VideoMedia {
     videoContent.classList.add('picture-photographer_presentation')
     videoContent.innerHTML = `
       <div class="wrapper">
-        <video class="video-page" alt="" preload loop autoplay>  
+        <video class="video-page" alt="" preload loop>  
           <source src="/img/${media.video}" type="video/mp4">
         </video>
       </div>
