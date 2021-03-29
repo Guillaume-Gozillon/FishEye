@@ -2,9 +2,9 @@
 /* eslint-disable eqeqeq */
 import { HeaderPhotographer } from './Class/Profil.js'
 import { BuildCardDOM } from './Class/Sort.js'
-import { Lightbox } from './Class/Lightbox.js'
-import { Modal } from './components/modal.js'
-import { Likes } from './components/likes.js'
+// import { Lightbox } from './Class/Lightbox.js'
+// import { Modal } from './components/modal.js'
+// import { Likes } from './components/likes.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -64,13 +64,13 @@ loadContent().then((data) => {
   new HeaderPhotographer(resultPhoto[0])
 
   // Content for the contact modal
-  Modal.init(resultPhoto)
+  // Modal.init(resultPhoto)
 
   // Build DOM for photographer image/video
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
 
   // Add likes counter
-  new Likes(resultPhoto, resultMedia)
+  // new Likes(resultPhoto, resultMedia)
 })
 
-Lightbox.init()
+// Lightbox.init()

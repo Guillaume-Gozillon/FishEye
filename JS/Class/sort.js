@@ -1,5 +1,6 @@
+/* eslint-disable no-unused-expressions */
 /* eslint-disable no-new */
-import { Display } from './Display.js'
+import { ImageMedia } from './Image.js'
 
 // Sort the elements before being built
 export class BuildCardDOM {
@@ -9,8 +10,7 @@ export class BuildCardDOM {
 
   cardSorter (normal, byLike, byDate, byTitle) {
     // Arr not sorted
-    normal.forEach(i => new Display(i))
-
+    normal.forEach(i => new ImageMedia(i).imageDOM)
     const sortPhoto = document.getElementsByClassName('custom-option')
 
     // Iterates arrays => init sort's features
@@ -19,13 +19,13 @@ export class BuildCardDOM {
         this.cleanCard()
 
         if (sortPhoto[i].dataset.value === 'trend') {
-          byLike.forEach(i => new Display(i))
+          byLike.forEach(i => new ImageMedia(i))
         }
         if (sortPhoto[i].dataset.value === 'date') {
-          byDate.forEach(i => new Display(i))
+          byDate.forEach(i => new ImageMedia(i))
         }
         if (sortPhoto[i].dataset.value === 'title') {
-          byTitle.forEach(i => new Display(i))
+          byTitle.forEach(i => new ImageMedia(i))
         }
       })
     }
