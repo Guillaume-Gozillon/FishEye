@@ -1,6 +1,16 @@
+import { Likes } from '../components/likes.js'
+
 export class ImageMedia {
   constructor (media) {
-    this.imageDOM = this.buildImage(media)
+
+    this.truccc = this.buildImage(media)
+    console.log(this.truccc);
+
+    const sectionHTML = document.getElementById('picture-photographer')
+
+    sectionHTML.appendChild(this.truccc)
+
+    new Likes(this.truccc)
   }
 
   buildImage (media) {

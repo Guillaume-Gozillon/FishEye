@@ -5,12 +5,14 @@ import { ImageMedia } from './Image.js'
 // Sort the elements before being built
 export class BuildCardDOM {
   constructor (normal, byLike, byDate, byTitle) {
-    this.cardSorter(normal, byLike, byDate, byTitle)
+    this.truc = this.cardSorter(normal, byLike, byDate, byTitle)
+    console.log(this.truc)
   }
 
   cardSorter (normal, byLike, byDate, byTitle) {
     // Arr not sorted
-    normal.forEach(i => new ImageMedia(i).imageDOM)
+    normal.forEach(i => new ImageMedia(i))
+
     const sortPhoto = document.getElementsByClassName('custom-option')
 
     // Iterates arrays => init sort's features

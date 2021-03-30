@@ -1,7 +1,7 @@
 
 export class Likes {
   constructor (rate, totalLikes) {
-    this.buildLikes(rate, totalLikes)
+    //this.buildLikes(rate, totalLikes)
   }
 
   buildLikes (rate, totalLikes) {
@@ -16,11 +16,11 @@ export class Likes {
 
   countLikes (likesArr) {
 
-    const pushArr = []
-    likesArr.forEach(el => {
-      const items = el.likes
-      pushArr.push(items)
-    })
+  //  const pushArr = []
+  //  likesArr.forEach(el => {
+  //    const items = el.likes
+  //    pushArr.push(items)
+  //  })
     console.log(pushArr);
     const reducer = (accumulator, currentValue) => accumulator + currentValue
     return pushArr.reduce(reducer)
