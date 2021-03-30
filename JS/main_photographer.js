@@ -71,6 +71,10 @@ loadContent().then((data) => {
 
   // Build DOM for photographer image/video
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
+
+  const DOMchange = document.getElementsByClassName('paddeur')
+  const toTest = Array.from(DOMchange).map(x => x.textContent)
+  console.log('Test', toTest)
 })
 
 Lightbox.init()
