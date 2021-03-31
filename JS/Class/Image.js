@@ -9,7 +9,7 @@ export class ImageMedia {
 
     imageContent.insertAdjacentHTML('afterbegin', `
       <div class="wrapper">
-        <img class="img-page" src="/img/${media.image}" alt="img">
+        <img class="img-page" src="../img/${media.image}" alt="img">
       </div>
       <div class="text-presentation">
         <p>${media.name}</p>

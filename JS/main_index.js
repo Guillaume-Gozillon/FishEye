@@ -77,3 +77,13 @@ function creatIndex (x) {
     })
     .join('')}`
 }
+
+document.addEventListener('scroll', onScrollHeader)
+
+function onScrollHeader () {
+  if (window.pageYOffset > 120) {
+    document.querySelector('.scroll-header').style.display = 'block'
+  } else {
+    document.querySelector('.scroll-header').style.display = 'none'
+  }
+}
