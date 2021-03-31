@@ -10,29 +10,27 @@ class Likes {
       if (e.target.classList == 'paddeur') {
         const totalNode = document.getElementsByClassName('paddeur')
 
-        const toChange = e.target
-        const ancien = parseInt(toChange.textContent)
+        const nodeTarget = e.target
+        const numberTarget = parseInt(nodeTarget.textContent)
+        console.log('numeber', numberTarget);
 
-        console.log('ancien', ancien)
-        toChange.innerHTML = ancien + 1
+        nodeTarget.innerHTML = numberTarget + 1
 
-        const nouveau = parseInt(toChange.textContent)
-        console.log('nouveau', nouveau)
-        toChange.classList.add('active')
-        // total.innerHTML = numbered + 1
+        const likesArrClicked = parseInt(nodeTarget.textContent)
+        nodeTarget.classList.add('active')
+        console.log('clicked', likesArrClicked);
 
-        const calcul = nouveau - ancien
-        console.log('calcul', calcul)
+        const diffArr = likesArrClicked - numberTarget
+        console.log(diffArr);
 
-        const toTest = Array.from(totalNode).map((el) => {
+        const arrToDiplay = Array.from(totalNode).map((el) => {
           return parseInt(el.textContent)
         })
 
-        toTest.push(calcul)
+        arrToDiplay.push(diffArr)
 
-        const newreducer = (accumulator, currentValue) => accumulator + currentValue
-        const reduction = toTest.reduce(newreducer)
-        console.log('reduction', reduction - 1)
+        const reducerArr = (accumulator, currentValue) => accumulator + currentValue
+        const reduction = arrToDiplay.reduce(reducerArr)
 
         const insertPrice = document.getElementById('compteur').firstChild
         insertPrice.textContent = `${reduction - 1} ❤`

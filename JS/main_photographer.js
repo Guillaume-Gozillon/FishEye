@@ -83,7 +83,6 @@ loadContent().then((data) => {
     const autreReducer = (accumulator, currentValue) => accumulator + currentValue
     return toTest.reduce(autreReducer)
   }
-  console.log('autretest', TotalLikes())
 
   const insertPrice = document.getElementById('compteur')
   insertPrice.insertAdjacentHTML('afterbegin', `<p>${TotalLikes()} ❤</p>`)
