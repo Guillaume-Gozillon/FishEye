@@ -4,7 +4,6 @@ export class ImageMedia {
   }
 
   buildImage (media) {
-    console.log(media.likes)
     const imageContent = document.createElement('div')
     imageContent.classList.add('picture-photographer_presentation')
 

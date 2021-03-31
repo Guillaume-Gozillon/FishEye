@@ -4,7 +4,7 @@ import { HeaderPhotographer } from './Class/Profil.js'
 import { BuildCardDOM } from './Class/Sort.js'
 import { Lightbox } from './Class/Lightbox.js'
 import { Modal } from './components/modal.js'
-import { Likes } from './components/likes.js'
+import { Price } from './Class/Price.js'
 
 async function loadContent () {
   const response = await fetch('./data_photographers.json')
@@ -67,7 +67,7 @@ loadContent().then((data) => {
   Modal.init(resultPhoto)
 
   // Add likes counter
-  new Likes(resultPhoto)
+  new Price(resultPhoto)
 
   // Build DOM for photographer image/video
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
@@ -78,7 +78,6 @@ loadContent().then((data) => {
   const toTest = Array.from(DOMchange).map((el) => {
     return parseInt(el.textContent)
   })
-  console.log('Test', toTest)
 
   function TotalLikes () {
     const autreReducer = (accumulator, currentValue) => accumulator + currentValue

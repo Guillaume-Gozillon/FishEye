@@ -1,4 +1,4 @@
-export class Likes {
+export class Price {
   constructor (rate) {
     this.buildLikes(rate)
   }
