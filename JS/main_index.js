@@ -67,7 +67,7 @@ function creatIndex (x) {
     <div class="container">${x.map(function (y) {
       return ` 
     <div id="testcardtoremove" class="photographers">
-      <img src="../img/${y.portrait}" alt="" />
+      <img src="./img/${y.portrait}" alt="" />
         <a href="./main-photographe.html?id=${y.id} "class="name">${y.name}</a>
         <div class="location">${y.city}</div>
         <div class="bio">${y.tagline}</div>
