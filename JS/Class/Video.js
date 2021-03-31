@@ -15,8 +15,9 @@ export class VideoMedia {
       <div class="text-presentation">
         <p>${media.name}</p>
         <div class="price-and-count">
-          <p>${media.price}€</p>
-          <p class="paddeur">${media.likes} ❤</p>
+          <p class="yep">${media.price}€</p>
+          <p class="paddeur">${media.likes}</p>
+          <p class="hearth">❤</p>
         </div>
       </div>`
     return videoContent

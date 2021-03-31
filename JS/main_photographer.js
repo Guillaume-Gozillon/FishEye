@@ -67,14 +67,27 @@ loadContent().then((data) => {
   Modal.init(resultPhoto)
 
   // Add likes counter
-  new Likes(resultPhoto, resultMedia)
+  new Likes(resultPhoto)
 
   // Build DOM for photographer image/video
   new BuildCardDOM(resultMedia, sortByLike, sortByDate, sortByTitle)
 
+  // -----------------------------
+
   const DOMchange = document.getElementsByClassName('paddeur')
-  const toTest = Array.from(DOMchange).map(x => x.textContent)
+  const toTest = Array.from(DOMchange).map((el) => {
+    return parseInt(el.textContent)
+  })
   console.log('Test', toTest)
+
+  function TotalLikes () {
+    const autreReducer = (accumulator, currentValue) => accumulator + currentValue
+    return toTest.reduce(autreReducer)
+  }
+  console.log('autretest', TotalLikes())
+
+  const insertPrice = document.getElementById('compteur')
+  insertPrice.insertAdjacentHTML('afterbegin', `<p>${TotalLikes()} ❤</p>`)
 })
 
 Lightbox.init()

@@ -3,23 +3,8 @@ export class ImageMedia {
     this.imageDOM = this.buildImage(media)
   }
 
-  counterLike (media) {
-    console.log('media', media);
-    let toCatch = document.querySelectorAll('.paddeur')
-    let ids = toCatch.classList
-    toCatch.addEventListener('click', function() {
-      let result = ids.toggle('fdsfds')
-      //toCatch = media + 1
-      if (result) {
-        toCatch.textContent = 'It works'
-      } else {
-        toCatch.textContent = 'It Dont'
-      }
-    })
-  }
-
   buildImage (media) {
-    console.log(media.likes + 1000)
+    console.log(media.likes)
     const imageContent = document.createElement('div')
     imageContent.classList.add('picture-photographer_presentation')
 
@@ -30,8 +15,9 @@ export class ImageMedia {
       <div class="text-presentation">
         <p>${media.name}</p>
       <div class="price-and-count">
-        <p>${media.price}€</p>
-        <p class="paddeur">${media.likes + 1000}</p>
+        <p class="yep">${media.price}€</p>
+        <p class="paddeur">${media.likes}</p>
+        <p class="hearth">❤</p>
       </div>`)
     return imageContent
   }

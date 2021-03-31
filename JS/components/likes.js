@@ -1,13 +1,12 @@
 export class Likes {
-  constructor (rate, totalLikes) {
-    this.buildLikes(rate, totalLikes)
+  constructor (rate) {
+    this.buildLikes(rate)
   }
 
-  buildLikes (rate, totalLikes) {
+  buildLikes (rate) {
     const insertDOM = document.getElementById('picture-photographer')
     insertDOM.insertAdjacentHTML('afterend', `
           <aside id="compteur" class="compteur">
-              <p>${this.countLikes(totalLikes)} ❤</p>
               <p>${rate[0].price}€/jour</p>
           </aside>`)
     return insertDOM
