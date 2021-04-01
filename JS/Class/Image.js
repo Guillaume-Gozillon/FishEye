@@ -6,9 +6,8 @@ export class ImageMedia {
   buildImage (media) {
     const imageContent = document.createElement('div')
     imageContent.classList.add('picture-photographer_presentation')
-
     imageContent.insertAdjacentHTML('afterbegin', `
-      <div class="wrapper">
+      <div class="wrapper" aria-label="afficher ${media.name}">
         <img class="img-page" src="./img/${media.image}" alt="img">
       </div>
       <div class="text-presentation">

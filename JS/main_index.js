@@ -68,7 +68,7 @@ function creatIndex (x) {
       return ` 
     <div id="testcardtoremove" class="photographers">
       <img src="./img/${y.portrait}" alt=""/>
-        <a href="./main-photographe.html?id=${y.id} "class="name">${y.name}</a>
+        <a href="./main-photographe.html?id=${y.id}" "aria-label="aller vers la page de ${y.name}" class="name">${y.name}</a>
         <div class="location">${y.city}</div>
         <div class="bio">${y.tagline}</div>
         <div class="price">${y.price}€/jour</div>
