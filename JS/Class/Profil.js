@@ -18,7 +18,7 @@ export class HeaderPhotographer {
         </div>
         <button class="btn-contact">Contactez-moi</button>
     </div>
-    <img class="image" src="/img/${media.portrait}" alt="">`
+    <img class="image" src="./img/${media.portrait}" alt="">`
     return profilDom
   }
 
