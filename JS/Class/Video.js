@@ -9,7 +9,7 @@ export class VideoMedia {
     videoContent.innerHTML = `
       <div class="wrapper">
         <video class="video-page" alt="" preload loop autoplay>  
-          <source src="./img/${media.video}" type="video/mp4">
+          <source src="/img/${media.video}" type="video/mp4">
         </video>
       </div>
       <div class="text-presentation">
