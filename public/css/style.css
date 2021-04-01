@@ -473,7 +473,7 @@ nav .nav_filtre:hover {
 }
 .lightbox__next, .lightbox__prev {
   border: none;
-  background: url(../img/arrow.svg) center center/45px 45px no-repeat;
+  background: url(../../img/arrow.svg) center center/45px 45px no-repeat;
   width: 7%;
   height: 60%;
   position: fixed;
@@ -490,7 +490,7 @@ nav .nav_filtre:hover {
 .lightbox__close {
   height: 10px;
   width: 10px;
-  background: url(../img/cross.svg) center center/30% 30% no-repeat transparent;
+  background: url(../../img/cross.svg) center center/30% 30% no-repeat transparent;
   border: none;
   position: fixed;
   top: 50px;
