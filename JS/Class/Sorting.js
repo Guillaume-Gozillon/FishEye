@@ -1,4 +1,4 @@
-import { Display } from './Display.js'
+import { Display } from './Displayed.js'
 
 // Sort the elements before being built
 export class BuildCardDOM {
