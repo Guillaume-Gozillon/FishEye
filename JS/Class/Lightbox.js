@@ -148,14 +148,14 @@ export class Lightbox {
   imgLightbox (data) {
     return `
     <div class="lightbox__container">
-      <img src="./img${data}" alt="">
+      <img src="${data}" alt="">
     </div>`
   }
 
   videoLightbox (data) {
     return `
     <div class="lightbox__container">
-      <video src="./img${data}" type="video/mp4" alt="" preload loop autoplay></video>
+      <video src="${data}" type="video/mp4" alt="" preload loop autoplay></video>
     </div>`
   }
 }
