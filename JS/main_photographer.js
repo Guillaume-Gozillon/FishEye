@@ -1,7 +1,7 @@
 /* eslint-disable no-new */
 /* eslint-disable eqeqeq */
 import { HeaderPhotographer } from './Class/Profil.js'
-import { BuildCardDOM } from './Class/Sort.js'
+import { BuildCardDOM } from './Class/Sorting.js'
 import { Lightbox } from './Class/Lightbox.js'
 import { Modal } from './components/modal.js'
 import { Price } from './Class/Price.js'
