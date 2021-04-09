@@ -47,9 +47,8 @@ function callbackEvent (filterArgument, keyword, data) {
     }
   })
 }
-// filter() itère comme map() mais retourne uniquement les lignes qui valident la condition
 
-// Litéraux de gabarits
+// filter() itère comme map() mais retourne uniquement les lignes qui valident la condition
 function addFilter (hashtagFilter) {
   return `
   <div class="hastag">
