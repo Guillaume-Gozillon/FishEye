@@ -441,6 +441,10 @@ nav .nav_filtre:hover {
     background-color: initial;
     margin-bottom: 10px;
   }
+
+  .text-presentation {
+    width: 100%;
+  }
 }
 @media only screen and (max-width: 400px) {
   .picture-photographer .wrapper {
